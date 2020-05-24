@@ -10,7 +10,7 @@ This installer assumes you have a **clean** install of Windows and an Internet C
 
 ## Runtime
 
-2-10 minute\(s\) install depending on your connection
+2-10 minute\(s\) install depending on your connection 
 
 ## What's in the Installer
 
