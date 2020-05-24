@@ -15,14 +15,14 @@ if (quest::is_current_expansion_dragons_of_norrath()) {
 }
 ```
 
-2\) We a good handful of classic zones; later down the line in **Legacy of Ykesha** we get these messages when entering the zones
+2\) We a good handful of classic zones; later down the line in **Lost Dungeons of Norrath** we get these messages when entering the zones
 
 > A mysterious voice whispers to you, 'If you can feel me in your thoughts, know this -- something is changing in the world and I reckon you should be a part of it. I do not know much, but I do know that in every home city and the wilds there are agents of an organization called the Wayfarers Brotherhood. They are looking for recruits . . . If you can hear this message, you are one of the chosen. Rush to your home city, or search the West Karanas and Rathe Mountains for a contact if you have been exiled from your home for your deeds, and find out more. Adventure awaits you, my friend.''
 
 Before these new additions there was nothing to conditionally check which expansion was enabled or disabled to determine whether or not to even display this message, which could be solved with the addition of **the following call.** If we set our server to an earlier expansion these messages would disappear 
 
 ```perl
-eq.is_the_legacy_of_ykesha_enabled()
+eq.is_lost_dungeons_of_norrath_enabled()
 ```
 
 What this looks like in the **global\_player.lua**
@@ -31,7 +31,7 @@ What this looks like in the **global\_player.lua**
 ```lua
 function event_enter_zone(e)
 	local qglobals = eq.get_qglobals(e.self);
-	if(e.self:GetLevel() >= 15 and qglobals['Wayfarer'] == nil and eq.is_the_legacy_of_ykesha_enabled()) then
+	if(e.self:GetLevel() >= 15 and qglobals['Wayfarer'] == nil and eq.is_lost_dungeons_of_norrath_enabled()) then
 		local zoneid = eq.get_zone_id();
 		if(e.self:GetStartZone() ~= zoneid and (zoneid == 1 or zoneid == 2 or zoneid == 3 or zoneid == 8 or zoneid == 9 
 		or zoneid == 10 or zoneid == 19 or zoneid == 22 or zoneid == 23 or zoneid == 24 or zoneid == 29 or zoneid == 30 
