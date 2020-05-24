@@ -2,8 +2,6 @@
 
 ### Operating System Compatibility
 
-* Windows 7 - x64
-* Windows 8 - x64
 * Windows 10 - x64
 
 ### Requirements
