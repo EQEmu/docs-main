@@ -192,6 +192,7 @@
 ## In Development
 
 * [Developer Area](in-development/developer-area/README.md)
+  * [Repositories](in-development/developer-area/repositories.md)
   * [EQDictionary](in-development/developer-area/eqdictionary.md)
   * [Inventory](in-development/developer-area/inventory/README.md)
     * [Inventory Overhaul](in-development/developer-area/inventory/inventory-overhaul.md)
