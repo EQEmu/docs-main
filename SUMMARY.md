@@ -200,6 +200,7 @@
   * [Packet and OpCode Analysis](in-development/developer-area/packet-and-opcode-analysis.md)
   * [Project PEQ Expansions](in-development/developer-area/project-peq-expansions/README.md)
     * [Expansion List Reference](in-development/developer-area/project-peq-expansions/expansion-list-reference.md)
+    * [Quest API](in-development/developer-area/project-peq-expansions/quest-api.md)
     * [Design Considerations](in-development/developer-area/project-peq-expansions/design-considerations.md)
   * [Tools](in-development/developer-area/tools/README.md)
     * [Tools Cheat Sheet](in-development/developer-area/tools/tools-cheat-sheet.md)
