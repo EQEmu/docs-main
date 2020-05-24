@@ -301,7 +301,110 @@ void TestRepository(int argc, char **argv, argh::parser &cmd, std::string &descr
 
 You can see how we've had to use zero raw SQL to interact with the database in our actual domain logic; we can keep all of the SQL queries and interactions hidden behind methods created in our repositories and simply pass needed methods to those repository methods
 
+## Another Example
 
+Another real use example is where we need some additional criteria to pull some results from the database. Instead of querying for grids by zone using raw SQL we want to encapsulate some of this so it can be easily used in our domain logic. We could use `GetWhere` quickly, but to make a more re-usable method we're going to create some new methods for our pathing grids
 
+* static std::vector GetZoneGrids\(int zone\_id\) 
+* static Grid GetGrid\(const std::vector &grids, int grid\_id\)
 
+{% code title="grid\_repository.h" %}
+```cpp
+
+	// Custom extended repository methods here
+
+	static std::vector<Grid> GetZoneGrids(int zone_id)
+	{
+		std::vector<Grid> grids;
+
+		auto results = content_db.QueryDatabase(
+			fmt::format(
+				"{} WHERE zoneid = {}",
+				BaseSelect(),
+				zone_id
+			)
+		);
+
+		for (auto row = results.begin(); row != results.end(); ++row) {
+			Grid entry{};
+
+			entry.id     = atoi(row[0]);
+			entry.zoneid = atoi(row[1]);
+			entry.type   = atoi(row[2]);
+			entry.type2  = atoi(row[3]);
+
+			grids.push_back(entry);
+		}
+
+		return grids;
+	}
+
+	static Grid GetGrid(
+		const std::vector<Grid> &grids,
+		int grid_id
+	)
+	{
+		for (auto &row : grids) {
+			if (row.id == grid_id) {
+				return row;
+			}
+		}
+
+		return NewEntity();
+	}
+```
+{% endcode %}
+
+Since we want these records to be cached at the zone level; we create two properties to eventually load via data that is zone contextual
+
+{% code title="zone.h" %}
+```cpp
+class Zone {
+...
+	std::vector<GridRepository::Grid>             zone_grids;
+	std::vector<GridEntriesRepository::GridEntry> zone_grid_entries;
+```
+{% endcode %}
+
+We created a function that during zone initialization we call **LoadGrids** so we can reuse it in other parts of the code if we wanted to reload grid data for any reason
+
+```cpp
+void Zone::LoadGrids()
+{
+	zone_grids        = GridRepository::GetZoneGrids(GetZoneID());
+	zone_grid_entries = GridEntriesRepository::GetZoneGridEntries(GetZoneID());
+}
+```
+
+Since we have this data in memory now using the structure directly mapped from the repositories, we also have this very nice way over iterating over the data in a vector when it comes to load the data into the grids / waypoints themselves
+
+{% code title="waypoints.cpp" %}
+```cpp
+void NPC::AssignWaypoints ...
+...
+
+for (auto &entry : zone->zone_grid_entries) {
+		if (entry.gridid == grid_id) {
+			wplist new_waypoint{};
+			new_waypoint.index       = max_wp;
+			new_waypoint.x           = entry.x;
+			new_waypoint.y           = entry.y;
+			new_waypoint.z           = entry.z;
+			new_waypoint.pause       = entry.pause;
+			new_waypoint.heading     = entry.heading;
+			new_waypoint.centerpoint = entry.centerpoint;
+
+			LogPathing(
+				"Loading Grid [{}] number [{}] name [{}]",
+				grid_id,
+				entry.number,
+				GetCleanName()
+			);
+
+			Waypoints.push_back(new_waypoint);
+			max_wp++;
+		}
+	}
+```
+{% endcode %}
 
