@@ -14,7 +14,7 @@ This installer assumes you have a **clean** install of Windows and an Internet C
 
 ## What's in the Installer
 
-* **Perl 5.24.4**
+* **Perl 5.24.4 x64**
 * **MariaDB x64 10.x**
 * **Latest PEQ Database**
 * **Latest PEQ Quests**
