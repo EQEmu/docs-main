@@ -116,7 +116,7 @@ Once extracted, right click **eqemu\_install.bat** and **Run as Administrator;**
 
 ## Post-Installation
 
-When the installation process is done running, you will see **"press any key to continue"** once the final step of adding firewall rules has been complete that's when everything should be installed and ready to go
+When the installation process is done running, you will see **"press any key to continue"** once the final step of adding firewall rules has been complete that's when everything should be installed and ready to go 
 
 ![Your installation should closely resemble above](../../../.gitbook/assets/image%20%285%29.png)
 
