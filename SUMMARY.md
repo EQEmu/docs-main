@@ -201,7 +201,6 @@
   * [Project PEQ Expansions](in-development/developer-area/project-peq-expansions/README.md)
     * [Expansion Content Filtering](in-development/developer-area/project-peq-expansions/expansion-content-filtering.md)
     * [Expansion List Reference](in-development/developer-area/project-peq-expansions/expansion-list-reference.md)
-    * [Expansions and Content Quest API](in-development/developer-area/project-peq-expansions/quest-api.md)
     * [Design Considerations](in-development/developer-area/project-peq-expansions/design-considerations.md)
   * [Tools](in-development/developer-area/tools/README.md)
     * [Tools Cheat Sheet](in-development/developer-area/tools/tools-cheat-sheet.md)
