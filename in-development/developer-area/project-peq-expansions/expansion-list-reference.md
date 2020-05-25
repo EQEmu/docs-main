@@ -1,3 +1,7 @@
+---
+description: Expansion names and their corresponding Internal ID's
+---
+
 # Expansion List Reference
 
 | Expansion | Internal ID |
