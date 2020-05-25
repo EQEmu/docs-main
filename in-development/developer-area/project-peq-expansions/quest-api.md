@@ -52,7 +52,7 @@ end
 ```
 {% endcode %}
 
-## API
+## Expansions Quest API
 
 {% tabs %}
 {% tab title="Lua" %}
@@ -170,6 +170,24 @@ quest::is_current_expansion_empires_of_kunark()
 quest::is_current_expansion_ring_of_scale()
 quest::is_current_expansion_the_burning_lands()
 quest::is_current_expansion_torment_of_velious()
+```
+{% endtab %}
+{% endtabs %}
+
+## Content Flag Quest API
+
+{% tabs %}
+{% tab title="Lua" %}
+```lua
+eq.is_content_flag_enabled(string flag_name);
+eq.set_content_flag(string flag_name, bool enabled);
+```
+{% endtab %}
+
+{% tab title="Perl" %}
+```
+quest::is_content_flag_enabled(string flag_name);
+quest::set_content_flag(string flag_name, bool enabled);
 ```
 {% endtab %}
 {% endtabs %}
