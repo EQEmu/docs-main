@@ -191,6 +191,10 @@
 
 ## In Development
 
+* [Project PEQ Expansions](in-development/project-peq-expansions/README.md)
+  * [Expansion and Content Filtering](in-development/project-peq-expansions/expansion-content-filtering.md)
+  * [Expansion List Reference](in-development/project-peq-expansions/expansion-list-reference.md)
+  * [Design Considerations](in-development/project-peq-expansions/design-considerations.md)
 * [Developer Area](in-development/developer-area/README.md)
   * [Repositories](in-development/developer-area/repositories.md)
   * [EQDictionary](in-development/developer-area/eqdictionary.md)
@@ -198,10 +202,6 @@
     * [Inventory Overhaul](in-development/developer-area/inventory/inventory-overhaul.md)
     * [Perl Inventory Slot Identifiers](in-development/developer-area/inventory/perl-inventory-slot-identifiers.md)
   * [Packet and OpCode Analysis](in-development/developer-area/packet-and-opcode-analysis.md)
-  * [Project PEQ Expansions](in-development/developer-area/project-peq-expansions/README.md)
-    * [Expansion and Content Filtering](in-development/developer-area/project-peq-expansions/expansion-content-filtering.md)
-    * [Expansion List Reference](in-development/developer-area/project-peq-expansions/expansion-list-reference.md)
-    * [Design Considerations](in-development/developer-area/project-peq-expansions/design-considerations.md)
   * [Tools](in-development/developer-area/tools/README.md)
     * [Tools Cheat Sheet](in-development/developer-area/tools/tools-cheat-sheet.md)
     * [Lua for Windows](in-development/developer-area/tools/lua-for-windows.md)
