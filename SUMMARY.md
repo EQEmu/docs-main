@@ -199,7 +199,7 @@
     * [Perl Inventory Slot Identifiers](in-development/developer-area/inventory/perl-inventory-slot-identifiers.md)
   * [Packet and OpCode Analysis](in-development/developer-area/packet-and-opcode-analysis.md)
   * [Project PEQ Expansions](in-development/developer-area/project-peq-expansions/README.md)
-    * [Expansion Content Filtering](in-development/developer-area/project-peq-expansions/expansion-content-filtering.md)
+    * [Expansion and Content Filtering](in-development/developer-area/project-peq-expansions/expansion-content-filtering.md)
     * [Expansion List Reference](in-development/developer-area/project-peq-expansions/expansion-list-reference.md)
     * [Design Considerations](in-development/developer-area/project-peq-expansions/design-considerations.md)
   * [Tools](in-development/developer-area/tools/README.md)
