@@ -1,3 +1,7 @@
+---
+description: These are the settings for AA Target Types for your EQEmu Server.
+---
+
 # AA Target Types
 
 | Target Type ID | Target Type Name |

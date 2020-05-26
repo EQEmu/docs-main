@@ -1,3 +1,7 @@
+---
+description: These are the type settings for AAs on your EQEmu Server.
+---
+
 # AA Types
 
 | Type ID | Type Name |
