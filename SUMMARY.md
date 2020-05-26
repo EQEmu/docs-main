@@ -21,6 +21,7 @@
   * [Windows](categories/client-configuration/windows.md)
   * [macOS Client Configuration](categories/client-configuration/macos-mojave-client-configuration.md)
 * [Database](categories/database/README.md)
+  * [Database Schema](https://eqemu.gitbook.io/database-schema/)
   * [Multi Tenancy](categories/database/multi-tenancy.md)
 * [Factions](categories/factions/README.md)
   * [Customizing Factions](categories/factions/customizing-factions/README.md)
