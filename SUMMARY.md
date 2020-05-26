@@ -188,6 +188,7 @@
   * [Trap Types](categories/types/trap-types.md)
   * [Wander Types](categories/types/wander-types.md)
 * [Zones](categories/zones/README.md)
+  * [Adjusting Zone Shutdown Delay](categories/zones/adjusting-zone-shutdown-delay.md)
   * [Customizing Zones](categories/zones/customizing-zones/README.md)
     * [Fog System and Clip Plane](categories/zones/customizing-zones/fog-system-and-clip-plane.md)
     * [GL Model Viewer](categories/zones/customizing-zones/gl-model-viewer.md)
