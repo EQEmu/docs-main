@@ -4,6 +4,8 @@ description: This article describes the ability to use multiple database and dat
 
 # Multi Tenancy
 
+
+
 {% hint style="warning" %}
 **Warning** This feature is for **advanced server operators**
 {% endhint %}
