@@ -52,7 +52,7 @@ cat eqemu_config.json | jq '.server.content_database'
 
 The notion of having a content database source is very powerful because it solves for the following use cases
 
-* **Developing content on a local development server** which has access to a remote content database connection that could be shared with production; allowing developers to develop in game off-line using their own local private server without worrying about impacting Live zones while players are playing
+* **Developing content on a local development server** which has access to a remote content database connection that could be shared with production; allowing developers to develop in game using their own local private server **without worrying about impacting Live zones while players are playing**
 * A developer can **develop scripts locally**, create database entries that are assigned an ID that will be used in production without having to reconcile data and duplicate ID's in an isolated local database up to a remote database which is very kludgy and cumbersome
 * It **decouples the responsibilities of table types** in the source, content data should not be written to systemically from a server to store player state, zone state, world state and only hold mostly read only data for content
 * It allows **many production servers** to use the same exact data source; **heavily** eliminating duplication of work and maintenance of keeping several different content datasets up to date. 
