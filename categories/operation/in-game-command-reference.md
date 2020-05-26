@@ -1,6 +1,12 @@
-# In Game Command Reference
+---
+description: >-
+  This page lists the commands that are available in-game, based on assigned
+  Account Status, for your EQEmu Server.
+---
 
+# Commands Reference
 
+Often referred to as "GM Commands", the following commands can be allowed based on the player's Account Status.
 
 | Command | Description |
 | :--- | :--- |
