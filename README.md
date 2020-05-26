@@ -17,17 +17,16 @@ This wiki is a living document that is intended to replace earlier knowledge-bas
 
 | Area | Description of Content |
 | :--- | :--- |
-| [Changelog](https://eqemu.gitbook.io/changelog/) | A listing of all of the changes made to the EQEmu Server code |
-| [QuestAPI](https://eqemu.gitbook.io/quest-api/) | Documentation of the use of quest scripts in both Perl and Lua |
+| [Changelog](https://eqemu.gitbook.io/changelog/years/latest-changes) | A listing of all of the changes made to the EQEmu Server code |
 | [Database Schema](https://eqemu.gitbook.io/database-schema/) | The blueprint of how the EQEmu database is constructed |
-| [Loginserver](https://eqemu.gitbook.io/eqemulator-loginserver/) | Documentation of the Loginserver setup, configuration, CLI and DB Schema |
-| [How-To Guides]() | Explanations of capabilities available to developers and server operators |
 | [Logging System](categories/logging-system/) | Documentation of the extensive logging capabilities in EQEmu |
+| [Loginserver](https://eqemu.gitbook.io/server/categories/login-server) | Information regarding your own login server |
 | [Maps](categories/maps/) | Utilities and information regarding zone map files  |
 | [NPC](categories/npc/) | Information regarding mob pathing, factions, scaling and attacks |
-| [Reference Lists]() | Information regarding variables for game mechanics |
+| [Operation](categories/operation/) | Learn how to operate your EQEmu Server |
+| [QuestAPI](https://eqemu.gitbook.io/quest-api/) | Documentation of the use of quest scripts in both Perl and Lua |
+| [Scripting](categories/scripting/) | Learn how to script quests and NPC interactions |
 | [Spells](categories/spells/) | Documentation of all things relating to spells |
-| [Types]() | Information regarding type variables for game items/objects |
 
 ### Resource links
 
