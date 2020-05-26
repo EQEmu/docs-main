@@ -26,9 +26,13 @@ Host=login.eqemulator.net:5998
 Host=login.eqemulator.net:5999
 ```
 
+## Operating System-specific Instructions
+
+Once you've made the above changes to your eqhost file, you can follow the [**Windows Guide**](windows-client-configuration.md) or the [**mac OS Guide**](macos-mojave-client-configuration.md) for further customization.  
+
 ## Server-Specific Instructions
 
-Each server that you connect to will likely have some small modifications that you are required to make to your client.  These modifications correlate to the decisions the server operator made regarding their world, represented by the changes they have made to their database.
+Each server will likely have some small modifications that you are required to make to your client.  These modifications correlate to the decisions the server operator made regarding their world, represented by the changes they have made to their database.
 
 While we cannot cover every server, we can provide tips for the modified files that you should seek out for each new server for which you plan to connect.  
 
