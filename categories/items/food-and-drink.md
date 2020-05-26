@@ -1,3 +1,9 @@
+---
+description: >-
+  This page indicates the casttime_ setting for food and drink to increase or
+  decrease their duration on your EQEmu Server.
+---
+
 # Food and Drink
 
 ## Food

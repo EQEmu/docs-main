@@ -17,7 +17,7 @@
 ### Using
 
 * To create a Hero's Forge Ornamentation you have to set the [Hero's Forge Model](https://eqemu.gitbook.io/database-schema/categories/items/items) column in the items table to a value greater than 0.
-* You must also make sure that the augment is the proper type, check the [Augment Types](augment-types.md) reference for more information.
+* You must also make sure that the augment is the proper type, check the [Augment Types](../items/augment-types.md) reference for more information.
 
 | Description | Hero's Forge Model |
 | :--- | :--- |
