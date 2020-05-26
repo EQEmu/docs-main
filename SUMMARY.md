@@ -96,7 +96,6 @@
   * [Textures](categories/reference-lists/textures.md)
   * [Task Duration Codes](categories/reference-lists/task-duration-codes.md)
   * [Underfoot Missing Files](categories/reference-lists/underfoot-missing-files.md)
-  * [Zones](categories/reference-lists/zones.md)
 * [Server Installation](categories/installation/README.md)
   * [Basic Server Install - Linux](categories/installation/server-installation-linux.md)
   * [Basic Server Install - Windows](categories/installation/server-installation-windows.md)
@@ -193,6 +192,7 @@
     * [WLD File Reference](categories/zones/customizing-zones/wld-file-reference.md)
     * [XMI to MIDI Converter](categories/zones/customizing-zones/xmi-to-midi-converter.md)
     * [Zone Utility Tools](categories/zones/customizing-zones/zone-utility-tools.md)
+  * [Zone List](categories/zones/zone-list.md)
 
 ## In Development
 
