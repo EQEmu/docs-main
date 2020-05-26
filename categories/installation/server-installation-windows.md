@@ -37,7 +37,7 @@ More installer info found in the installation details
 
 First you will need to download the starter files that will kick off the installation process found here: [EQEmu Server Installer Files](http://analytics.akkadius.com/dl/eqemu_installer_files_x64.zip)
 
-![](../../../.gitbook/assets/image%20%287%29.png)
+![](../../.gitbook/assets/image%20%287%29.png)
 
 ### Extract
 
@@ -45,15 +45,15 @@ Once you have the files downloaded, you need to make a folder somewhere that you
 
 Extract the files inside **eqemu\_installer\_files\_x64.zip** to the folder **C:\eqemu**
 
-![Zip file present in c:\eqemu](../../../.gitbook/assets/image%20%283%29.png)
+![Zip file present in c:\eqemu](../../.gitbook/assets/image%20%283%29.png)
 
-![Extracted files present in directory](../../../.gitbook/assets/image%20%281%29.png)
+![Extracted files present in directory](../../.gitbook/assets/image%20%281%29.png)
 
 ### Run the Installer
 
 Once extracted, right click **eqemu\_install.bat** and **Run as Administrator;** from this point on the entire install will be automated and run on its own, this is assuming you have an internet connection so the installer can pull down all of the necessary server assets
 
-![](../../../.gitbook/assets/image%20%284%29.png)
+![](../../.gitbook/assets/image%20%284%29.png)
 
 ## Installation Details
 
@@ -118,7 +118,7 @@ Once extracted, right click **eqemu\_install.bat** and **Run as Administrator;**
 
 When the installation process is done running, you will see **"press any key to continue"** once the final step of adding firewall rules has been complete that's when everything should be installed and ready to go 
 
-![Your installation should closely resemble above](../../../.gitbook/assets/image%20%285%29.png)
+![Your installation should closely resemble above](../../.gitbook/assets/image%20%285%29.png)
 
 ### Change Server Name
 

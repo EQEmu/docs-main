@@ -2,7 +2,7 @@
 description: This page further details the use of the EQEmu Task System.
 ---
 
-# Task System Guide
+# Task System
 
 The EQEmu Task System allows implementation of quests that utilize the clients Task Window \(alt+Q\).  Many aspects of this system can be found throughout this wiki; this guide attempts to organize that information on a single page to inform the reader who wishes to understand and utilize the Task System.
 

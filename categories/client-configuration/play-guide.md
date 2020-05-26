@@ -70,9 +70,9 @@
 </table>* Some servers may only allow earlier version of clients \(Left earliest, right latest\)
 * Most servers will allow most clients simultaneously, the earlier clients may not have the features or zone capabilities that later clients do, however.
 
-See the ClientFeatures page to view some of the differences between the clients. Also see the [Client Versions](../../reference-lists/client-version-bitmasks.md) page for details on determining if the client you have is compatible with EQEmu or not.
+See the ClientFeatures page to view some of the differences between the clients. Also see the [Client Versions](../reference-lists/client-version-bitmasks.md) page for details on determining if the client you have is compatible with EQEmu or not.
 
-* Note: If using the Underfoot client, some files may need to be copied from another EQ install as mentioned in the[ ](http://wiki.eqemulator.org/p?UFMissingFilesList&frm=Frequently_Asked_Questions--Play_Guide%3A_Getting_Started)[Underfoot Missing Files](../../reference-lists/underfoot-missing-files.md) page and discussed [here](http://www.eqemulator.org/forums/showthread.php?t=31635)
+* Note: If using the Underfoot client, some files may need to be copied from another EQ install as mentioned in the[ ](http://wiki.eqemulator.org/p?UFMissingFilesList&frm=Frequently_Asked_Questions--Play_Guide%3A_Getting_Started)[Underfoot Missing Files](../reference-lists/underfoot-missing-files.md) page and discussed [here](http://www.eqemulator.org/forums/showthread.php?t=31635)
 * Note: Do not download the Rain of Fear client from anyplace other than Steam, or you may get an incompatible version of the client!
   * The Rain of Fear client is no longer available from Steam.
 

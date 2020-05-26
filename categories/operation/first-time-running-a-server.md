@@ -22,5 +22,5 @@ You may find the [accoun](https://eqemu.gitbook.io/database-schema/tables/accoun
 
 ### What can I do once I'm a GM?
 
-For a list of commands you can use once you've elevated an account to GM status, see [In Game Command Reference](../../reference-lists/in-game-command-reference.md). This reference can also be found in the table of contents on the right under Reference Lists.
+For a list of commands you can use once you've elevated an account to GM status, see [In Game Command Reference](../reference-lists/in-game-command-reference.md). This reference can also be found in the table of contents on the right under Reference Lists.
 

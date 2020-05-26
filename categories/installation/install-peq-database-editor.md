@@ -138,7 +138,7 @@ Navigate to the sql directory.  The files that you find in this directory contai
 nano schema.sql
 ```
 
-![Copy the query to your Database Editing Client](../../../.gitbook/assets/schema-sql.png)
+![Copy the query to your Database Editing Client](../../.gitbook/assets/schema-sql.png)
 
 Repeat this process for any remaining files in the sql directory.
 
@@ -183,7 +183,7 @@ Verify that the appropriate version is running.
 php --version
 ```
 
-![Verify that v7.1 is returned.](../../../.gitbook/assets/php--version.png)
+![Verify that v7.1 is returned.](../../.gitbook/assets/php--version.png)
 
 Locate your loaded PHP configuration file.
 
@@ -229,7 +229,7 @@ cd sql
 nano schema.sql
 ```
 
-![Copy the query to your Database Editing Client](../../../.gitbook/assets/schema-sql.png)
+![Copy the query to your Database Editing Client](../../.gitbook/assets/schema-sql.png)
 
 Repeat this process for any remaining files in the sql directory.
 

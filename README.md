@@ -10,8 +10,8 @@ This wiki is a living document that is intended to replace earlier knowledge-bas
 
 | Page | Description |
 | :--- | :--- |
-| [Server Installation - Linux](categories/how-to-guides/installation/server-installation-linux.md) | A guide for installing EQEmu Server on Linux |
-| [Server Installation - Windows](categories/how-to-guides/installation/server-installation-windows.md) | A guide for installing EQEmu Server on Windows |
+| [Server Installation - Linux](categories/installation/server-installation-linux.md) | A guide for installing EQEmu Server on Linux |
+| [Server Installation - Windows](categories/installation/server-installation-windows.md) | A guide for installing EQEmu Server on Windows |
 
 ### Wiki Quick Reference
 
@@ -21,7 +21,7 @@ This wiki is a living document that is intended to replace earlier knowledge-bas
 | [QuestAPI](https://eqemu.gitbook.io/quest-api/) | Documentation of the use of quest scripts in both Perl and Lua |
 | [Database Schema](https://eqemu.gitbook.io/database-schema/) | The blueprint of how the EQEmu database is constructed |
 | [Loginserver](https://eqemu.gitbook.io/eqemulator-loginserver/) | Documentation of the Loginserver setup, configuration, CLI and DB Schema |
-| [How-To Guides](categories/how-to-guides/) | Explanations of capabilities available to developers and server operators |
+| [How-To Guides]() | Explanations of capabilities available to developers and server operators |
 | [Logging System](categories/logging-system/) | Documentation of the extensive logging capabilities in EQEmu |
 | [Maps](categories/maps/) | Utilities and information regarding zone map files  |
 | [NPC](categories/npc/) | Information regarding mob pathing, factions, scaling and attacks |

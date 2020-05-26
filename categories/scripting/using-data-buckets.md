@@ -319,7 +319,7 @@ sub EVENT_ITEM {
 
 At line 22 above, we see the implementation of the Data Bucket Key.  This replaces the use of `quest::setglobal`.  In the Database, we see the corresponding key:
 
-![](../../../.gitbook/assets/_mysql_5_6_45__fvproject_fvproject_data_buckets.png)
+![](../../.gitbook/assets/_mysql_5_6_45__fvproject_fvproject_data_buckets.png)
 
 Note that we clean up the key upon handing in the requisite tax money and list with the following \(line 41 above\):
 
