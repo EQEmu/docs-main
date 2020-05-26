@@ -59,7 +59,7 @@ The notion of having a content database source is very powerful because it solve
 * It allows someone to make **different variants / flavors** of the same server using **different local rulesets**
 * It enables the [Project PEQ Expansions](../../in-development/project-peq-expansions/) project to be able to have many standing replicas of each Expansion and era, making it easy for the PEQ developers to jump between eras and work on maintaining era accuracy
 
-![ProjectEQ Expansions Project Illustrating many development servers using the same content database source that developers can also use](../../.gitbook/assets/image%20%2818%29.png)
+![Many development servers using the same content database](../../.gitbook/assets/image%20%2818%29.png)
 
 ## How Do I Know What Tables Belong to Which Category?
 
