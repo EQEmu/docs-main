@@ -25,7 +25,7 @@ This wiki is a living document that is intended to replace earlier knowledge-bas
 | [Logging System](categories/logging-system/) | Documentation of the extensive logging capabilities in EQEmu |
 | [Maps](categories/maps/) | Utilities and information regarding zone map files  |
 | [NPC](categories/npc/) | Information regarding mob pathing, factions, scaling and attacks |
-| [Reference Lists](categories/reference-lists/) | Information regarding variables for game mechanics |
+| [Reference Lists]() | Information regarding variables for game mechanics |
 | [Spells](categories/spells/) | Documentation of all things relating to spells |
 | [Types](categories/types/) | Information regarding type variables for game items/objects |
 
