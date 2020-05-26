@@ -1,3 +1,7 @@
+---
+description: This page describes the zone type setting for EQEmu Servers.
+---
+
 # Zone Types
 
 | Zone Type ID | Zone Type Name |

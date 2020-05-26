@@ -180,7 +180,6 @@
   * [Time of Day Types](categories/types/time-of-day-types.md)
   * [Trap Types](categories/types/trap-types.md)
   * [Wander Types](categories/types/wander-types.md)
-  * [Zone Types](categories/types/zone-types.md)
 * [Zones](categories/zones/README.md)
   * [Customizing Zones](categories/zones/customizing-zones/README.md)
     * [Fog System and Clip Plane](categories/zones/customizing-zones/fog-system-and-clip-plane.md)
@@ -193,6 +192,7 @@
     * [XMI to MIDI Converter](categories/zones/customizing-zones/xmi-to-midi-converter.md)
     * [Zone Utility Tools](categories/zones/customizing-zones/zone-utility-tools.md)
   * [Zone List](categories/zones/zone-list.md)
+  * [Zone Types](categories/zones/zone-types.md)
 
 ## In Development
 
