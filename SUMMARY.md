@@ -1,11 +1,6 @@
 # Table of contents
 
 * [Welcome](README.md)
-* [Changelog](https://eqemu.gitbook.io/changelog/)
-* [Database Schema](https://eqemu.gitbook.io/database-schema/)
-* [EQEmu Github](https://github.com/EQEmu/Server)
-* [Loginserver](https://eqemu.gitbook.io/eqemulator-loginserver/)
-* [Quest API](https://eqemu.gitbook.io/quest-api/)
 
 ## Categories
 
