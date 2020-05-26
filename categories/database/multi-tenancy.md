@@ -57,7 +57,7 @@ The notion of having a content database source is very powerful because it solve
 * It **decouples the responsibilities of table types** in the source, content data should not be written to systemically from a server to store player state, zone state, world state and only hold mostly read only data for content
 * It allows **many production servers** to use the same exact data source; **heavily** eliminating duplication of work and maintenance of keeping several different content datasets up to date. 
 * It allows someone to make **different variants / flavors** of the same server using **different local rulesets**
-* It enables the [Project PEQ Expansions](../../in-development/project-peq-expansions/) project to be able to have many standing replicas of each Expansion and era, making it easy for the PEQ developers to jump between eras and work on maintaining era accuracy
+* It enables the [Project PEQ Expansions](../../in-development/project-peq-expansions/) project to be able to have many **standing replicas of each Expansion / Era;** enabling PEQ developers to jump between eras and maintain era accuracy
 
 ![Many development servers using the same content database](../../.gitbook/assets/image%20%2818%29.png)
 
