@@ -10,6 +10,8 @@
 ## Categories
 
 * [AAs](categories/aas/README.md)
+  * [AA Categories](categories/aas/aa-categories.md)
+  * [AA Nonspell Actions](categories/aas/aa-nonspell-actions.md)
   * [Customizing AAs](categories/aas/customizing-aas.md)
 * [Bots](categories/bots/README.md)
   * [Bot Commands](categories/bots/bot-commands.md)
@@ -53,8 +55,6 @@
   * [Loading Server Data](categories/operation/loading-server-data.md)
   * [Updating Server Assets](categories/operation/updating-server-assets.md)
 * [Reference Lists](categories/reference-lists/README.md)
-  * [AA Categories](categories/reference-lists/aa-categories.md)
-  * [AA Nonspell Actions](categories/reference-lists/aa-nonspell-actions.md)
   * [Alternate Currencies](categories/reference-lists/alternate-currencies.md)
   * [Animations](categories/reference-lists/animations.md)
   * [Augment Restrictions](categories/reference-lists/augment-restrictions.md)
