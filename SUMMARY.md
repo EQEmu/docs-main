@@ -192,6 +192,7 @@
 ## In Development
 
 * [Project PEQ Expansions](in-development/project-peq-expansions/README.md)
+  * [Zone Version Switching](in-development/project-peq-expansions/zone-version-switching.md)
   * [Expansion and Content Filtering](in-development/project-peq-expansions/expansion-content-filtering.md)
   * [Expansion List Reference](in-development/project-peq-expansions/expansion-list-reference.md)
   * [Design Considerations](in-development/project-peq-expansions/design-considerations.md)

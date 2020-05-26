@@ -46,7 +46,7 @@ if ($text =~/character-flag-test/i) {
 }
 ```
 
-![image](https://user-images.githubusercontent.com/3319450/42416821-8cef6690-823e-11e8-8b78-caec1a213f71.png)
+![](https://user-images.githubusercontent.com/3319450/42416821-8cef6690-823e-11e8-8b78-caec1a213f71.png)
 
 ### LUA
 
@@ -62,7 +62,7 @@ if (e.message:findi("test")) then
 end
 ```
 
-![image](https://user-images.githubusercontent.com/3319450/42416831-a726d71e-823e-11e8-92d5-cad58040e00c.png)
+![](https://user-images.githubusercontent.com/3319450/42416831-a726d71e-823e-11e8-92d5-cad58040e00c.png)
 
 ## Ways to Key Buckets
 
@@ -98,11 +98,11 @@ sub EVENT_CLICKDOOR {
 
 **Result**
 
-![image](https://user-images.githubusercontent.com/3319450/42416886-d2caadae-823f-11e8-9b49-a6bd21bf8f73.png)
+![](https://user-images.githubusercontent.com/3319450/42416886-d2caadae-823f-11e8-9b49-a6bd21bf8f73.png)
 
 **Database Result**
 
-![image](https://user-images.githubusercontent.com/3319450/42416888-dfd7a966-823f-11e8-8fc6-1829ed0c35c3.png)
+![](https://user-images.githubusercontent.com/3319450/42416888-dfd7a966-823f-11e8-8fc6-1829ed0c35c3.png)
 
 **By NPC**
 
@@ -118,11 +118,11 @@ sub EVENT_DEATH_COMPLETE {
 
 **Result**
 
-![image](https://user-images.githubusercontent.com/3319450/42416932-0eab7a32-8241-11e8-8b64-14d76a2c596f.png)
+![](https://user-images.githubusercontent.com/3319450/42416932-0eab7a32-8241-11e8-8b64-14d76a2c596f.png)
 
 **Database**
 
-![image](https://user-images.githubusercontent.com/3319450/42416937-21a01aee-8241-11e8-9c29-9a2e1ed4356d.png)
+![](https://user-images.githubusercontent.com/3319450/42416937-21a01aee-8241-11e8-9c29-9a2e1ed4356d.png)
 
 ## Expiration Examples
 
@@ -154,11 +154,11 @@ end
 
 **Result**
 
-![image](https://user-images.githubusercontent.com/3319450/42417093-750ed16c-8245-11e8-91f2-4746d2568ddb.png)
+![](https://user-images.githubusercontent.com/3319450/42417093-750ed16c-8245-11e8-91f2-4746d2568ddb.png)
 
 **Database**
 
-![image](https://user-images.githubusercontent.com/3319450/42417095-89907c12-8245-11e8-9d5e-0090c0c24527.png)
+![](https://user-images.githubusercontent.com/3319450/42417095-89907c12-8245-11e8-9d5e-0090c0c24527.png)
 
 ### Acceptable Time Formats
 
