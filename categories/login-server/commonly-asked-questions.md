@@ -14,7 +14,7 @@ No, its actually quite simple, and you found yourself in the best place for how 
 
 ## I had a login server setup before a long time ago? Can I migrate to the newer login server?
 
-Yes you can, any login server installed prior to September 2019 is considered legacy and should use the [Migrating from a Legacy Login Server Database]() guide to do so
+Yes you can, any login server installed prior to September 2019 is considered legacy and should use the [Migrating from a Legacy Login Server Database](migrating-from-legacy-login-server.md) guide to do so
 
 ## Are the passwords secure? I know we used weak algorithms like MD5 and SHA1
 
