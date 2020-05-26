@@ -1,5 +1,5 @@
 ---
-description: These are the settings for AA Target Types for your EQEmu Server.
+description: These are the settings for AA Target Types on your EQEmu Server.
 ---
 
 # AA Target Types

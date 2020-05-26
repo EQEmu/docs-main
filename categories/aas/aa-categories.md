@@ -1,3 +1,7 @@
+---
+description: This page lists the AA Category types available on your EQEmu Server.
+---
+
 # AA Categories
 
 | Category ID | Category Name |

@@ -1,3 +1,7 @@
+---
+description: This page lists the non-spell action types available on your EQEmu server.
+---
+
 # AA Nonspell Actions
 
 | Nonspell Action ID | Nonspell Action Name |
