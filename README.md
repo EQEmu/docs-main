@@ -27,7 +27,7 @@ This wiki is a living document that is intended to replace earlier knowledge-bas
 | [NPC](categories/npc/) | Information regarding mob pathing, factions, scaling and attacks |
 | [Reference Lists]() | Information regarding variables for game mechanics |
 | [Spells](categories/spells/) | Documentation of all things relating to spells |
-| [Types](categories/types/) | Information regarding type variables for game items/objects |
+| [Types]() | Information regarding type variables for game items/objects |
 
 ### Resource links
 
