@@ -6,8 +6,6 @@ description: >-
 
 # CLI Management Interface
 
-
-
 In the latest overhaul of the login server, an enhanced command-line management interface was introduced to easily interface with basic management functionality needs. If you want to do more enhanced functionality such as integrating with the HTTP API, you can reference [API Endpoints]()
 
 ## CLI Menu
