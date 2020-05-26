@@ -4,6 +4,12 @@ description: This article describes the ability to use multiple database and dat
 
 # Multi Tenancy
 
+
+
+{% hint style="warning" %}
+**Warning** This feature is for **advanced server operators**
+{% endhint %}
+
 ## What is Multi Tenancy in Software?
 
 There are several types of multi-tenancy in Software, the one we're going to be talking about implemented in the server backend is described as simply being able to use different database connections for different types of data
@@ -52,7 +58,7 @@ cat eqemu_config.json | jq '.server.content_database'
 
 The notion of having a content database source is very powerful because it solves for the following use cases
 
-* **Developing content on a local development server** which has access to a remote content database connection that could be shared with production; allowing developers to develop in game using their own local private server **without worrying about impacting Live zones while players are playing**
+* **Developing content on a local development server** which has access to a remote content database connection shared with production, allowing a developer to constantly **repop zones, refresh scripts locally** without impacting the state of the **production zone server**
 * A developer can **develop scripts locally**, create database entries that are assigned an ID that will be used in production without having to reconcile data and duplicate ID's in an isolated local database up to a remote database which is very kludgy and cumbersome
 * It **decouples the responsibilities of table types** in the source, content data should not be written to systemically from a server to store player state, zone state, world state and only hold mostly read only data for content
 * It allows **many production servers** to use the same exact data source; **heavily** eliminating duplication of work and maintenance of keeping several different content datasets up to date. 
