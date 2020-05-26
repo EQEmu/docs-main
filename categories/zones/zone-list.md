@@ -1,6 +1,14 @@
+---
+description: >-
+  A list of the zones in EQEmu Server with their corresponding zoneidnumber,
+  short name and long name.
+---
+
 # Zone List
 
-
+{% hint style="success" %}
+Note that the zoneidnumber in your database is separate from the zone table id
+{% endhint %}
 
 | Zone ID | Zone Long Name | Zone Short Name |
 | :--- | :--- | :--- |
