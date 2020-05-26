@@ -1,3 +1,7 @@
+---
+description: This page describes adding a new faction on your EQEmu Server
+---
+
 # Creating a New Faction
 
 To add a new faction on your server:

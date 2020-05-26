@@ -1,3 +1,7 @@
+---
+description: This page describes customizing factions on your EQEmu server
+---
+
 # Customizing Factions
 
 Every faction that exists on a server is listed in the `faction_list` table. This table includes a unique id, a name, and a starting \(base\) faction. This starting value is combined with any race/class/deity adjustments that apply \(see `faction_list_mod` table\) to create the starting faction for characters when they are born. As characters interact with the world, they can gain/lose faction through their actions, be that killing or questing. These values are continuously updated in the `faction_values` table.

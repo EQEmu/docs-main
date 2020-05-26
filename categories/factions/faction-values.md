@@ -1,6 +1,12 @@
+---
+description: >-
+  This page describes the shortcut values assigned to factions for use with the
+  quest API on your EQEmu Server
+---
+
 # Faction Values
 
-These are the faction values exported by $faction, these were moved here to keep the exported variables consistent.
+These are the faction values exported by `$faction`, these were moved here to keep the exported variables consistent.
 
 | **Value** | **Faction Standing** |
 | :--- | :--- |
@@ -14,7 +20,7 @@ These are the faction values exported by $faction, these were moved here to keep
 | 8 | Threateningly |
 | 9 | Scowls |
 
-These are the faction values used with quest::factionvalue\(\);
+These are the faction values used with `quest::factionvalue();`
 
 | **Value** | **Faction Standing** |
 | :--- | :--- |
