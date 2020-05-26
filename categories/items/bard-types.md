@@ -1,3 +1,7 @@
+---
+description: These are the item settings for Bard instruments on your EQEmu server
+---
+
 # Bard Types
 
 | Bard Type ID | Bard Type Name |
