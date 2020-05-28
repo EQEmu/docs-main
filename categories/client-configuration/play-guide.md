@@ -67,7 +67,9 @@
       </td>
     </tr>
   </tbody>
-</table>* Some servers may only allow earlier version of clients \(Left earliest, right latest\)
+</table>
+
+* Some servers may only allow earlier version of clients \(Left earliest, right latest\)
 * Most servers will allow most clients simultaneously, the earlier clients may not have the features or zone capabilities that later clients do, however.
 
 See the ClientFeatures page to view some of the differences between the clients. Also see the [Client Versions](../player/client-version-bitmasks.md) page for details on determining if the client you have is compatible with EQEmu or not.

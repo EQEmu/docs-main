@@ -85,3 +85,4 @@ These Wander Types are assigned to a [Grid](https://eqemu.gitbook.io/database-sc
     </tr>
   </tbody>
 </table>
+

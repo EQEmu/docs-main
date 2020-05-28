@@ -163,7 +163,9 @@ The player is able to modify the game draw distance by changing the value of the
       </td>
     </tr>
   </tbody>
-</table>**Notes:**
+</table>
+
+**Notes:**
 
 1. When MinFog == MaxFog, this table is not used. FogEnd begins at clip level 0 at ClipMin. At level 5, it is halfway between ClipMin and ClipMax. At level 20, it is at ClipMax. FogStart is always 100 units less than the fog end.
 2. FogClipMin can never be lower than 30. 

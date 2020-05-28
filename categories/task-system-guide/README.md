@@ -150,7 +150,9 @@ The most up to date information regarding the database schema can be found in th
         will be complete when all non-optional task activities are completed.</td>
     </tr>
   </tbody>
-</table>#### Activity Types
+</table>
+
+#### Activity Types
 
 {% hint style="info" %}
 Please note that **quest::updatetaskactivity** could be used in many EVENT triggers if you did not want to use the task system as described in the table below.
@@ -337,7 +339,9 @@ Please note that **quest::updatetaskactivity** could be used in many EVENT trigg
       </td>
     </tr>
   </tbody>
-</table>### Character\_Tasks Table
+</table>
+
+### Character\_Tasks Table
 
 #### Field Descriptions
 
@@ -380,7 +384,9 @@ Please note that **quest::updatetaskactivity** could be used in many EVENT trigg
       <td style="text-align:left">Accepted Time UNIX Timestamp</td>
     </tr>
   </tbody>
-</table>### Character\_Activities Table
+</table>
+
+### Character\_Activities Table
 
 #### Field Descriptions
 
