@@ -246,7 +246,7 @@ If you can skip having to sudo each line with \(sudo -i or sudo su\) it can save
 Install MySQL
 
 ```text
-sudo apt install mysql-server=5.7.29-0ubuntu0.18.04.01
+sudo apt install mysql-server
 ```
 
 Configure MySQL.  Start by going to the default install directory
