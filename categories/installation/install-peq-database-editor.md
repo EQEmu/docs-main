@@ -7,7 +7,7 @@ description: >-
 # Install PEQ Database Editor
 
 {% hint style="info" %}
-For the vast majority of users, simply use the publicly available version of the PEQ Database Editor found at [eoc.akkadius.com](http://eoc.akkadius.com/).  Input the settings for you server on the [Login](http://eoc.akkadius.com/EOC2/login.php) page and be sure to follow the on-screen instructions.
+For the vast majority of users, simply use the publicly available version of the PEQ Database Editor found at [eoc.akkadius.com](http://eoc.akkadius.com/).  Input the settings for your server on the [Login](http://eoc.akkadius.com/EOC2/login.php) page and be sure to follow the on-screen instructions.
 {% endhint %}
 
 ## Unix-like System Installation Instructions
