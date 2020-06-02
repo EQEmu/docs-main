@@ -237,7 +237,7 @@ Point your web browser to the http://localhost/index.php file and login.  The de
 
 ### Ubuntu 18.04
 
-Big thanks to Gloat for running through this!
+_Big thanks to Gloat for running through this!_
 
 {% hint style="info" %}
 If you can skip having to sudo each line with \(sudo -i or sudo su\) it can save a lot of sudo's
@@ -379,5 +379,114 @@ Point your web browser to the http://localhost/index.php file and login.  The de
 
 ## Windows
 
-To be completed...
+_Thanks to Korinthian for walking through these steps and providing screenshots!_
+
+### Download XAMPP
+
+XAMPP is a completely free, easy to install Apache distribution containing MariaDB, PHP, and Perl. The XAMPP open source package has been set up to be incredibly easy to install and to use.
+
+You can download XAMPP at:  [https://www.apachefriends.org/index.html](https://www.apachefriends.org/index.html)
+
+### Install XAMPP
+
+Run the installer for XAMPP.  Choose `continue` when you receive the Windows Firewall warning, and `continue` to install XAMPP.  
+
+Choose `OK` to approve the User Account Control \(UAC\) permission.
+
+![UAC Warning](../../.gitbook/assets/uac-warning.png)
+
+{% hint style="warning" %}
+Be sure to **deselect** MySQL!! \(assuming you used the Akkadius EQEmu Server Installer, you already have MariaDB\)
+{% endhint %}
+
+![Deselect MySQL before continuing](../../.gitbook/assets/deselect-mysql.png)
+
+Choose `next` to continue installation.
+
+Choose `next` to use the default installation directory \(C:\XAMPP\).
+
+Choose your language settings and click `next`.
+
+**Uncheck** the `learn more` box for Bitnami \(unless you want to learn more about Bitnami, in which case a browser window will open\).
+
+Choose `next` to complete the installation.
+
+Check the `Start Control Panel` option and `Finish`.
+
+Click `Start` to start Apache.
+
+![Start or Configure Apache](../../.gitbook/assets/start-apache.png)
+
+{% hint style="success" %}
+If you want to configure Apache auto-start, click on `config` \(you will need to exit the control panel and restart as Admin to save the configuration\).
+{% endhint %}
+
+![Be sure to Save your changes as Administrator](../../.gitbook/assets/auto-start-apache.png)
+
+### Install PEQ Database Editor
+
+Download a copy of the PEQ Database Editor from GitHub:  [https://github.com/ProjectEQ/peqphpeditor](https://github.com/ProjectEQ/peqphpeditor)
+
+![Choose the Download Zip option](../../.gitbook/assets/download-peq.png)
+
+Extract the contents of the zip file to `C:\XAMPP\htdocs\`.
+
+{% hint style="info" %}
+If you would like to change the name of the PEQ Database Editor directory, now is the time.  Note that you can move the contents to the root htdocs directory.  Changing this name will effect the URL used to access the Editor.
+{% endhint %}
+
+Navigate to the `C:\XAMPP\htdocs\peqeditor-master\` folder.
+
+Copy the file `config.php.dist` and rename it `config.php`.
+
+#### Configure PEQ Database Editor
+
+Open the `config.php` file with a text editor and fill in your information \(default values used below\).
+
+{% hint style="success" %}
+If you don't know your login information, remember that you can reference it in your `eqemu_config.json` file found in your server folder.
+{% endhint %}
+
+```text
+/**
+ * Database info
+ */
+$dbhost = env('DB_HOST', 'localhost');
+$dbuser = env('DB_USER', 'root');
+$dbpass = env('DB_PASSWORD', 'eqemu');
+$db     = env('DB_NAME', 'peq');
+$dbport = env('DB_PORT', 3306);
+```
+
+Save your changes to the configuration file.
+
+#### Update Database Schema
+
+Navigate to the `sql` folder \(ex. `C:\XAMPP\htdocs\peqeditor-master\sql\`
+
+Open the file `schema.sql` with a text editor and copy and paste the contents into the HeidiSQL Client's query window and execute \(HeidiSQL installed when you used Akkadius' EQEmu Windows Installer Script\).
+
+Open the file `expansions.sql` with a text editor and copy and paste the contents into the HeidiSQL Client's query window and execute.
+
+#### Configure PHP
+
+Navigate to the PHP folder \(IE `c:\XAMPP\PHP\`\)
+
+Open the `php.ini` file with a text editor.
+
+Locate the `short_open_tag` line and set it to `On`.
+
+![Search for &quot;short\_open\_tag&quot; and set to On](../../.gitbook/assets/php-ini-short_open_tag.png)
+
+### Navigate to your PEQ Database Editor
+
+Open a browser and navigate to your new local copy of the PEQ Database Editor \(default directory example below\):
+
+```text
+http://localhost/peqeditor-master/index.php
+```
+
+Enter the default username and password are "admin" and "password".
+
+
 
