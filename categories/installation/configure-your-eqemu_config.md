@@ -1,7 +1,11 @@
+---
+description: This page describes the settings and options in your eqemu_config.json file.
+---
+
 # Configure your eqemu\_config
 
 {% hint style="warning" %}
-If you make use of the various services listed below, be sure to **open the corresponding ports** on your server / firewall / router!
+If you make use of the various services listed below, be sure to **open the corresponding ports** on your server / firewall / router to TCP and UDP traffic!
 {% endhint %}
 
 {% hint style="danger" %}
