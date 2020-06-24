@@ -52,12 +52,13 @@ Often referred to as "GM Commands", the following commands can be allowed based 
 | \#emotesearch | Searches loaded NPC emotes |
 | \#emoteview | Lists all of a NPCs loaded emotes |
 | \#enablerecipe | \[recipe id\] - Enables the specified recipe ID. |
-| \#equipitem | \[slotid\(0-21\)\] - Equip the item on your cursor into the specified slot |
+| \#equipitem | \[slotid\(0-22\)\] - Equip the item on your cursor into the specified slot |
 | \#face | \[number of face\] - Sets you or your target's face to face number, temporarily. |
 | \#fear | View and edit fear grids and hints |
-| \#finditem | Finds an item by name or ID. |
+| \#finditem | \[search criteria\] - Finds an item by name or ID. |
 | \#findnpctype | \[search criteria\] - Search database NPC types |
-| \#findspell | \[searchstring\] - Search for a spell |
+| \#findrace | \[search criteria\] - Search for a race |
+| \#findspell | \[search criteria\] - Search for a spell |
 | \#findzone | \[search criteria\] - Search database for zone |
 | \#fixmob | \[nextrace\|prevrace\|gender\|nexttexture\|prevtexture\|nexthelm\|prevhelm\] - Manipulate appearance of your NPC target |
 | \#flag | \[status\] \[acctname\] - Refresh your admin status, or set an account's admin status if arguments provided |
