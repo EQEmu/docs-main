@@ -64,20 +64,20 @@ This page explains how different assets on the server are loaded and by what met
 * Loot can be hot reloaded in game using **\#hotfix** - keep in mind that this uses shared memory files produced from **shared\_memory** binary located in the **./shared** folder
 * Note: Loot assigned in a script/quest does not rely on the database system or to be reloaded from shared memory
 
-#### Logging
+## Logging
 
 * Server logging settings can be reloaded in game using **\#logs reload\_all** from the `logsys_categories` table - this takes affect server wide for all processes
 
-#### Merchants
+## Merchants
 
 * Merchant data is loaded and cached the first time the request is made to a merchant if it wasn't already loaded on zone bootup
 * Merchants can be hot reloaded using **\#reloadmerchants**
 
-#### NPC Data
+## NPC Data
 
 * NPC data is live once a **\#repop** is issued after a new edit or creation
 
-#### NPC Emotes
+## NPC Emotes
 
 * While emotes don't HAVE to be database driven \(most custom servers will just use scripts\) - there is an option to reload the database driven emotes
 * In game command **\#reloadstatic** - will reload database driven emote data from the `npc_emotes` table for just the zone the command was executed in
