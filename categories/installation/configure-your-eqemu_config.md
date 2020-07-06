@@ -32,7 +32,7 @@ STOP!  Did you read the line above?  It's a **really** important tip.
 | address |  | Not required, but binds the server to this address, default is to listen on all addresses |
 | localaddress |  | Not required, but recommended to set for LAN setups so other local clients can connect properly |
 | maxclients | -1 | This sets the max amount of clients that can connect to your server, -1 is unlimited |
-| locked | false | This determines whether the server starts up locked or not, it takes a minimum status of 20 to get through locked state |
+| locked | false | This determines whether the server starts up locked or not, it takes a minimum status of 100 to get through locked state |
 | key |  | This key is used for encryption between your server processes - make sure this is unique and random to your server |
 
 #### telnet
