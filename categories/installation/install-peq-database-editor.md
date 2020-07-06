@@ -14,7 +14,7 @@ For the vast majority of users, simply use the publicly available version of the
 
 These instructions are intended to be used on a freshly installed server.  Some services may have been enabled on your server when the provider installed the image.  You should still be able to reference these steps to configure your server.
 
-### CentOS 7
+### CentOS
 
 Enable the appropriate MySQL Repo.
 
@@ -235,7 +235,7 @@ Repeat this process for any remaining files in the sql directory.
 
 Point your web browser to the http://localhost/index.php file and login.  The default username / password are "admin", and "password".
 
-### Ubuntu 18.04
+### Ubuntu
 
 _Big thanks to Gloat for running through this!_
 
@@ -371,8 +371,11 @@ nano config.php
 Execute the queries found in the sql directory on your database
 
 ```text
-cat sql/schema.sql
-cat sql/expansions.sql
+cd sql
+mysql -u<username> -p <database>
+source schema.sql;
+source expansions.sql;
+quit
 ```
 
 Point your web browser to the http://localhost/index.php file and login.  The default username / password are "admin", and "password".
@@ -403,7 +406,7 @@ Be sure to **deselect** MySQL!! \(assuming you used the Akkadius EQEmu Server In
 
 Choose `next` to continue installation.
 
-Choose `next` to use the default installation directory \(C:\XAMPP\).
+Choose `next` to use the default installation directory \(C:\xampp\).
 
 Choose your language settings and click `next`.
 
@@ -429,13 +432,13 @@ Download a copy of the PEQ Database Editor from GitHub:  [https://github.com/Pro
 
 ![Choose the Download Zip option](../../.gitbook/assets/download-peq.png)
 
-Extract the contents of the zip file to `C:\XAMPP\htdocs\`.
+Extract the contents of the zip file to `C:\xampp\htdocs\`.
 
 {% hint style="info" %}
 If you would like to change the name of the PEQ Database Editor directory, now is the time.  Note that you can move the contents to the root htdocs directory.  Changing this name will effect the URL used to access the Editor.
 {% endhint %}
 
-Navigate to the `C:\XAMPP\htdocs\peqeditor-master\` folder.
+Navigate to the `C:\xampp\htdocs\peqeditor-master\` folder.
 
 Copy the file `config.php.dist` and rename it `config.php`.
 
@@ -470,7 +473,7 @@ Open the file `expansions.sql` with a text editor and copy and paste the content
 
 #### Configure PHP
 
-Navigate to the PHP folder \(IE `c:\XAMPP\PHP\`\)
+Navigate to the PHP folder \(i.e. C:\xampp\php\)
 
 Open the `php.ini` file with a text editor.
 
@@ -488,5 +491,13 @@ http://localhost/peqeditor-master/index.php
 
 Enter the default username and password are "admin" and "password".
 
+{% hint style="info" %}
+When shutting down XAMPP and/or the computer, it is recommended to stop MySQL/MariaDB through the console rather than using the control panel. The reason is that the control panel just kills the process rather than letting the database shut down cleanly. Losing power or shutting down the database server using the control panel has been known to corrupt databases. The HTTP \(Apache\) server can be stopped from the control panel without issues.
+{% endhint %}
 
+In order to shut down the database cleanly, open a command prompt \(from the XAMPP control panel if you haven't added mysql to your PATH variables\) and run the following command \(only use the -p if your root user has a password\):
+
+```text
+mysqladmin shutdown -uroot -p
+```
 
