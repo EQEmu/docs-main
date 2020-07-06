@@ -1,13 +1,13 @@
 ---
 description: >-
-  This page provides instruction on installing your own copy of the PEQ Database
-  Editor
+  This page provides instruction on installing your own local copy of the PEQ
+  Database Editor
 ---
 
 # Install PEQ Database Editor
 
 {% hint style="info" %}
-For the vast majority of users, simply use the publicly available version of the PEQ Database Editor found at [eoc.akkadius.com](http://eoc.akkadius.com/).  Input the settings for your server on the [Login](http://eoc.akkadius.com/EOC2/login.php) page and be sure to follow the on-screen instructions.
+If you do not need to run your own editor, you can simply use the publicly available version of the PEQ Database Editor found at [eoc.akkadius.com](http://eoc.akkadius.com/).  Input the settings for your server on the [Login](http://eoc.akkadius.com/EOC2/login.php) page and be sure to follow the on-screen instructions.
 {% endhint %}
 
 ## Unix-like System Installation Instructions
@@ -114,7 +114,7 @@ Use the find command \(ctrl+w\) to locate the configuration parameter for short 
 short_open_tag = On
 ```
 
-Navigate to the directory where you want to install the PEQ Database Editor and clone the GitHub Repository \(IE /var/www/html\).
+Navigate to the directory where you want to install the PEQ Database Editor and clone the GitHub Repository \(i.e. /var/www/html\).
 
 ```text
 git clone https://github.com/ProjectEQ/peqphpeditor.git
@@ -142,7 +142,7 @@ nano schema.sql
 
 Repeat this process for any remaining files in the sql directory.
 
-Point your web browser to the index.php file and login.  The default username / password are "admin", and "password".
+Point your web browser to `http://localhost/<editor-directory>/index.php` and login.  The default username / password are "admin", and "password".
 
 ### MacOS
 
@@ -204,7 +204,7 @@ Use the find command \(ctrl+w\) to locate the configuration parameter for short 
 short_open_tag = On
 ```
 
-Navigate to the directory where you want to install the PEQ Database Editor and clone the GitHub Repository \(IE /Library/WebServer/Documents/\).
+Navigate to the directory where you want to install the PEQ Database Editor and clone the GitHub Repository \(i.e. /Library/WebServer/Documents/\).
 
 ```text
 git clone https://github.com/ProjectEQ/peqphpeditor.git
@@ -233,7 +233,7 @@ nano schema.sql
 
 Repeat this process for any remaining files in the sql directory.
 
-Point your web browser to the http://localhost/index.php file and login.  The default username / password are "admin", and "password".
+Point your web browser to `http://localhost/<editor-directory>/index.php` and login.  The default username / password are "`admin`", and "`password`".
 
 ### Ubuntu
 
@@ -378,7 +378,7 @@ source expansions.sql;
 quit
 ```
 
-Point your web browser to the http://localhost/index.php file and login.  The default username / password are "admin", and "password".
+Point your web browser to `http://localhost/<editor-directory>/index.php` and login.  The default username / password are "admin", and "password".
 
 ## Windows
 
@@ -465,7 +465,7 @@ Save your changes to the configuration file.
 
 #### Update Database Schema
 
-Navigate to the `sql` folder \(ex. `C:\XAMPP\htdocs\peqeditor-master\sql\`
+Navigate to the `sql` folder \(ex. `C:\xampp\htdocs\peqeditor-master\sql\`
 
 Open the file `schema.sql` with a text editor and copy and paste the contents into the HeidiSQL Client's query window and execute \(HeidiSQL installed when you used Akkadius' EQEmu Windows Installer Script\).
 
