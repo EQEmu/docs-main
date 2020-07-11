@@ -10,6 +10,13 @@ description: >-
 If you do not need to run your own editor, you can simply use the publicly available version of the PEQ Database Editor found at [eoc.akkadius.com](http://eoc.akkadius.com/).  Input the settings for your server on the [Login](http://eoc.akkadius.com/EOC2/login.php) page and be sure to follow the on-screen instructions.
 {% endhint %}
 
+## Documented Setups by OS:
+
+* [CentOS](https://eqemu.gitbook.io/server/categories/installation/install-peq-database-editor#centos)
+* [MacOS](https://eqemu.gitbook.io/server/categories/installation/install-peq-database-editor#macos)
+* [Ubuntu](https://eqemu.gitbook.io/server/categories/installation/install-peq-database-editor#ubuntu)
+* [Windows](https://eqemu.gitbook.io/server/categories/installation/install-peq-database-editor#windows)
+
 ## Unix-like System Installation Instructions
 
 These instructions are intended to be used on a freshly installed server.  Some services may have been enabled on your server when the provider installed the image.  You should still be able to reference these steps to configure your server.
@@ -237,7 +244,7 @@ Point your web browser to `http://localhost/<editor-directory>/index.php` and lo
 
 ### Ubuntu
 
-_Big thanks to Gloat for running through this!_
+_Big thanks to Gloat for running through this, and RedVapor for some example sed scripts and greps!_
 
 {% hint style="info" %}
 If you can skip having to sudo each line with \(sudo -i or sudo su\) it can save a lot of sudo's
@@ -314,11 +321,28 @@ Look for your loaded PHP configuration file
 php -i | grep "Loaded Configuration File"
 ```
 
+{% hint style="info" %}
+There are a number of other different methods to find your php.ini file\(s\), such as using grep to search for the setting of interest:
+
+```
+grep -r short_open_tag /etc/php/
+```
+{% endhint %}
+
 Edit your PHP configuration file \(example file location used shown below\)
 
 ```text
 sudo nano /etc/php/7.2/apache2/php.ini
 ```
+
+{% hint style="info" %}
+If you'd rather not use an editor to make the adjustments, a simple sed script can make them for you \(an example for php v7.3 is below\):
+
+```text
+sudo sed -i 's/short_open_tag\ =\ Off/short_open_tag\ =\ on/g' /etc/php/7.3/apache2/php.ini
+sudo sed -i 's/short_open_tag\ =\ Off/short_open_tag\ =\ on/g' /etc/php/7.3/cli/php.ini
+```
+{% endhint %}
 
 Search \(ctrl + W\) for "short\_open\_tag"
 
@@ -367,6 +391,22 @@ Open your config file for editing and input your settings
 ```text
 nano config.php
 ```
+
+{% hint style="info" %}
+Depending on your environment, you may need to change ownership of the web directory.  An example is below \(your user:group IDs might be different\):
+
+```text
+sudo chown -R www-data:www-data /var/www/html/
+```
+{% endhint %}
+
+{% hint style="success" %}
+After all of these changes, it might be a good idea to restart Apache:
+
+```text
+systemctl restart apache2
+```
+{% endhint %}
 
 Execute the queries found in the sql directory on your database
 
