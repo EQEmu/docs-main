@@ -1,8 +1,16 @@
 ---
-description: This page describes the Rules and Rule Values for your EQEmu Server.
+description: >-
+  This page describes the Rules and Rule Values for your EQEmu Server. These
+  rules are found in the rule_values table.
 ---
 
 # Server Rules
+
+### Editing rules
+
+To edit rules, you can use the \#rules set &lt;key&gt; &lt;value&gt; command to set a rule. 
+
+You can then use \#reloadallrules to force all zones to reload the new rules. 
 
 {% hint style="warning" %}
 The `notes` field in the database is set by the server software.  If you adjust the values in the field, they will be overwritten and restored to default values when you update your server binaries.
