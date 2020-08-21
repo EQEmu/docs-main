@@ -112,6 +112,7 @@
   * [Loading Server Data](categories/operation/loading-server-data.md)
   * [NATS Channels](categories/operation/nats-channels.md)
   * [Server Rules](categories/operation/server-rules.md)
+  * [Server Variables](categories/operation/server-variables.md)
   * [Updating Server Assets](categories/operation/updating-server-assets.md)
 * [Player](categories/player/README.md)
   * [Class List](categories/player/class-list.md)
