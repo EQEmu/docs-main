@@ -36,6 +36,8 @@ If you would prefer that your players do not have to interact with an NPC, it is
 
 This script will train all new disciplines when a player levels up:
 
+{% tabs %}
+{% tab title="Perl" %}
 {% code title="global/global\_player.pl" %}
 ```perl
 sub EVENT_LEVEL_UP {
@@ -44,6 +46,17 @@ sub EVENT_LEVEL_UP {
 }
 ```
 {% endcode %}
+{% endtab %}
+
+{% tab title="Lua" %}
+```
+function event_level_up(e)
+			-- Train all disciplines up to current level
+			eq.train_discs(e.self:GetLevel());
+end
+```
+{% endtab %}
+{% endtabs %}
 
 ### Spell Scriber
 
@@ -99,6 +112,8 @@ As with disciplines, if you would prefer that your players do not have to intera
 
 This script will scribe all new spells/songs when a player levels up.
 
+{% tabs %}
+{% tab title="Perl" %}
 {% code title="global/global\_player.pl" %}
 ```perl
 sub EVENT_LEVEL_UP {
@@ -107,6 +122,17 @@ sub EVENT_LEVEL_UP {
 }
 ```
 {% endcode %}
+{% endtab %}
+
+{% tab title="Lua" %}
+```
+function event_level_up(e)
+			-- Scribe all spells up to current level
+			eq.scribe_spells(e.self:GetLevel());
+end
+```
+{% endtab %}
+{% endtabs %}
 
 ### Skill Maxer
 
@@ -150,6 +176,8 @@ As with spells and disciplines, if you would prefer that your players do not hav
 
 This script will max all skills when a player levels up.
 
+{% tabs %}
+{% tab title="Perl" %}
 {% code title="global/global\_player.pl" %}
 ```perl
 sub EVENT_LEVEL_UP {
@@ -166,6 +194,27 @@ sub EVENT_LEVEL_UP {
 }
 ```
 {% endcode %}
+{% endtab %}
+
+{% tab title="Lua" %}
+```
+function event_level_up(e)
+     local skills = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 48, 49, 50, 51, 52, 53, 54, 56, 62, 66, 67, 70, 71, 72, 73, 74 };
+     for i, curskill in ipairs(skills) do
+          local maxskill = e.self:MaxSkill(curskill);
+          if (e.self:CanHaveSkill(curskill) == false) then
+               --Do nothing
+          elseif (maxskill <= e.self:GetRawSkill(curskill)) then
+               --Do nothing
+          else
+               --Do Training
+               e.self:SetSkill(curskill, maxskill);
+          end
+     end
+end
+```
+{% endtab %}
+{% endtabs %}
 
 ### Player Buffer
 
