@@ -21,7 +21,7 @@ STOP!  Did you read the line above?  It's a **really** important tip.
 
 * Config format: .json
 * Below is a working base config example from our installer:
-* [https://github.com/Akkadius/EQEmuInstall/blob/master/eqemu\_config.json](https://github.com/Akkadius/EQEmuInstall/blob/master/eqemu_config.json)
+* [https://github.com/Akkadius/eqemu-install-v2/blob/master/eqemu\_config.json](https://github.com/Akkadius/eqemu-install-v2/blob/master/eqemu_config.json)
 
 ### world
 
