@@ -42,7 +42,7 @@ STOP!  Did you read the line above?  It's a **really** important tip.
 | Variable | Default | Description |
 | :--- | :--- | :--- |
 | \*ip | 127.0.0.1 | Telnet server IP \(0.0.0.0 would bind all addresses\) |
-| \*port | 9001 | Telnet server port |
+| \*port | 9000 | Telnet server port |
 | \*enabled | false | Enables the telnet service |
 
 ### database
