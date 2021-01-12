@@ -7,7 +7,7 @@
 3. Go into your SQL editor of choice \(or command line\) and change account.status to 255.
 4. Log in and enjoy GM commands \(typing \#help will give you a list of commands\)
 
-For example, in linux step three would look something like this:
+For example, in Linux step three would look something like this:
 
 ```text
 $ mysql -u my_db_username -p
@@ -16,9 +16,9 @@ mysql> UPDATE account SET status = 255 WHERE charname = 'my_character_name';
 mysql> quit;
 ```
 
-In this example, `my_db_username` is the username that you set for the mysql database during server installation and `my_character_name` is the name of the character you setting to GM status.
+In this example, `my_db_username` is the username that you set for the MySQL database during server installation and `my_character_name` is the name of the character you setting to GM status.
 
-You may find the [accoun](https://eqemu.gitbook.io/database-schema/tables/account)t table schema a useful reference as well.
+You may find the [account](https://eqemu.gitbook.io/database-schema/tables/account) table schema a useful reference as well.
 
 ### What can I do once I'm a GM?
 
