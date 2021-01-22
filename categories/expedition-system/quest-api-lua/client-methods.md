@@ -161,7 +161,7 @@ end
 
 ## `void` MovePCDynamicZone\(int zone\_id, int zone\_version = -1, bool msg\_if\_invalid = true\)
 
-## `void` MovePCDynamicZone\(string zone\_short\_name, int zone\_version -1, bool msg\_if\_invalid = true\)
+## `void` MovePCDynamicZone\(string zone\_short\_name, int zone\_version = -1, bool msg\_if\_invalid = true\)
 
 Attempts to move the client to the specified zone if the client is part of a system \(expedition or otherwise\) with an associated dynamic zone instance in the target zone.
 

@@ -12,7 +12,7 @@ If the request is successful, all party members are added to the expedition and 
 
 ## Dynamic Zones
 
-Dynamic Zones are a wrapper for instances that extends then with some extra data. In the future these will probably be further modified for use by other systems that make use of dynamic zones.
+Dynamic Zones are a wrapper for instances that extends them with some extra data. In the future these will probably be further modified for use by other systems that make use of dynamic zones.
 
 ## Commands
 
@@ -42,5 +42,5 @@ The following rules are available for server customization
 * Using /exit with an expedition invite window open may crash the client instead of exiting cleanly
 * Invoking the dynamic zone switch list window after reloading the UI may crash clients
   * client bug that still exists on live
-  * this window is currently unused since expedition's are the only system that use dynamic zones
+  * this window is currently unused since expeditions are the only system that use dynamic zones
 

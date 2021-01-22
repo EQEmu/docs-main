@@ -16,13 +16,13 @@ The expedition system uses the following database tables
 | :--- | :--- | :--- |
 | id | unsigned int | Expedition ID \(auto incremented\) |
 | uuid | varchar\(36\) | Expedition UUID generated on creation used for certain lockout conflict checks |
-| dynamic\_zone\_id | unsigned int | dynamic\_zones table ID |
+| dynamic\_zone\_id | unsigned int | dynamic\_zones ID used by the expedition |
 | expedition\_name | varchar\(128\) | Name of expedition |
 | leader\_id | unsigned int | Current leader's character ID |
 | min\_players | tinyint | Minimum players required to request expedition \(1-255\) |
 | max\_players | tinyint | Maximum players allowed in expedition \(1-255\) |
-| add\_replay\_on\_join | tinyint | Settings that determines if added members automatically receive `Replay Timer` lockout when joining an expedition that has it \(default: 1\) |
-| is\_locked | tinyint | Expedition lock state \(1: new members can not be added\) |
+| add\_replay\_on\_join | tinyint | \(bool\) If added members automatically receive `Replay Timer` lockout when joining an expedition that has it \(default: 1\) |
+| is\_locked | tinyint | \(bool\) Allow adding new members \(0: unlocked, 1: locked\) |
 
 ### expedition\_lockouts
 
@@ -32,7 +32,7 @@ The expedition system uses the following database tables
 | expedition\_id | unsigned int | Expedition ID the lockout belongs to |
 | event\_name | varchar\(256\) | Lockout event name |
 | expire\_time | datetime | Time the lockout expires |
-| duration | unsigned int | Original duration the lockout was assigned with |
+| duration | unsigned int | Original duration \(seconds\) the lockout was added with |
 | from\_expedition\_uuid | varchar\(36\) | Original source expedition uuid the lockout was assigned in \(will differ from current expedition if inherited by leader on creation\) |
 
 ### expedition\_members
@@ -42,7 +42,7 @@ The expedition system uses the following database tables
 | id | unsigned int | Auto incremented ID |
 | expedition\_id | unsigned int | Expedition ID the member belongs to |
 | character\_id | unsigned int | Member character ID |
-| is\_current\_member | tinyint | If member is current active member or past member of expedition |
+| is\_current\_member | tinyint | \(bool\) Character is current member or past member of expedition |
 
 ### character\_expedition\_lockouts
 
@@ -52,8 +52,8 @@ The expedition system uses the following database tables
 | character\_id | unsigned int | Character ID lockout belongs to |
 | expedition\_name | varchar\(128\) | Lockout expedition name |
 | event\_name | varchar\(256\) | Lockout event name |
-| expire\_time | datetime | Lockout expire time |
-| duration | unsigned int | Lockout's original duration when added |
+| expire\_time | datetime | Time the lockout expires |
+| duration | unsigned int | Original duration \(seconds\) the lockout was added with |
 | from\_expedition\_uuid | varchar\(36\) | Original source expedition uuid the lockout was assigned in |
 
 ### dynamic\_zones
@@ -76,5 +76,5 @@ The expedition system uses the following database tables
 | zone\_in\_y | float | Zone in y coordinate when character moved via MovePCDynamicZone\(\) |
 | zone\_in\_z | float | Zone in z coordinate when character moved via MovePCDynamicZone\(\) |
 | zone\_in\_heading | float | Zone in heading when character moved via MovePCDynamicZone\(\) |
-| has\_zone\_in | tinyint | If zone in override coordinates are valid \(zone's default zone-in location is used if not\) |
+| has\_zone\_in | tinyint | \(bool\) If zone in override coordinates are valid \(zone's default zone-in location is used if not\) |
 

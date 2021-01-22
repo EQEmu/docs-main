@@ -99,7 +99,7 @@ quest::debug("client has lockout: [$has_lockout]");
 
 ## `void` MovePCDynamicZone\(int zone\_id, int zone\_version = -1, bool msg\_if\_invalid = true\) <a id="client-move-pc-zoneid"></a>
 
-## `void` MovePCDynamicZone\(string zone\_short\_name, int zone\_version -1, bool msg\_if\_invalid = true\) <a id="client-move-pc-zonename"></a>
+## `void` MovePCDynamicZone\(string zone\_short\_name, int zone\_version = -1, bool msg\_if\_invalid = true\) <a id="client-move-pc-zonename"></a>
 
 Attempts to move the client to the specified zone if the client is part of a system \(expedition or otherwise\) with an associated dynamic zone instance in the target zone.
 

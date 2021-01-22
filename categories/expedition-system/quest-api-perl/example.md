@@ -2,7 +2,7 @@
 
 This is a full example to demonstrate usage. Guard Pineshade at the orc lift in gfaydark provides an expedition to crushbone
 
-`gfaydark/guard_pineshade.pl`
+`gfaydark/Guard_Pineshade.pl`
 
 ```perl
 my $expedition_name = "Crushbone, DVinn's Stronghold";

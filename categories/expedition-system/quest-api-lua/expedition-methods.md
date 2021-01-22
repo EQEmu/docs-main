@@ -220,7 +220,7 @@ Returns zone id of the expedition's dynamic zone
 local zone_id = dz:GetZoneID()
 ```
 
-## `int` GetZoneName\(\) <a id="dz-get-zone-name"></a>
+## `string` GetZoneName\(\) <a id="dz-get-zone-name"></a>
 
 Returns zone short name of the expedition's dynamic zone
 
@@ -393,8 +393,6 @@ end
 Set seconds remaining on expedition's dynamic zone before it expires. This currently only supports reducing time. It will have no effect if the new seconds remaining is larger than the current time remaining.
 
 > Note: this method is async, GetSecondsRemaining will not immediately show the change.
->
-> Note: corpses inside dynamic zones that are shutdown early will no longer be processed by any graveyard timers and will have to be summoned.
 
 ```lua
 function event_timer(e)

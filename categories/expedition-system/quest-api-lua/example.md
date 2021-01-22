@@ -2,7 +2,7 @@
 
 This is a full example to demonstrate usage. Guard Pineshade at the orc lift in gfaydark provides an expedition to crushbone
 
-`gfaydark/guard_pineshade.lua`
+`gfaydark/Guard_Pineshade.lua`
 
 ```lua
 local expedition_name = "Crushbone, DVinn's Stronghold"
@@ -52,7 +52,7 @@ if dz.valid then
 end
 ```
 
-`crushbone/emperor_crush.lua`
+`crushbone/Emperor_Crush.lua`
 
 ```lua
 function event_spawn(e)
@@ -70,7 +70,7 @@ function event_death(e)
 end
 ```
 
-`crushbone/overlord_mata_muram.lua`
+`crushbone/Overlord_Mata_Muram.lua`
 
 ```lua
 function event_death(e)

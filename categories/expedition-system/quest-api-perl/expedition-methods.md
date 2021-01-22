@@ -196,7 +196,7 @@ if ($dz) {
 }
 ```
 
-## `int` GetZoneName\(\) <a id="dz-get-zone-name"></a>
+## `string` GetZoneName\(\) <a id="dz-get-zone-name"></a>
 
 Returns zone short name of the expedition's dynamic zone
 
@@ -330,8 +330,6 @@ $dz->SetSafeReturn("wallofslaughter", 1349.13, 1715.00, 123.81, 0);
 Set seconds remaining on expedition's dynamic zone before it expires. This currently only supports reducing time. It will have no effect if the new seconds remaining is larger than the current time remaining.
 
 > Note: this method is async, GetSecondsRemaining will not immediately show the change.
->
-> Note: corpses inside dynamic zones that are shutdown early will no longer be processed by any graveyard timers and will have to be summoned.
 
 ```perl
 $dz->SetSecondsRemaining(300); # close down expedition in 5 minutes

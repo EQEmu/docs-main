@@ -2,7 +2,7 @@
 
 ## Group methods
 
-### `bool` DoesAnyMemberHaveExpeditionLockout\(string expedition\_name, string event\_name, int max\_check\_count = 0\)\)
+### `bool` DoesAnyMemberHaveExpeditionLockout\(string expedition\_name, string event\_name, int max\_check\_count = 0\)
 
 Returns true if any group member has the specified lockout.
 
@@ -13,7 +13,7 @@ See Raid::DoesAnyMemberHaveExpeditionLockout for example.
 
 ## Raid methods
 
-### `bool` DoesAnyMemberHaveExpeditionLockout\(string expedition\_name, string event\_name, int max\_check\_count = 0\)\)
+### `bool` DoesAnyMemberHaveExpeditionLockout\(string expedition\_name, string event\_name, int max\_check\_count = 0\)
 
 Returns true if any raid member has the specified lockout.
 
