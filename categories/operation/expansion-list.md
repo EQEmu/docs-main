@@ -22,4 +22,11 @@
 | 17 | HoT | House of Thule |
 | 18 | VoA | Veil of Alaris |
 | 19 | RoF | Rain of Fear |
+| 20 | CotF | Call of the Forsaken |
+| 21 | TDS | The Darkened Sea |
+| 22 | TBM | The Broken Mirror |
+| 23 | EoK | Empires of Kunark |
+| 24 | RoS | Ring of Scale |
+| 25 | TBL | The Burning Lands |
+| 26 | ToV | Torment of Velious |
 
