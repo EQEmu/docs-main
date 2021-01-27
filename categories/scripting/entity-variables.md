@@ -4,7 +4,7 @@
 
 I would hope you read [Entity Lists](entity-lists.md) and understand entities and how they work before reading this. If you have, then it will help understanding what entity variables are and how powerful they can be in helping you do whatever it is you are trying to do
 
-When you are using Perl, and in a script you define an object, you define it like so, **$object = 1; Easy, right?** - Yes, but there is a problem. **ANY NPC** who also has this same script loaded could overwrite this variable. When I am trying to set and read data unique to a particular NPC, using this method does not make things all that easy. Given, you COULD use a Perl array accessor unique to the NPCID but that is not quite as flexible to this system that has been developed by KLS to do.
+When you are using Perl, and in a script you define an object, you define it like so, **$object = 1;** Easy, right? ****- Yes, but there is a problem. **ANY NPC** who also has this same script loaded could overwrite this variable. When I am trying to set and read data unique to a particular NPC, using this method does not make things all that easy. Given, you COULD use a Perl array accessor unique to the NPCID but that is not quite as flexible to this system that has been developed by KLS to do.
 
 So here I am going to show you some examples and why **entity variables are amazing.**
 
@@ -12,7 +12,7 @@ An entity variable can be used by most commonly $npc/$client. It is just like an
 
 They are stored in **memory of the zone, and persist when an entity is alive**. Meaning if you repop the variables clear, or an NPC/client dies/zones etc.
 
-Picture it like this, these NPC's below have a '**virtual bucket**' of variables you can set. The only thing you need when setting variables is a **variable name to read and write.**
+Picture it like this, these NPCs below have a '**virtual bucket**' of variables you can set. The only thing you need when setting variables is a **variable name to read and write.**
 
 With this, you can get really really creative as to how you pass variables around.
 
@@ -23,11 +23,9 @@ With this, you can get really really creative as to how you pass variables aroun
   * **plugin::REV\($entity, "variable\_name"\); - Returns value, Read**
   * See [Plugins Reference](https://eqemu.gitbook.io/quest-api/perl/plugins)
 
-![](http://wiki.eqemulator.org/l/wa/images/variable_bucket.png)
-
 ## Example
 
-* In this simple example, we're looping the samer timer every 3 seconds and an NPC is going to say something different every 3 seconds until it gets to the 4th passing of the timer and the NPC shuts his mouth.
+* In this simple example, we're looping the same timer every 3 seconds and an NPC is going to say something different every 3 seconds until it gets to the 4th passing of the timer and the NPC shuts his mouth.
 
 {% tabs %}
 {% tab title="Perl" %}
