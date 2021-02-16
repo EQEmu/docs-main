@@ -16,6 +16,14 @@ Packet captures specific to trophy data is blocked at the moment. None of my cha
 
 \[TODO: Add image of neighborhood search window\]
 
+### Current Issues
+
+The primary issue facing Player Housing is that the placement window is disabled. I don't know if there is a missing packet on client initialization, one that appears only when entering a zone that supports placing objects, a client status \(Paid or not\) level, or if the copy of RoF2 used by players on the Emu simply doesn't support it \(perhaps a bug that impacted that version\).
+
+This leaves the options for implementing player housing as a script-based approach. It may be possible to enable some client windows once objects are placed, but in the worst case some kind of interface can be created. It is unlikely that would be added to the official emu source, so any old RoF2 captures that include Neighborhood zones would be helpful.
+
+Hint. Hint.
+
 ### Known / Suspected OpCodes in RoF and RoF2 client
 
 The RoF2 opcodes are suspect. It could be that they didn't change across several patches, or that the opcode dumps in showeq simply didn't update those. I could only find two that directly related to player housing in the opcode files, but I suspect there are more that didn't get logged.
@@ -58,8 +66,8 @@ The RoF2 opcodes are suspect. It could be that they didn't change across several
 | plhdkeinteriors3a3 | Three Bedroom House Interior | 750 |
 | guildhall3 | Modest Guild Hall | 751 |
 | phinteriortree | Evantil's Abode | 766 |
-| plhbixieint | Bixie Hive | 774 |
-| plhpirateshipint | Pirate Ship | 786 |
+| plhbixieint \(Post RoF2\) | Bixie Hive | 774 |
+| plhpirateshipint \(Post RoF2\) | Pirate Ship | 786 |
 
 ### Click on door to view Neighborhood List \(Client -&gt; Server\)
 
@@ -289,4 +297,39 @@ Matches the RoF2 NewZone\_Struct, but 20 bytes of new data that comes after the 
 | Unk932 | 4 | Seen 1 |
 
 TODO: In-zone clicks for the spring, purchasing a property, placing items in a property, identifying RoF opcodes, updating with additional vendors, fixing Z for existing vendors \(some are floating\), adding house interior zones \(first attempt results in a client crash\), etc.
+
+### Objects \(Houses\)
+
+#### plhousingexta.eqg
+
+* IT20000
+* IT20001
+* IT20002
+* IT20003
+* IT20004
+* IT20005
+
+#### plhousingextb.eqg
+
+* IT20006
+* IT20007
+* IT20008
+* IT20009
+
+#### phexterior1a.eqg
+
+* IT20017
+* IT20018
+* IT20019
+* IT20020
+* IT20021
+* IT20022
+* IT20023
+* IT20024
+* IT20025
+* IT20026
+
+#### neighborhood.eqg
+
+* IT20027 - Sign
 
