@@ -12,8 +12,12 @@
 * 1: Random 10. NPC will pick a random of the nearest 10 waypoints and go to it.
 * 2: Random. NPCwill pick a random waypoint in the grid and go to it.
 * 3: Patrol. NPC will walk the waypoints to the end, then turn and backtrack.
-* 4: One Way. NPC will walk the waypoints to the end, then depop.
+* 4: One Way. NPC will walk the waypoints to the end, then repop.
 * 5: Random 5 LoS. NPC will pick a random of the nearest 5 waypoints within line of sight.
+* 6: One Way. NPC will walk the waypoints to the end, then Depop.
+* 7: Center Point.  NPC will move to wp 0 and then random waypoints there after.
+* 8: Random Center Point.  NPC will alternate between a random waypoint and the waypoint marked as center point.
+* 9: Random Path.  Pick random waypoints, but follow path instead of heading there directly.
 
 ## Pause Type:
 
