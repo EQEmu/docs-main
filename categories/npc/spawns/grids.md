@@ -15,8 +15,8 @@
 * 4: One Way. NPC will walk the waypoints to the end, then repop.
 * 5: Random 5 LoS. NPC will pick a random of the nearest 5 waypoints within line of sight.
 * 6: One Way. NPC will walk the waypoints to the end, then Depop.
-* 7: Center Point.  NPC will move to wp 0 and then random waypoints there after.
-* 8: Random Center Point.  NPC will alternate between a random waypoint and the waypoint marked as center point.
+* 7: Center Point.  NPC will treat wp0 as center and move between it and a random wp.
+* 8: Random Center Point.  NPC will alternate between a random waypoint and a random waypoint that is marked as center point.
 * 9: Random Path.  Pick random waypoints, but follow path instead of heading there directly.
 
 ## Pause Type:
