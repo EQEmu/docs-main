@@ -121,6 +121,12 @@ Use the find command \(ctrl+w\) to locate the configuration parameter for short 
 short_open_tag = On
 ```
 
+Also look for **error\_reporting** to turn turn off some warnings.
+
+```text
+error_reporting = E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED
+```
+
 Navigate to the directory where you want to install the PEQ Database Editor and clone the GitHub Repository \(i.e. /var/www/html\).
 
 ```text
@@ -209,6 +215,12 @@ Use the find command \(ctrl+w\) to locate the configuration parameter for short 
 ```text
 # Set short_open_tag to ON
 short_open_tag = On
+```
+
+Also look for **error\_reporting** to turn turn off some warnings.
+
+```text
+error_reporting = E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED
 ```
 
 Navigate to the directory where you want to install the PEQ Database Editor and clone the GitHub Repository \(i.e. /Library/WebServer/Documents/\).
@@ -348,6 +360,12 @@ Search \(ctrl + W\) for "short\_open\_tag"
 
 ```text
 short_open_tag = On
+```
+
+Also look for **error\_reporting** to turn turn off some warnings.
+
+```text
+error_reporting = E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED
 ```
 
 Install Git
@@ -521,6 +539,12 @@ Locate the `short_open_tag` line and set it to `On`.
 
 ![Search for &quot;short\_open\_tag&quot; and set to On](../../.gitbook/assets/php-ini-short_open_tag.png)
 
+Also look for **error\_reporting** to turn turn off some warnings.
+
+```text
+error_reporting = E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED
+```
+
 ### Navigate to your PEQ Database Editor
 
 Open a browser and navigate to your new local copy of the PEQ Database Editor \(default directory example below\):
@@ -529,13 +553,15 @@ Open a browser and navigate to your new local copy of the PEQ Database Editor \(
 http://localhost/peqeditor-master/index.php
 ```
 
-Enter the default username and password are "admin" and "password".
+Enter the default username and password: "admin" and "password".
 
 {% hint style="info" %}
 When shutting down XAMPP and/or the computer, it is recommended to stop MySQL/MariaDB through the console rather than using the control panel. The reason is that the control panel just kills the process rather than letting the database shut down cleanly. Losing power or shutting down the database server using the control panel has been known to corrupt databases. The HTTP \(Apache\) server can be stopped from the control panel without issues.
 {% endhint %}
 
-In order to shut down the database cleanly, open a command prompt \(from the XAMPP control panel if you haven't added mysql to your PATH variables\) and run the following command \(only use the -p if your root user has a password\):
+{% hint style="danger" %}
+If you aren't running MySQL/MariaDB as a service \(i.e. you started the database manually\), it is a good idea to shut down the database cleanly. To do this, open a command prompt \(from the XAMPP control panel if you haven't added MySQL/MariaDB to your PATH variables\) and run the following command \(only use the -p if your root user has a password\):
+{% endhint %}
 
 ```text
 mysqladmin shutdown -uroot -p
