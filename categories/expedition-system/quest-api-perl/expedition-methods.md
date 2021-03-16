@@ -242,7 +242,7 @@ if ($dz) {
 }
 ```
 
-## `bool` IsLocked\(\) <a id="dz-remove-compass"></a>
+## `bool` IsLocked\(\) <a id="dz-is-locked"></a>
 
 Returns if the expedition is currently locked by `SetLocked`
 
