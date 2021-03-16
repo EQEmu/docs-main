@@ -242,6 +242,21 @@ if ($dz) {
 }
 ```
 
+## `bool` IsLocked\(\) <a id="dz-remove-compass"></a>
+
+Returns if the expedition is currently locked by `SetLocked`
+
+```perl
+my $dz = quest::get_expedition();
+if ($dz) {
+  if ($dz->IsLocked()) {
+    quest::debug("expedition is locked");
+  } else {
+    quest::debug("expedition is not locked");
+  }
+}
+```
+
 ## `void` RemoveCompass\(\) <a id="dz-remove-compass"></a>
 
 Removes any compass set by `SetCompass`

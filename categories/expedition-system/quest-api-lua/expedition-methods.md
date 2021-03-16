@@ -260,6 +260,21 @@ Returns whether the expedition internally has a `Replay Timer` lockout set. Shor
 local has_replay_lockout = dz:HasReplayLockout()
 ```
 
+## `bool` IsLocked\(\) <a id="dz-remove-compass"></a>
+
+Returns if the expedition is currently locked by `SetLocked`
+
+```lua
+local dz = eq.get_expedition()
+if dz.valid then
+  if dz:IsLocked() then
+    eq.debug("expedition is locked")
+  else
+    eq.debug("expedition is not locked")
+  end
+end
+```
+
 ## `void` RemoveCompass\(\) <a id="dz-remove-compass"></a>
 
 Removes any compass set by `SetCompass`

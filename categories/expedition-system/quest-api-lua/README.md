@@ -76,6 +76,7 @@
 | int | GetZoneVersion\(\) |
 | bool | HasLockout\(string event\_name\) |
 | bool | HasReplayLockout\(\) |
+| bool | IsLocked\(\) |
 | void | RemoveCompass\(\) |
 | void | RemoveLockout\(string event\_name\) |
 | void | SetCompass\(int zone\_id, float x, float y, float z\) |
