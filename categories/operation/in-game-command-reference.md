@@ -20,7 +20,7 @@ Often referred to as "GM Commands", the following commands can be allowed based 
 | \#apply_shared_memory | \[shared_memory_name\] Tells every zone and world to apply a specific shared memory segment by name. |
 | \#attack | \[targetname\] Make your NPC target attack targetname |
 | \#augmentitem | Force augments an item. Must have the augment item window open. |
-| \#ban | \[name\] \[reason\]- Ban by character name |
+| \#ban | \[name\] \[reason\] Ban by character name |
 | \#beard | Change the beard of your target |
 | \#beardcolor | Change the beard color of your target |
 | \#bestz | Ask map for a good Z coord for your x,y coords. |
@@ -36,7 +36,7 @@ Often referred to as "GM Commands", the following commands can be allowed based 
 | \#crashtest | Crash the zoneserver |
 | \#cvs | Summary of client versions currently online. |
 | \#damage | \[amount\] Damage your target |
-| \#databuckets | View\|Delete \[key\] \[limit\]- View data buckets, limit 50 default or Delete databucket by key |
+| \#databuckets | View\|Delete \[key\] \[limit\] View data buckets, limit 50 default or Delete databucket by key |
 | \#date | \[yyyy\] \[mm\] \[dd\] \[HH\] \[MM\] Set EQ time |
 | \#dbspawn2 | \[spawngroup\] \[respawn\] \[variance\] Spawn an NPC from a predefined row in the spawn2 table |
 | \#delacct | \[accountname\] Delete an account |
@@ -61,7 +61,7 @@ Often referred to as "GM Commands", the following commands can be allowed based 
 | \#equipitem | \[slotid\(0-21\)\] Equip the item on your cursor into the specified slot |
 | \#face | Change the face of your target |
 | \#faction | \[Find \(criteria | all \) | Review \(criteria | all\) | Reset \(id\)\] Resets Player's Faction |
-| \#findaliases | \[search criteria\]- Searches for available command aliases, by alias or command |
+| \#findaliases | \[search criteria\] Searches for available command aliases, by alias or command |
 | \#findnpctype | \[search criteria\] Search database NPC types |
 | \#findrace | \[search criteria\] Search for a race |
 | \#findspell | \[search criteria\] Search for a spell |
