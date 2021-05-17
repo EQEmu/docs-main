@@ -24,6 +24,7 @@
 * [Database](categories/database/README.md)
   * [Database Schema](https://eqemu.gitbook.io/database-schema/)
   * [Multi Tenancy](categories/database/multi-tenancy.md)
+  * [Database Backup Tool](categories/database/database-backup-tool.md)
 * [Expedition System](categories/expedition-system/README.md)
   * [Database](categories/expedition-system/database.md)
   * [Lockouts](categories/expedition-system/lockouts.md)
