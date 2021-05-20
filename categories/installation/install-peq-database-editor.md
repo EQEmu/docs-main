@@ -496,7 +496,7 @@ Extract the contents of the zip file to `C:\xampp\htdocs\`.
 If you would like to change the name of the PEQ Database Editor directory, now is the time.  Note that you can move the contents to the root htdocs directory.  Changing this name will effect the URL used to access the Editor.
 {% endhint %}
 
-Navigate to the `C:\xampp\htdocs\peqeditor-master\` folder.
+Navigate to the `C:\xampp\htdocs\peqphpeditor-master\` folder.
 
 Copy the file `config.php.dist` and rename it `config.php`.
 
@@ -523,7 +523,7 @@ Save your changes to the configuration file.
 
 #### Update Database Schema
 
-Navigate to the `sql` folder \(ex. `C:\xampp\htdocs\peqeditor-master\sql\`
+Navigate to the `sql` folder \(ex. `C:\xampp\htdocs\peqphpeditor-master\sql\`
 
 Open the file `schema.sql` with a text editor and copy and paste the contents into the HeidiSQL Client's query window and execute \(HeidiSQL installed when you used Akkadius' EQEmu Windows Installer Script\).
 
@@ -545,12 +545,16 @@ Also look for **error\_reporting** to turn turn off some warnings.
 error_reporting = E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED
 ```
 
+{% hint style="info" %}
+Restart \(stop/start\) your Apache service or process after any changes to .conf or .ini files
+{% endhint %}
+
 ### Navigate to your PEQ Database Editor
 
 Open a browser and navigate to your new local copy of the PEQ Database Editor \(default directory example below\):
 
 ```text
-http://localhost/peqeditor-master/index.php
+http://localhost/peqphpeditor-master/index.php
 ```
 
 Enter the default username and password: "admin" and "password".
