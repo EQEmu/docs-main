@@ -176,6 +176,7 @@
   * [Damage Shield Types](categories/spells/damage-shield-types-1.md)
   * [Element Types](categories/spells/element-types.md)
   * [Environment Types](categories/spells/environment-types.md)
+  * [GetSpellStat Identifiers](categories/spells/getspellstat-identifiers.md)
   * [NPC Spell Categories](categories/spells/npc-spell-categories.md)
   * [Numhit Types](categories/spells/numhit-types.md)
   * [Numhit Types](categories/spells/numhit-types-1.md)
