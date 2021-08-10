@@ -44,7 +44,7 @@
 | 39 | More Keys |
 | 40 | Compasses |
 | 41 | Unused |
-| 42 | Poisens |
+| 42 | Poisons |
 | 43 | Unused |
 | 44 | Unused |
 | 45 | H2H \(Hand to Hand\) |
