@@ -17,7 +17,7 @@ This wiki is a living document that is intended to replace earlier knowledge-bas
 
 | Area | Description of Content |
 | :--- | :--- |
-| [Changelog](https://eqemu.gitbook.io/changelog/years/latest-changes) | A listing of all of the changes made to the EQEmu Server code |
+| [Changelog](https://docs.eqemu.io/server/changelog/serverhttps://docs.eqemu.io/server/changelog/server) | A listing of all of the changes made to the EQEmu Server code |
 | [Database Schema](https://eqemu.gitbook.io/database-schema/) | The blueprint of how the EQEmu database is constructed |
 | [Logging System](categories/logging-system/) | Documentation of the extensive logging capabilities in EQEmu |
 | [Loginserver](https://eqemu.gitbook.io/server/categories/login-server) | Information regarding your own login server |
