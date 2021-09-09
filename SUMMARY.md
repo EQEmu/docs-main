@@ -2,6 +2,29 @@
 
 * [Welcome](README.md)
 
+## Changelog
+
+* [Server](changelog/server/README.md)
+  * [2021](changelog/server/2021.md)
+  * [2020](changelog/server/2020.md)
+  * [2019](changelog/server/2019.md)
+  * [2018](changelog/server/2018.md)
+  * [2017](changelog/server/2017.md)
+  * [2016](changelog/server/2016.md)
+  * [2015](changelog/server/2015.md)
+  * [2014](changelog/server/2014.md)
+  * [2013](changelog/server/2013.md)
+  * [2012](changelog/server/2012.md)
+  * [2011](changelog/server/2011.md)
+  * [2010](changelog/server/2010.md)
+  * [2009](changelog/server/2009.md)
+  * [2008](changelog/server/2008.md)
+  * [2007](changelog/server/2007.md)
+  * [2006](changelog/server/2006.md)
+  * [2005](changelog/server/2005.md)
+  * [2004](changelog/server/2004.md)
+  * [2003](changelog/server/2003.md)
+
 ## Categories
 
 * [AAs](categories/aas/README.md)
