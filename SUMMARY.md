@@ -200,6 +200,8 @@
   * [Task Duration Codes](categories/task-system-guide/task-duration-codes.md)
   * [Task Activity Types](categories/task-system-guide/task-activity-types.md)
   * [Task Types](categories/task-system-guide/task-types.md)
+  * [Shared Tasks](categories/task-system-guide/shared-tasks/README.md)
+    * [Example](categories/task-system-guide/shared-tasks/example.md)
 * [Zones](categories/zones/README.md)
   * [Trap Types](categories/zones/trap-types.md)
   * [LDON Themes](categories/zones/ldon-themes.md)
