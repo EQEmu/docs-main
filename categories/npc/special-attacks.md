@@ -15,7 +15,9 @@ Summon, denoted by special attack 1 or "S" \(old code\), allows you to teleport 
 
 ### **Example:** 
 
-`1,1,2,10000,90`
+```text
+1,1,2,10000,90
+```
 
 |  |  |
 | :--- | :--- |
@@ -37,9 +39,11 @@ Enrage, denoted by special attack 2 or "E" \(old code\), allows the NPC to ripos
 | Parameter 1 | Duration of Special Attack in ms | 10000 |
 | Parameter 2 | Cooldown of Special Attack in ms | 360000 |
 
-### Example:  
+### **Example:**
 
-`2,1,25,8000,60000`
+```text
+2,1,25,8000,60000
+```
 
 |  |  |
 | :--- | :--- |
@@ -66,9 +70,11 @@ Rampage, denoted by special attack 3 or "R" \(old code\), allows the NPC to atta
 | Parameter 6 | Percent of natural crit used by this Special Attack | 100 |
 | Parameter 7 | Flat crit bonus to add to base crit for the Special Attack | 0 |
 
-### Example:  
+### **Example:**
 
-`3,1,15,1,75`
+```text
+3,1,15,1,75
+```
 
 |  |  |
 | :--- | :--- |
@@ -95,9 +101,11 @@ Area Rampage, denoted by special attack 4 or "r" \(old code\), allows the NPC to
 | Parameter 6 | Percent of natural crit used by this Special Attack | 100 |
 | Parameter 7 | Flat crit bonus to add to base crit for the Special Attack | 0 |
 
-### Example:  
+### **Example:**
 
-`4,1,15,-1,75`
+```text
+4,1,15,-1,75
+```
 
 |  |  |
 | :--- | :--- |
@@ -124,9 +132,11 @@ Flurry, denoted by special attack 5 or "F" \(old code\), allows the NPC to have 
 | Parameter 6 | Percent of natural crit used by this Special Attack | 100 |
 | Parameter 7 | Flat crit bonus to add to base crit for the Special Attack | 0 |
 
-### Example:  
+### **Example:**
 
-`5,1,25,5,50`
+```text
+5,1,25,5,50
+```
 
 |  |  |
 | :--- | :--- |
@@ -146,9 +156,11 @@ Triple Attack, denoted by special attack 6 or "T" \(old code\), allows the NPC t
 | :--- | :--- | :--- |
 | Bool | 1 = on, 0 = off | 0 |
 
-### Example:  
+### **Example:**
 
-`6,1`
+```text
+6,1
+```
 
 |  |  |
 | :--- | :--- |
@@ -165,9 +177,11 @@ Quad Attack, denoted by special attack 7 or "Q" \(old code\), allows the NPC to 
 | :--- | :--- | :--- |
 | Bool | 1 = on, 0 = off | 0 |
 
-### Example:  
+### **Example:**
 
-`7,1`
+```text
+7,1
+```
 
 |  |  |
 | :--- | :--- |
@@ -184,9 +198,11 @@ Dual Wield, denoted by special attack 8 or "L" \(old code\), allows the NPC to u
 | :--- | :--- | :--- |
 | Bool | 1 = on, 0 = off | 0 |
 
-### Example:  
+### **Example:**
 
-`8,1`
+```text
+8,1
+```
 
 |  |  |
 | :--- | :--- |
@@ -203,9 +219,11 @@ Bane Attack, denoted by special attack 9 or "b" \(old code\), gives the NPC the 
 | :--- | :--- | :--- |
 | Bool | 1 = on, 0 = off | 0 |
 
-### Example:  
+### **Example:**
 
-`9,1`
+```text
+9,1
+```
 
 |  |  |
 | :--- | :--- |
@@ -222,9 +240,11 @@ Magical Attack, denoted by special attack 10 or "m" \(old code\), gives the NPC 
 | :--- | :--- | :--- |
 | Bool | 1 = on, 0 = off | 0 |
 
-### Example:  
+### **Example:**
 
-`10,1`
+```text
+10,1
+```
 
 |  |  |
 | :--- | :--- |
@@ -244,9 +264,11 @@ Ranged Attack, denoted by special attack 11 or "Y" \(old code\), gives the NPC t
 | Parameter 2 | Percent hit chance modifier | 0 |
 | Parameter 3 | Percent damage modifier | 0 |
 
-### Example:  
+### **Example:**
 
-`11,1,50`
+```text
+11,1,50
+```
 
 |  |  |
 | :--- | :--- |
@@ -264,9 +286,11 @@ Unslowable, denoted by special attack 12 or "U" \(old code\), makes the NPC immu
 | :--- | :--- | :--- |
 | Bool | 1 = on, 0 = off | 0 |
 
-### Example:  
+### **Example:**
 
-`12,1`
+```text
+12,1
+```
 
 |  |  |
 | :--- | :--- |
@@ -283,9 +307,11 @@ Unmezable, denoted by special attack 13 or "M" \(old code\), makes the NPC immun
 | :--- | :--- | :--- |
 | Bool | 1 = on, 0 = off | 0 |
 
-### Example:  
+### **Example:**
 
-`13,1`
+```text
+13,1
+```
 
 |  |  |
 | :--- | :--- |
@@ -302,9 +328,11 @@ Uncharmable, denoted by special attack 14 or "C" \(old code\), makes the NPC imm
 | :--- | :--- | :--- |
 | Bool | 1 = on, 0 = off | 0 |
 
-### Example:  
+### **Example:**
 
-`14,1`
+```text
+14,1
+```
 
 |  |  |
 | :--- | :--- |
@@ -321,9 +349,11 @@ Unstunable, denoted by special attack 15 or "N" \(old code\), makes the NPC immu
 | :--- | :--- | :--- |
 | Bool | 1 = on, 0 = off | 0 |
 
-### Example:  
+### **Example:**
 
-`15,1`
+```text
+15,1
+```
 
 |  |  |
 | :--- | :--- |
@@ -340,9 +370,11 @@ Unsnareable, denoted by special attack 16 or "I" \(old code\), makes the NPC imm
 | :--- | :--- | :--- |
 | Bool | 1 = on, 0 = off | 0 |
 
-### Example:  
+### **Example:**
 
-`16,1`
+```text
+16,1
+```
 
 |  |  |
 | :--- | :--- |
@@ -359,9 +391,11 @@ Unfearable, denoted by special attack 17 or "D" \(old code\), makes the NPC immu
 | :--- | :--- | :--- |
 | Bool | 1 = on, 0 = off | 0 |
 
-### Example:  
+### **Example:**
 
-`17,1`
+```text
+17,1
+```
 
 |  |  |
 | :--- | :--- |
@@ -378,9 +412,11 @@ Immune to Dispell, denoted by special attack 18 or "K" \(old code\), makes the N
 | :--- | :--- | :--- |
 | Bool | 1 = on, 0 = off | 0 |
 
-### Example:  
+### **Example:**
 
-`18,1`
+```text
+18,1
+```
 
 |  |  |
 | :--- | :--- |
@@ -397,9 +433,11 @@ Immune to Melee, denoted by special attack 19 or "A" \(old code\), makes the NPC
 | :--- | :--- | :--- |
 | Bool | 1 = on, 0 = off | 0 |
 
-### Example:  
+### **Example:**
 
-`19,1`
+```text
+19,1
+```
 
 |  |  |
 | :--- | :--- |
@@ -416,9 +454,11 @@ Immune to Magic, denoted by special attack 20 or "B" \(old code\), makes the NPC
 | :--- | :--- | :--- |
 | Bool | 1 = on, 0 = off | 0 |
 
-### Example:  
+### **Example:**
 
-`20,1`
+```text
+20,1
+```
 
 |  |  |
 | :--- | :--- |
@@ -435,9 +475,11 @@ Immune to Fleeing, denoted by special attack 21 or "f" \(old code\), prevents th
 | :--- | :--- | :--- |
 | Bool | 1 = on, 0 = off | 0 |
 
-### Example:  
+### **Example:**
 
-`21,1`
+```text
+21,1
+```
 
 |  |  |
 | :--- | :--- |
@@ -454,9 +496,11 @@ Immune to Non-Bane Damage, denoted by special attack 22 or "O" \(old code\), pre
 | :--- | :--- | :--- |
 | Bool | 1 = on, 0 = off | 0 |
 
-### Example:  
+### **Example:**
 
-`22,1`
+```text
+22,1
+```
 
 |  |  |
 | :--- | :--- |
@@ -473,9 +517,11 @@ Immune to Non-Magical Damage, denoted by special attack 23 or "W" \(old code\), 
 | :--- | :--- | :--- |
 | Bool | 1 = on, 0 = off | 0 |
 
-### Example:  
+### **Example:**
 
-`23,1`
+```text
+23,1
+```
 
 |  |  |
 | :--- | :--- |
@@ -492,9 +538,11 @@ Will Not Aggro, denoted by special attack 24 or "H" \(old code\), prevents a pla
 | :--- | :--- | :--- |
 | Bool | 1 = on, 0 = off | 0 |
 
-### Example:  
+### **Example:**
 
-`24,1`
+```text
+24,1
+```
 
 |  |  |
 | :--- | :--- |
@@ -511,9 +559,11 @@ Immune to Aggro, denoted by special attack 25 or "G" \(old code\), prevents the 
 | :--- | :--- | :--- |
 | Bool | 1 = on, 0 = off | 0 |
 
-### Example:  
+### **Example:**
 
-`25,1`
+```text
+25,1
+```
 
 |  |  |
 | :--- | :--- |
@@ -530,9 +580,11 @@ Resist Ranged Spells, denoted by special attack 26 or "g" \(old code\), prevents
 | :--- | :--- | :--- |
 | Bool | 1 = on, 0 = off | 0 |
 
-### Example:  
+### **Example:**
 
-`26,1`
+```text
+26,1
+```
 
 |  |  |
 | :--- | :--- |
@@ -545,9 +597,11 @@ Resist Ranged Spells, denoted by special attack 26 or "g" \(old code\), prevents
 | :--- | :--- | :--- |
 | Bool | 1 = on, 0 = off | 0 |
 
-### Example:  
+### **Example:**
 
-`27,1`
+```text
+27,1
+```
 
 |  |  |
 | :--- | :--- |
@@ -564,9 +618,11 @@ Immune to Taunt, denoted by special attack 28 or "i" \(old code\), prevents the 
 | :--- | :--- | :--- |
 | Bool | 1 = on, 0 = off | 0 |
 
-### Example:  
+### **Example:**
 
-`28,1`
+```text
+28,1
+```
 
 |  |  |
 | :--- | :--- |
@@ -583,9 +639,11 @@ Tunnel Vision, denoted by special attack 29 or "t" \(old code\), makes anyone no
 | :--- | :--- | :--- |
 | Parameter 0 | aggro modifier | Rule: Aggro:TunnelVisionAggroMod |
 
-### Example:  
+### **Example:**
 
-`29,1,0`
+```text
+29,1,0
+```
 
 |  |  |
 | :--- | :--- |
@@ -603,9 +661,11 @@ Does NOT buff/heal friends, denoted by special attack 30 or "n" \(old code\), ma
 | :--- | :--- | :--- |
 | Bool | 1 = on, 0 = off | 0 |
 
-### Example:  
+### **Example:**
 
-`30,1`
+```text
+30,1
+```
 
 |  |  |
 | :--- | :--- |
@@ -622,9 +682,11 @@ Unpacifiable, denoted by special attack 31 or "p" \(old code\), makes the NPC im
 | :--- | :--- | :--- |
 | Bool | 1 = on, 0 = off | 0 |
 
-### Example:  
+### **Example:**
 
-`31,1`
+```text
+31,1
+```
 
 |  |  |
 | :--- | :--- |
@@ -643,9 +705,11 @@ Leashed, denoted by special attack 32 or "J" \(old code\), makes the NPC return 
 | :--- | :--- | :--- |
 | Parameter 0 | range | aggro range \* aggro range |
 
-### Example:  
+### **Example:**
 
-`32,1,150`
+```text
+32,1,150
+```
 
 |  |  |
 | :--- | :--- |
@@ -663,9 +727,11 @@ Tethered, denoted by special attack 33 or "j" \(old code\), is used to leashe th
 | :--- | :--- | :--- |
 | Parameter 0 | range | aggro range \* aggro range |
 
-### Example:  
+### **Example:**
 
-`33,1,100`
+```text
+33,1,100
+```
 
 |  |  |
 | :--- | :--- |
@@ -683,9 +749,11 @@ Destructible Object, denoted by special attack 34 or "o" \(old code\), is used o
 | :--- | :--- | :--- |
 | Bool | 1 = on, 0 = off | 0 |
 
-### Example:  
+### **Example:**
 
-`34,1`
+```text
+34,1
+```
 
 |  |  |
 | :--- | :--- |
@@ -702,9 +770,11 @@ No Harm from Players, denoted by special attack 35 or "Z" \(old code\), prevents
 | :--- | :--- | :--- |
 | Bool | 1 = on, 0 = off | 0 |
 
-### Example:  
+### **Example:**
 
-`35,1`
+```text
+35,1
+```
 
 |  |  |
 | :--- | :--- |
@@ -721,9 +791,11 @@ Always Flee, denoted by special attack 36, makes the NPC flee at low health even
 | :--- | :--- | :--- |
 | Bool | 1 = on, 0 = off | 0 |
 
-### Example:  
+### **Example:**
 
-`36,1`
+```text
+36,1
+```
 
 |  |  |
 | :--- | :--- |
@@ -741,9 +813,11 @@ Flee Percentage, denoted by special attack 37, makes the NPC flee at low health 
 | Level 1 | Percent NPC will flee at |  |
 | Parameter 0 | Percent chance to flee |  |
 
-### Example:  
+### **Example:**
 
-`37,10`
+```text
+37,10
+```
 
 |  |  |
 | :--- | :--- |
@@ -760,9 +834,11 @@ Allow Beneficial, denoted by special attack 38, allows players to cast beneficia
 | :--- | :--- | :--- |
 | Bool | 1 = on, 0 = off | 0 |
 
-### Example:  
+### **Example:**
 
-`38,1`
+```text
+38,1
+```
 
 |  |  |
 | :--- | :--- |
@@ -779,9 +855,11 @@ Disable Melee, denoted by special attack 39, makes the NPC unable to melee, but 
 | :--- | :--- | :--- |
 | Bool | 1 = on, 0 = off | 0 |
 
-### Example:  
+### **Example:**
 
-`39,1`
+```text
+39,1
+```
 
 |  |  |
 | :--- | :--- |
@@ -800,9 +878,11 @@ Chase Distance, denoted by special attack 40, establishes the minimum and maximu
 | Parameter 1 | Minimum chase distance |  |
 | Parameter 2 | Ignore line of sight |  |
 
-### Example:  
+### **Example:**
 
-`40,1,200,20`
+```text
+40,1,200,20
+```
 
 |  |  |
 | :--- | :--- |
@@ -821,9 +901,11 @@ Allow Tank, denoted by special attack 41, sets the NPC to allow other NPCs to ta
 | :--- | :--- | :--- |
 | Bool | 1 = on, 0 = off | 0 |
 
-### Example:  
+### **Example:**
 
-`41,1`
+```text
+41,1
+```
 
 |  |  |
 | :--- | :--- |
@@ -840,9 +922,11 @@ Ignore Root Aggro, denoted by special attack 42, sets the NPC to ignore the rule
 | :--- | :--- | :--- |
 | Bool | 1 = on, 0 = off | 0 |
 
-### Example:  
+### **Example:**
 
-`42,1`
+```text
+42,1
+```
 
 |  |  |
 | :--- | :--- |
@@ -859,9 +943,11 @@ Casting Resist Diff, denoted by special attack 43, makes the NPC's spells cast a
 | :--- | :--- | :--- |
 | Parameter 0 | Flat modifier to the resist diff of the spell | 0 |
 
-### Example:  
+### **Example:**
 
-`43,1,-200`
+```text
+43,1,-200
+```
 
 |  |  |
 | :--- | :--- |
@@ -883,9 +969,11 @@ Counter Avoid Damage, denoted by special attack 44, makes the NPC more likely to
 | Parameter 3 | Flat negative percent modifier to Block skill | 0 |
 | Parameter 4 | Flat negative percent modifier to Dodge skill | 0 |
 
-### Examples:  
+### **Examples:**** 
 
-`44,1,50`
+```text
+44,1,50
+```
 
 |  |  |
 | :--- | :--- |
@@ -893,7 +981,9 @@ Counter Avoid Damage, denoted by special attack 44, makes the NPC more likely to
 | 1 | Special Attack "Counter Avoid Damage" enabled |
 | 50 | 50 percent reduction to ALL avoidance skills |
 
-`44,1,0,0,0,0,50`
+```text
+44,1,0,0,0,0,50
+```
 
 |  |  |
 | :--- | :--- |
@@ -911,7 +1001,7 @@ Counter Avoid Damage, denoted by special attack 44, makes the NPC more likely to
 Proximity Aggro, denoted by special attack 45, allows the NPC to engage new clients while in combat if the client is within their proximity.
 {% endhint %}
 
-### Example:
+### **Example:**
 
 ```text
 45,1
@@ -928,7 +1018,7 @@ Proximity Aggro, denoted by special attack 45, allows the NPC to engage new clie
 Immune Ranged Attacks, denoted by special attack 46, makes the NPC immune to ranged attacks.
 {% endhint %}
 
-### Example:
+### **Example:**
 
 ```text
 46,1
@@ -945,7 +1035,7 @@ Immune Ranged Attacks, denoted by special attack 46, makes the NPC immune to ran
 Immune Client Damage, denoted by special attack 47, makes the NPC immune to damage by clients.
 {% endhint %}
 
-### Example:
+### **Example:**
 
 ```text
 47,1
@@ -962,7 +1052,7 @@ Immune Client Damage, denoted by special attack 47, makes the NPC immune to dama
 Immune NPC Damage, denoted by special attack 48, makes the NPC immune to damage by NPCs.
 {% endhint %}
 
-### Example:
+### **Example:**
 
 ```text
 48,1
@@ -979,7 +1069,7 @@ Immune NPC Damage, denoted by special attack 48, makes the NPC immune to damage 
 Immune Client Aggro, denoted by special attack 49, makes the NPC immune to aggro by clients.
 {% endhint %}
 
-### Example:
+### **Example:**
 
 ```text
 49,1
@@ -996,7 +1086,7 @@ Immune Client Aggro, denoted by special attack 49, makes the NPC immune to aggro
 Immune NPC Aggro, denoted by special attack 50, makes the NPC immune to aggro by NPCs.
 {% endhint %}
 
-### Example:
+### **Example:**
 
 ```text
 50,1
