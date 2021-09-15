@@ -13,7 +13,7 @@ Summon, denoted by special attack 1 or "S" \(old code\), allows you to teleport 
 | Parameter 0 | Cooldown in ms | 6000 |
 | Parameter 1 | HP ratio required to summon | 97 |
 
-### **Example:** 
+### **Example:**
 
 ```text
 1,1,2,10000,90
@@ -699,8 +699,6 @@ Unpacifiable, denoted by special attack 31 or "p" \(old code\), makes the NPC im
 Leashed, denoted by special attack 32 or "J" \(old code\), makes the NPC return to their aggro point, fully heal, and wipes their hate list if the NPC is pulled out of a particular range.
 {% endhint %}
 
-
-
 | Settings |  | Defaults |
 | :--- | :--- | :--- |
 | Parameter 0 | range | aggro range \* aggro range |
@@ -969,7 +967,7 @@ Counter Avoid Damage, denoted by special attack 44, makes the NPC more likely to
 | Parameter 3 | Flat negative percent modifier to Block skill | 0 |
 | Parameter 4 | Flat negative percent modifier to Dodge skill | 0 |
 
-### **Examples:**** 
+### **Examples:\*\***
 
 ```text
 44,1,50
@@ -1096,6 +1094,4 @@ Immune NPC Aggro, denoted by special attack 50, makes the NPC immune to aggro by
 | :--- | :--- |
 | 50 | Special Attack "Immune NPC Aggro" |
 | 1 | Special Attack "Immune NPC Aggro" enabled |
-
-
 

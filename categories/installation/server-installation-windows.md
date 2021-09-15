@@ -35,7 +35,7 @@ More installer info found in the installation details
 
 ### **Download**
 
-First you will need to download the starter files that will kick off the installation process found here: [EQEmu Server Installer Files](http://analytics.akkadius.com/dl/eqemu_installer_files_x64.zip)
+First you will need to download the starter files that will kick off the installation process found here: [EQEmu Server Installer Files](https://github.com/Akkadius/eqemu-install-v2/releases/download/1.0/eqemu_installer_files_x64.zip)
 
 ![](../../.gitbook/assets/image%20%287%29.png)
 
