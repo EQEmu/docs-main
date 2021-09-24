@@ -21,7 +21,7 @@ A current list can be found in [server/common/languages.h](https://github.com/EQ
 | 14 | Goblin |
 | 15 | Gnoll |
 | 16 | Combine Tonuge |
-| 17 | ELder Teirdal |
+| 17 | Elder Teirdal |
 | 18 | Lizardman |
 | 19 | Orcish |
 | 20 | Faerie |
