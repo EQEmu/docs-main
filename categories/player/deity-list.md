@@ -6,7 +6,7 @@ This list is used in quest API calls like the following:
 
 | **Deity** | **Deity ID** | **Deity Bitmask** |
 | :--- | :--- | :--- |
-| Agnostic | 140 | 1 |
+| Agnostic | 140 or 396 | 1 |
 | Bertoxxulous | 201 | 2 |
 | Brell Serilis | 202 | 4 |
 | Cazic Thule | 203 | 8 |
