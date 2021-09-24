@@ -243,6 +243,7 @@
     * [WLD File Reference](categories/zones/customizing-zones/wld-file-reference.md)
     * [XMI to MIDI Converter](categories/zones/customizing-zones/xmi-to-midi-converter.md)
     * [Zone Utility Tools](categories/zones/customizing-zones/zone-utility-tools.md)
+  * [Zone Header Identifiers](categories/zones/zone-header-identifiers.md)
   * [Zone List](categories/zones/zone-list.md)
   * [Zone Types](categories/zones/zone-types.md)
 
