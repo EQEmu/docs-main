@@ -1,5 +1,5 @@
 ---
-description: EQEMU provides a lua mod system to let you override default logic concluded.
+description: EQEMU provides a lua mod system to let you override default game logic
 ---
 
 # Lua Mods
@@ -10,9 +10,21 @@ In your eqemu server root directory \(where zone, world, shared\_memory etc exis
 
 On linux, ensure mods and scripts are chmod 755
 
-\#reloadscript
-
 Ensure load\_order.txt exists under mods, and refers to any hooks that need to be loaded.
 
 Most functions have a e.IgnoreDefault boolean that by default is false. If set to true, you can override all default logic and inject your own.
+
+\#reloadscript can be used to reload the scripts in your zone to reflect your latest changes. Be sure to \#reloadallscripts once you finalize your setup and want it to go across all zones.
+
+| Function | Description |
+| :--- | :--- |
+| CheckHitChance |  |
+| AvoidDamage |  |
+| MeleeMitigation |  |
+| TryCriticalHit |  |
+| ApplyDamageTable |  |
+| CommonOutgoingHitSuccess |  |
+| GetExperienceForKill |  |
+| GetEXPForLevel |  |
+| GetRequiredAAExperience |  |
 
