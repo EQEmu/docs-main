@@ -235,6 +235,7 @@
   * [Environment Emitters](categories/zones/environment-emitters.md)
   * [Adjusting Zone Shutdown Delay](categories/zones/adjusting-zone-shutdown-delay.md)
   * [Customizing Zones](categories/zones/customizing-zones/README.md)
+    * [Custom Zone Making](categories/zones/customizing-zones/custom-zone-making.md)
     * [Fog System and Clip Plane](categories/zones/customizing-zones/fog-system-and-clip-plane.md)
     * [GL Model Viewer](categories/zones/customizing-zones/gl-model-viewer.md)
     * [List Objects Tool](categories/zones/customizing-zones/list-objects-tool.md)
