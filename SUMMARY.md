@@ -177,6 +177,7 @@
   * [Troubleshooting](categories/installation/troubleshooting.md)
   * [VSCode Dev Container Environment](categories/installation/vscode-dev-container-environment.md)
 * [Scripting](categories/scripting/README.md)
+  * [Lua Mods](categories/scripting/lua-mods.md)
   * [Emote Colors](categories/scripting/emote-colors.md)
   * [Encounters \(Lua\)](categories/scripting/encounters-lua.md)
   * [Entity Lists](categories/scripting/entity-lists.md)
