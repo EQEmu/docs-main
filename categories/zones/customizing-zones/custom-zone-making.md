@@ -4,7 +4,7 @@ description: This guide covers custom zone making and the tooling available
 
 # Custom Zone Making
 
-Currently, one of the most developed ways to do custom zones with the OpenZone tool. There are many tools available to export original EQ zones to various formats, but making zones is an area not as heavily developed. 
+Currently, one of the most developed ways to do custom zones is with the OpenZone tool. There are many tools available to export original EQ zones to various formats, but making zones is an area not as heavily developed. 
 
 ### Making Zone Options
 
