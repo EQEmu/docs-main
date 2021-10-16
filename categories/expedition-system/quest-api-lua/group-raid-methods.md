@@ -2,18 +2,18 @@
 
 ## Group methods
 
-### `bool` DoesAnyMemberHaveExpeditionLockout\(string expedition\_name, string event\_name, int max\_check\_count = 0\)
+### `bool` DoesAnyMemberHaveExpeditionLockout(string expedition_name, string event_name, int max_check_count = 0)
 
 Returns true if any group member has the specified lockout.
 
 Passing a non-zero `max_check_count` will limit to checking that number of group members in no guaranteed order.
 
-See Raid::DoesAnyMemberHaveExpeditionLockout for example.   
+See Raid::DoesAnyMemberHaveExpeditionLockout for example. \
 
 
 ## Raid methods
 
-### `bool` DoesAnyMemberHaveExpeditionLockout\(string expedition\_name, string event\_name, int max\_check\_count = 0\)
+### `bool` DoesAnyMemberHaveExpeditionLockout(string expedition_name, string event_name, int max_check_count = 0)
 
 Returns true if any raid member has the specified lockout.
 
@@ -36,4 +36,3 @@ else
   local expedition = e.other:CreateExpedition("zone", 0, 36000, "foo", 6, 54)
 end
 ```
-

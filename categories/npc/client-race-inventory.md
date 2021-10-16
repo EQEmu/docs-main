@@ -1,23 +1,27 @@
 # Client Race Inventory
 
-This work has been completed by [Shendare](https://github.com/Shendare), who has endeavored to create a complete [EverQuest Client Race Inventory](http://www.shendare.com/EQ/Emu/EQRI/) \(external links\).  It is included \(and plagiarized!\) here as a reference and to provide the ability for Server Operators to explore models to customize their server.
+This work has been completed by [Shendare](https://github.com/Shendare), who has endeavored to create a complete [EverQuest Client Race Inventory](http://www.shendare.com/EQ/Emu/EQRI/) (external links).  It is included (and plagiarized!) here as a reference and to provide the ability for Server Operators to explore models to customize their server.
 
 ## Download
 
 You can download the program from the link below:
 
-{% file src="../../.gitbook/assets/eqri.zip" caption="Compiled binary - EQRI.exe" %}
+{% file src="../../.gitbook/assets/eqri.zip" %}
+Compiled binary - EQRI.exe
+{% endfile %}
 
 ## Source
 
 You can download the source files from the link below:
 
-{% file src="../../.gitbook/assets/eqri\_source.zip" caption="Source Code" %}
+{% file src="../../.gitbook/assets/eqri_source.zip" %}
+Source Code
+{% endfile %}
 
 ## How to use the program
 
 {% hint style="info" %}
-Note: Only Titanium, SoF, and RoF2 \(Rain of Fear, Steam Release \#2\) are currently supported!
+Note: Only Titanium, SoF, and RoF2 (Rain of Fear, Steam Release #2) are currently supported!
 {% endhint %}
 
 Unzip EQRI.exe into your EQ directory, or create a new folder inside your EQ directory called "EQRI", and unzip the program into that. Technically, it can be unzipped to and run from anywhere, with the following caveats:
@@ -36,13 +40,13 @@ Then the program will know where to look for the EQ files if it can't find them 
 
 Either way, it's just a matter of running EQRI.exe, either with a double-click or from the command line.
 
-After less than a minute, you'll have a fresh set of references in the EQRI folder detailing the race/model availability as currently configured in your EQ installation \(Version\_EQRaces.htm and Version\_EQZones.htm\).
+After less than a minute, you'll have a fresh set of references in the EQRI folder detailing the race/model availability as currently configured in your EQ installation (Version_EQRaces.htm and Version_EQZones.htm).
 
 Press any key once the program is finished to exit.
 
 You'll see the important info echoed to the console, while a very detailed log file is generated in the EQRI folder along with the references.
 
-The references are built completely from the EQ source files. If you make a change to a ZoneName\_chr.txt file or Resources\GlobalLoad.txt, the changes will be reflected in the results!
+The references are built completely from the EQ source files. If you make a change to a ZoneName_chr.txt file or Resources\GlobalLoad.txt, the changes will be reflected in the results!
 
 NOTE: The program must have write permission in the EQ directory to create the output files in the EQRI folder. In some Windows versions and configurations, this may require you to run the program as an Administrator. Alternatively, you can specify a different write-enabled output folder path in the EQRI.ini file as follows:
 
@@ -52,24 +56,24 @@ NOTE: The program must have write permission in the EQ directory to create the o
 
 ### **Preparation**
 
-1. Reads textual information from eqstr\_us.txt and dbstr\_us.txt for reference later
+1. Reads textual information from eqstr_us.txt and dbstr_us.txt for reference later
 2. Reads eqgame.exe's hard-coded list of race/gender model codes by parsing the appropriate block of its machine code
-3. Reads eqgame.exe's hard-coded list of zones and their associated information fields \(nick, name, expansion, minimum level, etc.\) similarly
+3. Reads eqgame.exe's hard-coded list of zones and their associated information fields (nick, name, expansion, minimum level, etc.) similarly
 
 ### **Model Availability Loading**
 
-1. Uses a hard-coded list of Luclin-enabled models \(global5\_chr\[2\], frog\_mount\_chr, and globalXXX\_chr\[2\] for playable races\)
+1. Uses a hard-coded list of Luclin-enabled models (global5\_chr\[2], frog_mount_chr, and globalXXX_chr\[2] for playable races)
 2. Parses Resources\GlobalLoad.txt for remaining global model sources
-3. Using the Zone list, parses all ZoneNick\_chr\[2\].s3d files for zone-local models
-4. Using the Zone list, parses all ZoneNick\_chr.txt files for zone models imported from EQGs, S3Ds, and other zones
-5. Looks for any race/gender models that aren't being referenced in a .S3D or ZoneNick\_chr.txt file \("orphan models"\), and looks for a ModelCode\_chr.s3d or ModelCode.eqg file for it
+3. Using the Zone list, parses all ZoneNick_chr\[2].s3d files for zone-local models
+4. Using the Zone list, parses all ZoneNick_chr.txt files for zone models imported from EQGs, S3Ds, and other zones
+5. Looks for any race/gender models that aren't being referenced in a .S3D or ZoneNick_chr.txt file ("orphan models"), and looks for a ModelCode_chr.s3d or ModelCode.eqg file for it
 
 ### **Model Information Loading**
 
 For every race/gender model it comes across:
 
 1. Logs the source file it came from and the zone it's available in
-2. Parses an S3D file's inner .WLD file to log each model's Texture and Head \(AKA HelmTexture\) variations
+2. Parses an S3D file's inner .WLD file to log each model's Texture and Head (AKA HelmTexture) variations
    1. Note: S3D/WLD parsing is monumentally more complicated than it sounds. The WLD format is cryptic, clunky, ambiguous, and difficult to load consistent, reliable information from. Most of the development time on this program was devoted to figuring out how to interpret the WLD data. Mad props to Windcatcher for his wlddoc.pdf and Pascal source code, which made this possible!
 3. Parses EQG files and interprets Textures, Heads, and other variations based on texture filenames used
    1. Note: I didn't find file format information for the .MOD and .MDS files that make up EQG race models. Fortunately, the devs were decently consistent with the filename convention for textures used in models, and I was able to extrapolate everything needed for Texture and Head variations from those, with a little interpreting.
@@ -78,7 +82,7 @@ For every race/gender model it comes across:
 
 1. Races: Builds a reference HTML file of all races the client can render, listing model codes, variations, sources, and the zones configured to load each model
 2. Zones: Builds a reference HTML file of all zones the client can handle, listing names, expansion requirements, bit flags, minimum level to enter, and what race models are available for rendering
-3. Zones: Also lists all global models and sources, along with their variations and what makes them global \(Luclin models loaded, Resources\GlobalLoad.txt, etc.\)
+3. Zones: Also lists all global models and sources, along with their variations and what makes them global (Luclin models loaded, Resources\GlobalLoad.txt, etc.)
 
 ## Example Output
 
@@ -90,7 +94,7 @@ The example below demonstrates the output for Race 1 - Human.
 
 {% tabs %}
 {% tab title="Titanium" %}
-## Race \# 1 - Human, Plural 'Humans' \(Playable\)
+## Race # 1 - Human, Plural 'Humans' (Playable)
 
 **Model Codes:**
 
@@ -100,16 +104,23 @@ The example below demonstrates the output for Race 1 - Human.
 
 **Model availability:**
 
-* Via Source: globalhum\_chr.s3d \(Loaded with Luclin models\) - Model **HUM** - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Beards: **00-05** 
-  * **All Zones** \(**Global**\)
-* Via Source: globalhuf\_chr.s3d \(Loaded with Luclin models\) - Model **HUF** - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03** 
-  * **All Zones** \(**Global**\)
-* Via Source: global\_chr.s3d \(Loaded via GlobalLoad.txt\) - Model **HUM** - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07** - Model **HUF** - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07** 
-  * **All Zones** \(**Global**\)
+* Via Source: globalhum_chr.s3d (Loaded with Luclin models)\
+  \- Model **HUM** - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Beards: **00-05**\
+
+  * **All Zones** (**Global**)
+* Via Source: globalhuf_chr.s3d (Loaded with Luclin models)\
+  \- Model **HUF** - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**\
+
+  * **All Zones** (**Global**)
+* Via Source: global_chr.s3d (Loaded via GlobalLoad.txt)\
+  \- Model **HUM** - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**\
+  \- Model **HUF** - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**\
+
+  * **All Zones** (**Global**)
 {% endtab %}
 
 {% tab title="SoF" %}
-## Race \# 1 - Human, Plural 'Humans' \(Playable\)
+## Race # 1 - Human, Plural 'Humans' (Playable)
 
 **Character Creation Description:**
 
@@ -123,16 +134,23 @@ The strength of the Human race lies in its diversity of tought, belief, and prof
 
 **Model availability:**
 
-* Via Source: globalhum\_chr.s3d \(Loaded with Luclin models\) - Model **HUM** - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Beards: **00-05** 
-  * **All Zones** \(**Global**\)
-* Via Source: globalhuf\_chr.s3d \(Loaded with Luclin models\) - Model **HUF** - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03** 
-  * **All Zones** \(**Global**\)
-* Via Source: global\_chr.s3d \(Loaded via GlobalLoad.txt\) - Model **HUM** - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07** - Model **HUF** - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07** 
-  * **All Zones** \(**Global**\)
+* Via Source: globalhum_chr.s3d (Loaded with Luclin models)\
+  \- Model **HUM** - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Beards: **00-05**\
+
+  * **All Zones** (**Global**)
+* Via Source: globalhuf_chr.s3d (Loaded with Luclin models)\
+  \- Model **HUF** - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**\
+
+  * **All Zones** (**Global**)
+* Via Source: global_chr.s3d (Loaded via GlobalLoad.txt)\
+  \- Model **HUM** - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**\
+  \- Model **HUF** - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**\
+
+  * **All Zones** (**Global**)
 {% endtab %}
 
 {% tab title="RoF2" %}
-## Race \# 1 - Human, Plural 'Humans' \(Playable\)
+## Race # 1 - Human, Plural 'Humans' (Playable)
 
 **Character Creation Description:**
 
@@ -146,12 +164,19 @@ The strength of the Human race lies in its diversity of thought, belief, and pro
 
 **Model availability:**
 
-* Via Source: globalhum\_chr.s3d \(Loaded with Luclin models\) - Model **HUM** - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Beards: **00-05** 
-  * **All Zones** \(**Global**\)
-* Via Source: globalhuf\_chr.s3d \(Loaded with Luclin models\) - Model **HUF** - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03** 
-  * **All Zones** \(**Global**\)
-* Via Source: global\_chr.s3d \(Loaded via GlobalLoad.txt\) - Model **HUM** - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07** - Model **HUF** - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07** 
-  * **All Zones** \(**Global**\)
+* Via Source: globalhum_chr.s3d (Loaded with Luclin models)\
+  \- Model **HUM** - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Beards: **00-05**\
+
+  * **All Zones** (**Global**)
+* Via Source: globalhuf_chr.s3d (Loaded with Luclin models)\
+  \- Model **HUF** - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**\
+
+  * **All Zones** (**Global**)
+* Via Source: global_chr.s3d (Loaded via GlobalLoad.txt)\
+  \- Model **HUM** - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**\
+  \- Model **HUF** - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**\
+
+  * **All Zones** (**Global**)
 {% endtab %}
 {% endtabs %}
 
@@ -163,503 +188,503 @@ The example below demonstrates the output for zone 0 - Globals:
 {% tab title="Titanium" %}
 ## Globally Available Race Models
 
-* **Source:** global7\_chr.s3d \(Loaded when Luclin models disabled\)
-  * **KEF** - Vah Shir Female \(Race 130, Gender 1\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
-  * **KEM** - Vah Shir Male \(Race 130, Gender 0\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
-* **Source:** globalhum\_chr.s3d \(Loaded with Luclin models\)
-  * **HUM** - Human Male \(Race 1, Gender 0\) - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Beards: **00-05**
-* **Source:** globalhuf\_chr.s3d \(Loaded with Luclin models\)
-  * **HUF** - Human Female \(Race 1, Gender 1\) - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**
-* **Source:** globalbam\_chr.s3d \(Loaded with Luclin models\)
-  * **BAM** - Barbarian Male \(Race 2, Gender 0\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Beards: **00-05**, Tattoo: **00-08**
-* **Source:** globalbaf\_chr.s3d \(Loaded with Luclin models\)
-  * **BAF** - Barbarian Female \(Race 2, Gender 1\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Tattoo: **00-08**
-* **Source:** globalerm\_chr.s3d \(Loaded with Luclin models\)
-  * **ERM** - Erudite Male \(Race 3, Gender 0\) - Textures: **00-03, 10-16**, Heads: **00-04**, Faces: **00-07**, Hair: **00-05**, Beards: **00-05**
-* **Source:** globalerf\_chr.s3d \(Loaded with Luclin models\)
-  * **ERF** - Erudite Female \(Race 3, Gender 1\) - Textures: **00-03, 10-16**, Heads: **00-04**, Faces: **00-07**, Hair: **00-08**
-* **Source:** globalelm\_chr.s3d \(Loaded with Luclin models\)
-  * **ELM** - Wood Elf Male \(Race 4, Gender 0\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**
-* **Source:** globalelf\_chr.s3d \(Loaded with Luclin models\)
-  * **ELF** - Wood Elf Female \(Race 4, Gender 1\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**
-* **Source:** globalhim\_chr.s3d \(Loaded with Luclin models\)
-  * **HIM** - High Elf Male \(Race 5, Gender 0\) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Beards: **00-03**
-* **Source:** globalhif\_chr.s3d \(Loaded with Luclin models\)
-  * **HIF** - High Elf Female \(Race 5, Gender 1\) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**
-* **Source:** globaldam\_chr.s3d \(Loaded with Luclin models\)
-  * **DAM** - Dark Elf Male \(Race 6, Gender 0\) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Beards: **00-03**
-* **Source:** globaldaf\_chr.s3d \(Loaded with Luclin models\)
-  * **DAF** - Dark Elf Female \(Race 6, Gender 1\) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**
-* **Source:** globalham\_chr.s3d \(Loaded with Luclin models\)
-  * **HAM** - Half Elf Male \(Race 7, Gender 0\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Beards: **00-03**
-* **Source:** globalhaf\_chr.s3d \(Loaded with Luclin models\)
-  * **HAF** - Half Elf Female \(Race 7, Gender 1\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**
-* **Source:** globaldwm\_chr.s3d \(Loaded with Luclin models\)
-  * **DWM** - Dwarf Male \(Race 8, Gender 0\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Beards: **00-05**
-* **Source:** globaldwf\_chr.s3d \(Loaded with Luclin models\)
-  * **DWF** - Dwarf Female \(Race 8, Gender 1\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Beards: **00 01**
-* **Source:** globaltrm\_chr.s3d \(Loaded with Luclin models\)
-  * **TRM** - Troll Male \(Race 9, Gender 0\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
-* **Source:** globaltrf\_chr.s3d \(Loaded with Luclin models\)
-  * **TRF** - Troll Female \(Race 9, Gender 1\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**
-* **Source:** globalogm\_chr.s3d \(Loaded with Luclin models\)
-  * **OGM** - Ogre Male \(Race 10, Gender 0\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
-* **Source:** globalogf\_chr.s3d \(Loaded with Luclin models\)
-  * **OGF** - Ogre Female \(Race 10, Gender 1\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**
-* **Source:** globalhom\_chr.s3d \(Loaded with Luclin models\)
-  * **HOM** - Halfling Male \(Race 11, Gender 0\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Beards: **00-05**
-* **Source:** globalhof\_chr.s3d \(Loaded with Luclin models\)
-  * **HOF** - Halfling Female \(Race 11, Gender 1\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**
-* **Source:** globalgnm\_chr.s3d \(Loaded with Luclin models\)
-  * **GNM** - Gnome Male \(Race 12, Gender 0\) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Beards: **00-05**
-* **Source:** globalgnf\_chr.s3d \(Loaded with Luclin models\)
-  * **GNF** - Gnome Female \(Race 12, Gender 1\) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**
-* **Source:** globalikm\_chr.s3d \(Loaded with Luclin models\)
-  * **IKM** - Iksar Male \(Race 128, Gender 0\) - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**
-* **Source:** globalikf\_chr.s3d \(Loaded with Luclin models\)
-  * **IKF** - Iksar Female \(Race 128, Gender 1\) - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**
-* **Source:** globalkem\_chr.s3d \(Loaded with Luclin models\)
-  * **KEM** - Vah Shir Male \(Race 130, Gender 0\) - Textures: **00-03, 50**, Heads: **00-03**, Faces: **00-07**
-* **Source:** globalkef\_chr.s3d \(Loaded with Luclin models\)
-  * **KEF** - Vah Shir Female \(Race 130, Gender 1\) - Textures: **00-03, 50**, Heads: **00-03**, Faces: **00-07**
-* **Source:** global5\_chr.s3d \(Loaded with Luclin models\)
-  * **AEL** - Air Elemental \(Race 210, Gender 2\)
-  * **EEL** - Earth Elemental \(Race 209, Gender 2\)
-  * **FEL** - Fire Elemental \(Race 212, Gender 2\)
-  * **HSM** - Horse Male \(Race 216, Gender 0\) - Textures: **00-03**
-  * **WEL** - Water Elemental \(Race 211, Gender 2\)
-* **Source:** frog\_mount\_chr.s3d \(Loaded with Luclin models\)
-  * **HSF** - Horse Female \(Race 216, Gender 1\) - Textures: **00-03**
-  * **FMT** - Drogmore \(Race 348, Gender 2\) - Textures: **00-03**
-* **Source:** globalfroglok\_chr.s3d \(Loaded via GlobalLoad.txt\)
-  * **FRO** - Froglok \(Race 26, Gender 2\)
-  * **FRG** - Froglok \(Race 27, Gender 2\) - Textures: **00 01**
-* **Source:** globalpcfroglok\_chr.s3d \(Loaded via GlobalLoad.txt\)
-  * **FRF** - Froglok Female \(Race 330, Gender 1\) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-09**
-  * **FRM** - Froglok Male \(Race 330, Gender 0\) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-09**
-* **Source:** gbn.eqg \(Loaded via GlobalLoad.txt\)
-  * **GBN** - Goblin \(Race 433, Gender 2\) - Textures: **00-04**
-* **Source:** wwf.eqg \(Loaded via GlobalLoad.txt\)
-  * **WWF** - Werewolf \(Race 454, Gender 2\) - Textures: **00-04**
-* **Source:** kbd.eqg \(Loaded via GlobalLoad.txt\)
-  * **KBD** - Kobold \(Race 455, Gender 2\) - Textures: **00-05**, Heads: **00-05**
-* **Source:** fng.eqg \(Loaded via GlobalLoad.txt\)
-  * **FNG** - Sporali \(Race 456, Gender 2\) - Textures: **00 02 04 06 08 10**, Heads: **00 01, 03**
-* **Source:** ork.eqg \(Loaded via GlobalLoad.txt\)
-  * **ORK** - Orc \(Race 458, Gender 2\) - Textures: **00-09**, Heads: **00-09**
-* **Source:** ggy.eqg \(Loaded via GlobalLoad.txt\)
-  * **GGY** - Gargoyle \(Race 464, Gender 2\) - Textures: **00-03**
-* **Source:** eve.eqg \(Loaded via GlobalLoad.txt\)
-  * **EVE** - Evil Eye \(Race 469, Gender 2\) - Textures: **00-02**
-* **Source:** mnr.eqg \(Loaded via GlobalLoad.txt\)
-  * **MNR** - Minotaur \(Race 470, Gender 2\)
-* **Source:** zmm.eqg \(Loaded via GlobalLoad.txt\)
-  * **ZMM** - Zombie Male \(Race 471, Gender 0\)
-* **Source:** fry.eqg \(Loaded via GlobalLoad.txt\)
-  * **FRY** - Fairy \(Race 473, Gender 2\)
-* **Source:** cwr.eqg \(Loaded via GlobalLoad.txt\)
-  * **CWR** - Clockwork Boar \(Race 472, Gender 2\)
-* **Source:** bas.eqg \(Loaded via GlobalLoad.txt\)
-  * **BAS** - Basilisk \(Race 436, Gender 2\) - Textures: **00 01**
-* **Source:** rap\_chr.s3d \(Loaded via GlobalLoad.txt\)
-  * **RAP** - Raptor \(Race 163, Gender 2\) - Textures: **00 01**
-* **Source:** skt\_chr.s3d \(Loaded via GlobalLoad.txt\)
-  * **SKT** - Skeleton \(Race 367, Gender 2\) - Textures: **00-04**
-* **Source:** global6\_chr.s3d \(Loaded via GlobalLoad.txt\)
-  * **ALL** - Alligator \(Race 91, Gender 2\) - Textures: **00 01**, Heads: **00 01**
-  * **DRK** - Drake \(Race 89, Gender 2\) - Textures: **00-03**
-  * **WOF** - Chokadai \(Race 356, Gender 2\) - Textures: **00 01**
-  * **SKE** - Skeleton \(Race 60, Gender 2\)
-  * **TPN** - Teleport Man \(Race 240, Gender 2\)
-  * **TIG** - Tiger \(Race 63, Gender 2\)
-  * **WOL** - Wolf \(Race 42, Gender 2\) - Textures: **00-03**
-  * **WOE** - Wolf \(Race 120, Gender 2\) - Textures: **00-03**
-* **Source:** global4\_chr.s3d \(Loaded via GlobalLoad.txt\)
-  * **IKS** - Undead Iksar \(Race 161, Gender 2\) - Heads: **00 01**
-  * **SPE** - Spectre \(Race 85, Gender 2\)
-  * **BAF** - Barbarian Female \(Race 2, Gender 1\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
-  * **BAM** - Barbarian Male \(Race 2, Gender 0\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
-  * **IKF** - Iksar Female \(Race 128, Gender 1\) - Textures: **00-04, 10**, Heads: **00-03**, Faces: **00-07**
-  * **IKM** - Iksar Male \(Race 128, Gender 0\) - Textures: **00-04, 10**, Heads: **00-03**, Faces: **00-07**
-* **Source:** global\_chr.s3d \(Loaded via GlobalLoad.txt\)
-  * **ELE** - Elemental \(Race 75, Gender 2\) - Textures: **00-03**, Heads: **00 01**
-  * **EYE** - Eye \(Race 108, Gender 2\) - Textures: **00-03**
-  * **IVM** - Invisible Man Male \(Race 127, Gender 0\)
-  * **SKE** - Skeleton \(Race 60, Gender 2\) - Textures: **00 01**
-  * **WER** - Werewolf \(Race 14, Gender 2\)
-  * **WOE** - Wolf \(Race 120, Gender 2\) - Textures: **00 01**
-  * **BOAT** - Boat \(Race 141, Gender 2\)
-  * **BAF** - Barbarian Female \(Race 2, Gender 1\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
-  * **BAM** - Barbarian Male \(Race 2, Gender 0\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
-  * **DAF** - Dark Elf Female \(Race 6, Gender 1\) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-07**
-  * **DAM** - Dark Elf Male \(Race 6, Gender 0\) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-07**
-  * **DWF** - Dwarf Female \(Race 8, Gender 1\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
-  * **DWM** - Dwarf Male \(Race 8, Gender 0\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
-  * **ERF** - Erudite Female \(Race 3, Gender 1\) - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**
-  * **ERM** - Erudite Male \(Race 3, Gender 0\) - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**
-  * **GNF** - Gnome Female \(Race 12, Gender 1\) - Textures: **00-03, 10-16**, Heads: **00-04**, Faces: **00-07**
-  * **GNM** - Gnome Male \(Race 12, Gender 0\) - Textures: **00-03, 10-16**, Heads: **00-04**, Faces: **00-07**
-  * **HAF** - Half Elf Female \(Race 7, Gender 1\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
-  * **HAM** - Half Elf Male \(Race 7, Gender 0\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
-  * **HOF** - Halfling Female \(Race 11, Gender 1\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
-  * **HOM** - Halfling Male \(Race 11, Gender 0\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
-  * **HIF** - High Elf Female \(Race 5, Gender 1\) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-07**
-  * **HIM** - High Elf Male \(Race 5, Gender 0\) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-07**
-  * **HUF** - Human Female \(Race 1, Gender 1\) - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**
-  * **HUM** - Human Male \(Race 1, Gender 0\) - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**
-  * **OGF** - Ogre Female \(Race 10, Gender 1\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
-  * **OGM** - Ogre Male \(Race 10, Gender 0\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
-  * **TRF** - Troll Female \(Race 9, Gender 1\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
-  * **TRM** - Troll Male \(Race 9, Gender 0\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
-  * **ELF** - Wood Elf Female \(Race 4, Gender 1\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
-  * **ELM** - Wood Elf Male \(Race 4, Gender 0\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
-* **Source:** global2\_chr.s3d \(Loaded via GlobalLoad.txt\)
-  * **BEA** - Bear \(Race 43, Gender 2\) - Textures: **00-02**, Heads: **00-02**
-  * **BRI** - Bristlebane \(Race 153, Gender 2\)
-  * **CAZ** - Cazic Thule \(Race 95, Gender 2\) - Heads: **00 01**
-  * **ERO** - Erollisi \(Race 150, Gender 2\)
-  * **IMP** - Imp \(Race 46, Gender 2\)
-  * **INN** - Innoruuk \(Race 123, Gender 2\)
-  * **RAL** - Rallos Zek \(Race 66, Gender 2\) - Textures: **00 01**
-  * **SCA** - Scarecrow \(Race 82, Gender 2\)
-  * **SOL** - Solusek Ro \(Race 58, Gender 2\)
-  * **TRI** - Tribunal \(Race 151, Gender 2\)
-  * **TUN** - Tunare \(Race 62, Gender 2\)
+* **Source:** global7\_chr.s3d (Loaded when Luclin models disabled)
+  * **KEF** - Vah Shir Female (Race 130, Gender 1) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
+  * **KEM** - Vah Shir Male (Race 130, Gender 0) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
+* **Source:** globalhum_chr.s3d (Loaded with Luclin models)
+  * **HUM** - Human Male (Race 1, Gender 0) - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Beards: **00-05**
+* **Source:** globalhuf_chr.s3d (Loaded with Luclin models)
+  * **HUF** - Human Female (Race 1, Gender 1) - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**
+* **Source:** globalbam_chr.s3d (Loaded with Luclin models)
+  * **BAM** - Barbarian Male (Race 2, Gender 0) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Beards: **00-05**, Tattoo: **00-08**
+* **Source:** globalbaf_chr.s3d (Loaded with Luclin models)
+  * **BAF** - Barbarian Female (Race 2, Gender 1) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Tattoo: **00-08**
+* **Source:** globalerm_chr.s3d (Loaded with Luclin models)
+  * **ERM** - Erudite Male (Race 3, Gender 0) - Textures: **00-03, 10-16**, Heads: **00-04**, Faces: **00-07**, Hair: **00-05**, Beards: **00-05**
+* **Source:** globalerf_chr.s3d (Loaded with Luclin models)
+  * **ERF** - Erudite Female (Race 3, Gender 1) - Textures: **00-03, 10-16**, Heads: **00-04**, Faces: **00-07**, Hair: **00-08**
+* **Source:** globalelm_chr.s3d (Loaded with Luclin models)
+  * **ELM** - Wood Elf Male (Race 4, Gender 0) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**
+* **Source:** globalelf_chr.s3d (Loaded with Luclin models)
+  * **ELF** - Wood Elf Female (Race 4, Gender 1) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**
+* **Source:** globalhim_chr.s3d (Loaded with Luclin models)
+  * **HIM** - High Elf Male (Race 5, Gender 0) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Beards: **00-03**
+* **Source:** globalhif_chr.s3d (Loaded with Luclin models)
+  * **HIF** - High Elf Female (Race 5, Gender 1) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**
+* **Source:** globaldam_chr.s3d (Loaded with Luclin models)
+  * **DAM** - Dark Elf Male (Race 6, Gender 0) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Beards: **00-03**
+* **Source:** globaldaf_chr.s3d (Loaded with Luclin models)
+  * **DAF** - Dark Elf Female (Race 6, Gender 1) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**
+* **Source:** globalham_chr.s3d (Loaded with Luclin models)
+  * **HAM** - Half Elf Male (Race 7, Gender 0) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Beards: **00-03**
+* **Source:** globalhaf_chr.s3d (Loaded with Luclin models)
+  * **HAF** - Half Elf Female (Race 7, Gender 1) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**
+* **Source:** globaldwm_chr.s3d (Loaded with Luclin models)
+  * **DWM** - Dwarf Male (Race 8, Gender 0) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Beards: **00-05**
+* **Source:** globaldwf_chr.s3d (Loaded with Luclin models)
+  * **DWF** - Dwarf Female (Race 8, Gender 1) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Beards: **00 01**
+* **Source:** globaltrm_chr.s3d (Loaded with Luclin models)
+  * **TRM** - Troll Male (Race 9, Gender 0) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
+* **Source:** globaltrf_chr.s3d (Loaded with Luclin models)
+  * **TRF** - Troll Female (Race 9, Gender 1) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**
+* **Source:** globalogm_chr.s3d (Loaded with Luclin models)
+  * **OGM** - Ogre Male (Race 10, Gender 0) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
+* **Source:** globalogf_chr.s3d (Loaded with Luclin models)
+  * **OGF** - Ogre Female (Race 10, Gender 1) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**
+* **Source:** globalhom_chr.s3d (Loaded with Luclin models)
+  * **HOM** - Halfling Male (Race 11, Gender 0) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Beards: **00-05**
+* **Source:** globalhof_chr.s3d (Loaded with Luclin models)
+  * **HOF** - Halfling Female (Race 11, Gender 1) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**
+* **Source:** globalgnm_chr.s3d (Loaded with Luclin models)
+  * **GNM** - Gnome Male (Race 12, Gender 0) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Beards: **00-05**
+* **Source:** globalgnf_chr.s3d (Loaded with Luclin models)
+  * **GNF** - Gnome Female (Race 12, Gender 1) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**
+* **Source:** globalikm_chr.s3d (Loaded with Luclin models)
+  * **IKM** - Iksar Male (Race 128, Gender 0) - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**
+* **Source:** globalikf_chr.s3d (Loaded with Luclin models)
+  * **IKF** - Iksar Female (Race 128, Gender 1) - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**
+* **Source:** globalkem_chr.s3d (Loaded with Luclin models)
+  * **KEM** - Vah Shir Male (Race 130, Gender 0) - Textures: **00-03, 50**, Heads: **00-03**, Faces: **00-07**
+* **Source:** globalkef_chr.s3d (Loaded with Luclin models)
+  * **KEF** - Vah Shir Female (Race 130, Gender 1) - Textures: **00-03, 50**, Heads: **00-03**, Faces: **00-07**
+* **Source:** global5\_chr.s3d (Loaded with Luclin models)
+  * **AEL** - Air Elemental (Race 210, Gender 2)
+  * **EEL** - Earth Elemental (Race 209, Gender 2)
+  * **FEL** - Fire Elemental (Race 212, Gender 2)
+  * **HSM** - Horse Male (Race 216, Gender 0) - Textures: **00-03**
+  * **WEL** - Water Elemental (Race 211, Gender 2)
+* **Source:** frog_mount_chr.s3d (Loaded with Luclin models)
+  * **HSF** - Horse Female (Race 216, Gender 1) - Textures: **00-03**
+  * **FMT** - Drogmore (Race 348, Gender 2) - Textures: **00-03**
+* **Source:** globalfroglok_chr.s3d (Loaded via GlobalLoad.txt)
+  * **FRO** - Froglok (Race 26, Gender 2)
+  * **FRG** - Froglok (Race 27, Gender 2) - Textures: **00 01**
+* **Source:** globalpcfroglok_chr.s3d (Loaded via GlobalLoad.txt)
+  * **FRF** - Froglok Female (Race 330, Gender 1) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-09**
+  * **FRM** - Froglok Male (Race 330, Gender 0) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-09**
+* **Source:** gbn.eqg (Loaded via GlobalLoad.txt)
+  * **GBN** - Goblin (Race 433, Gender 2) - Textures: **00-04**
+* **Source:** wwf.eqg (Loaded via GlobalLoad.txt)
+  * **WWF** - Werewolf (Race 454, Gender 2) - Textures: **00-04**
+* **Source:** kbd.eqg (Loaded via GlobalLoad.txt)
+  * **KBD** - Kobold (Race 455, Gender 2) - Textures: **00-05**, Heads: **00-05**
+* **Source:** fng.eqg (Loaded via GlobalLoad.txt)
+  * **FNG** - Sporali (Race 456, Gender 2) - Textures: **00 02 04 06 08 10**, Heads: **00 01, 03**
+* **Source:** ork.eqg (Loaded via GlobalLoad.txt)
+  * **ORK** - Orc (Race 458, Gender 2) - Textures: **00-09**, Heads: **00-09**
+* **Source:** ggy.eqg (Loaded via GlobalLoad.txt)
+  * **GGY** - Gargoyle (Race 464, Gender 2) - Textures: **00-03**
+* **Source:** eve.eqg (Loaded via GlobalLoad.txt)
+  * **EVE** - Evil Eye (Race 469, Gender 2) - Textures: **00-02**
+* **Source:** mnr.eqg (Loaded via GlobalLoad.txt)
+  * **MNR** - Minotaur (Race 470, Gender 2)
+* **Source:** zmm.eqg (Loaded via GlobalLoad.txt)
+  * **ZMM** - Zombie Male (Race 471, Gender 0)
+* **Source:** fry.eqg (Loaded via GlobalLoad.txt)
+  * **FRY** - Fairy (Race 473, Gender 2)
+* **Source:** cwr.eqg (Loaded via GlobalLoad.txt)
+  * **CWR** - Clockwork Boar (Race 472, Gender 2)
+* **Source:** bas.eqg (Loaded via GlobalLoad.txt)
+  * **BAS** - Basilisk (Race 436, Gender 2) - Textures: **00 01**
+* **Source:** rap_chr.s3d (Loaded via GlobalLoad.txt)
+  * **RAP** - Raptor (Race 163, Gender 2) - Textures: **00 01**
+* **Source:** skt_chr.s3d (Loaded via GlobalLoad.txt)
+  * **SKT** - Skeleton (Race 367, Gender 2) - Textures: **00-04**
+* **Source:** global6\_chr.s3d (Loaded via GlobalLoad.txt)
+  * **ALL** - Alligator (Race 91, Gender 2) - Textures: **00 01**, Heads: **00 01**
+  * **DRK** - Drake (Race 89, Gender 2) - Textures: **00-03**
+  * **WOF** - Chokadai (Race 356, Gender 2) - Textures: **00 01**
+  * **SKE** - Skeleton (Race 60, Gender 2)
+  * **TPN** - Teleport Man (Race 240, Gender 2)
+  * **TIG** - Tiger (Race 63, Gender 2)
+  * **WOL** - Wolf (Race 42, Gender 2) - Textures: **00-03**
+  * **WOE** - Wolf (Race 120, Gender 2) - Textures: **00-03**
+* **Source:** global4\_chr.s3d (Loaded via GlobalLoad.txt)
+  * **IKS** - Undead Iksar (Race 161, Gender 2) - Heads: **00 01**
+  * **SPE** - Spectre (Race 85, Gender 2)
+  * **BAF** - Barbarian Female (Race 2, Gender 1) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
+  * **BAM** - Barbarian Male (Race 2, Gender 0) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
+  * **IKF** - Iksar Female (Race 128, Gender 1) - Textures: **00-04, 10**, Heads: **00-03**, Faces: **00-07**
+  * **IKM** - Iksar Male (Race 128, Gender 0) - Textures: **00-04, 10**, Heads: **00-03**, Faces: **00-07**
+* **Source:** global_chr.s3d (Loaded via GlobalLoad.txt)
+  * **ELE** - Elemental (Race 75, Gender 2) - Textures: **00-03**, Heads: **00 01**
+  * **EYE** - Eye (Race 108, Gender 2) - Textures: **00-03**
+  * **IVM** - Invisible Man Male (Race 127, Gender 0)
+  * **SKE** - Skeleton (Race 60, Gender 2) - Textures: **00 01**
+  * **WER** - Werewolf (Race 14, Gender 2)
+  * **WOE** - Wolf (Race 120, Gender 2) - Textures: **00 01**
+  * **BOAT** - Boat (Race 141, Gender 2)
+  * **BAF** - Barbarian Female (Race 2, Gender 1) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
+  * **BAM** - Barbarian Male (Race 2, Gender 0) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
+  * **DAF** - Dark Elf Female (Race 6, Gender 1) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-07**
+  * **DAM** - Dark Elf Male (Race 6, Gender 0) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-07**
+  * **DWF** - Dwarf Female (Race 8, Gender 1) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
+  * **DWM** - Dwarf Male (Race 8, Gender 0) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
+  * **ERF** - Erudite Female (Race 3, Gender 1) - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**
+  * **ERM** - Erudite Male (Race 3, Gender 0) - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**
+  * **GNF** - Gnome Female (Race 12, Gender 1) - Textures: **00-03, 10-16**, Heads: **00-04**, Faces: **00-07**
+  * **GNM** - Gnome Male (Race 12, Gender 0) - Textures: **00-03, 10-16**, Heads: **00-04**, Faces: **00-07**
+  * **HAF** - Half Elf Female (Race 7, Gender 1) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
+  * **HAM** - Half Elf Male (Race 7, Gender 0) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
+  * **HOF** - Halfling Female (Race 11, Gender 1) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
+  * **HOM** - Halfling Male (Race 11, Gender 0) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
+  * **HIF** - High Elf Female (Race 5, Gender 1) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-07**
+  * **HIM** - High Elf Male (Race 5, Gender 0) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-07**
+  * **HUF** - Human Female (Race 1, Gender 1) - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**
+  * **HUM** - Human Male (Race 1, Gender 0) - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**
+  * **OGF** - Ogre Female (Race 10, Gender 1) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
+  * **OGM** - Ogre Male (Race 10, Gender 0) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
+  * **TRF** - Troll Female (Race 9, Gender 1) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
+  * **TRM** - Troll Male (Race 9, Gender 0) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
+  * **ELF** - Wood Elf Female (Race 4, Gender 1) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
+  * **ELM** - Wood Elf Male (Race 4, Gender 0) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
+* **Source:** global2\_chr.s3d (Loaded via GlobalLoad.txt)
+  * **BEA** - Bear (Race 43, Gender 2) - Textures: **00-02**, Heads: **00-02**
+  * **BRI** - Bristlebane (Race 153, Gender 2)
+  * **CAZ** - Cazic Thule (Race 95, Gender 2) - Heads: **00 01**
+  * **ERO** - Erollisi (Race 150, Gender 2)
+  * **IMP** - Imp (Race 46, Gender 2)
+  * **INN** - Innoruuk (Race 123, Gender 2)
+  * **RAL** - Rallos Zek (Race 66, Gender 2) - Textures: **00 01**
+  * **SCA** - Scarecrow (Race 82, Gender 2)
+  * **SOL** - Solusek Ro (Race 58, Gender 2)
+  * **TRI** - Tribunal (Race 151, Gender 2)
+  * **TUN** - Tunare (Race 62, Gender 2)
 {% endtab %}
 
 {% tab title="SoF" %}
 ## Globally Available Race Models
 
-* **Source:** global7\_chr.s3d \(Loaded when Luclin models disabled\)
-  * **KEF** - Vah Shir Female \(Race 130, Gender 1\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
-  * **KEM** - Vah Shir Male \(Race 130, Gender 0\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
-* **Source:** globalhum\_chr.s3d \(Loaded with Luclin models\)
-  * **HUM** - Human Male \(Race 1, Gender 0\) - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Beards: **00-05**
-* **Source:** globalhuf\_chr.s3d \(Loaded with Luclin models\)
-  * **HUF** - Human Female \(Race 1, Gender 1\) - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**
-* **Source:** globalbam\_chr.s3d \(Loaded with Luclin models\)
-  * **BAM** - Barbarian Male \(Race 2, Gender 0\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Beards: **00-05**, Tattoo: **00-08**
-* **Source:** globalbaf\_chr.s3d \(Loaded with Luclin models\)
-  * **BAF** - Barbarian Female \(Race 2, Gender 1\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Tattoo: **00-08**
-* **Source:** globalerm\_chr.s3d \(Loaded with Luclin models\)
-  * **ERM** - Erudite Male \(Race 3, Gender 0\) - Textures: **00-03, 10-16**, Heads: **00-04**, Faces: **00-07**, Hair: **00-05**, Beards: **00-05**
-* **Source:** globalerf\_chr.s3d \(Loaded with Luclin models\)
-  * **ERF** - Erudite Female \(Race 3, Gender 1\) - Textures: **00-03, 10-16**, Heads: **00-04**, Faces: **00-07**, Hair: **00-08**
-* **Source:** globalelm\_chr.s3d \(Loaded with Luclin models\)
-  * **ELM** - Wood Elf Male \(Race 4, Gender 0\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**
-* **Source:** globalelf\_chr.s3d \(Loaded with Luclin models\)
-  * **ELF** - Wood Elf Female \(Race 4, Gender 1\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**
-* **Source:** globalhim\_chr.s3d \(Loaded with Luclin models\)
-  * **HIM** - High Elf Male \(Race 5, Gender 0\) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Beards: **00-03**
-* **Source:** globalhif\_chr.s3d \(Loaded with Luclin models\)
-  * **HIF** - High Elf Female \(Race 5, Gender 1\) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**
-* **Source:** globaldam\_chr.s3d \(Loaded with Luclin models\)
-  * **DAM** - Dark Elf Male \(Race 6, Gender 0\) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Beards: **00-03**
-* **Source:** globaldaf\_chr.s3d \(Loaded with Luclin models\)
-  * **DAF** - Dark Elf Female \(Race 6, Gender 1\) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**
-* **Source:** globalham\_chr.s3d \(Loaded with Luclin models\)
-  * **HAM** - Half Elf Male \(Race 7, Gender 0\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Beards: **00-03**
-* **Source:** globalhaf\_chr.s3d \(Loaded with Luclin models\)
-  * **HAF** - Half Elf Female \(Race 7, Gender 1\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**
-* **Source:** globaldwm\_chr.s3d \(Loaded with Luclin models\)
-  * **DWM** - Dwarf Male \(Race 8, Gender 0\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Beards: **00-05**
-* **Source:** globaldwf\_chr.s3d \(Loaded with Luclin models\)
-  * **DWF** - Dwarf Female \(Race 8, Gender 1\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Beards: **00 01**
-* **Source:** globaltrm\_chr.s3d \(Loaded with Luclin models\)
-  * **TRM** - Troll Male \(Race 9, Gender 0\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
-* **Source:** globaltrf\_chr.s3d \(Loaded with Luclin models\)
-  * **TRF** - Troll Female \(Race 9, Gender 1\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**
-* **Source:** globalogm\_chr.s3d \(Loaded with Luclin models\)
-  * **OGM** - Ogre Male \(Race 10, Gender 0\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
-* **Source:** globalogf\_chr.s3d \(Loaded with Luclin models\)
-  * **OGF** - Ogre Female \(Race 10, Gender 1\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**
-* **Source:** globalhom\_chr.s3d \(Loaded with Luclin models\)
-  * **HOM** - Halfling Male \(Race 11, Gender 0\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Beards: **00-05**
-* **Source:** globalhof\_chr.s3d \(Loaded with Luclin models\)
-  * **HOF** - Halfling Female \(Race 11, Gender 1\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**
-* **Source:** globalgnm\_chr.s3d \(Loaded with Luclin models\)
-  * **GNM** - Gnome Male \(Race 12, Gender 0\) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Beards: **00-05**
-* **Source:** globalgnf\_chr.s3d \(Loaded with Luclin models\)
-  * **GNF** - Gnome Female \(Race 12, Gender 1\) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**
-* **Source:** globalikm\_chr.s3d \(Loaded with Luclin models\)
-  * **IKM** - Iksar Male \(Race 128, Gender 0\) - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**
-* **Source:** globalikf\_chr.s3d \(Loaded with Luclin models\)
-  * **IKF** - Iksar Female \(Race 128, Gender 1\) - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**
-* **Source:** globalkem\_chr.s3d \(Loaded with Luclin models\)
-  * **KEM** - Vah Shir Male \(Race 130, Gender 0\) - Textures: **00-03, 50**, Heads: **00-03**, Faces: **00-07**
-* **Source:** globalkef\_chr.s3d \(Loaded with Luclin models\)
-  * **KEF** - Vah Shir Female \(Race 130, Gender 1\) - Textures: **00-03, 50**, Heads: **00-03**, Faces: **00-07**
-* **Source:** global5\_chr.s3d \(Loaded with Luclin models\)
-  * **AEL** - Air Elemental \(Race 210, Gender 2\)
-  * **EEL** - Earth Elemental \(Race 209, Gender 2\)
-  * **FEL** - Fire Elemental \(Race 212, Gender 2\)
-  * **HSM** - Horse Male \(Race 216, Gender 0\) - Textures: **00-03**
-  * **WEL** - Water Elemental \(Race 211, Gender 2\)
-* **Source:** frog\_mount\_chr.s3d \(Loaded with Luclin models\)
-  * **HSF** - Horse Female \(Race 216, Gender 1\) - Textures: **00-03**
-  * **FMT** - Drogmore \(Race 348, Gender 2\) - Textures: **00-03**
-* **Source:** globalfroglok\_chr.s3d \(Loaded via GlobalLoad.txt\)
-  * **FRO** - Froglok \(Race 26, Gender 2\)
-  * **FRG** - Froglok \(Race 27, Gender 2\) - Textures: **00 01**
-* **Source:** globalpcfroglok\_chr.s3d \(Loaded via GlobalLoad.txt\)
-  * **FRF** - Froglok Female \(Race 330, Gender 1\) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-09**
-  * **FRM** - Froglok Male \(Race 330, Gender 0\) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-09**
-* **Source:** gbn.eqg \(Loaded via GlobalLoad.txt\)
-  * **GBN** - Goblin \(Race 433, Gender 2\) - Textures: **00-08**, Heads: **00 06-08**
-* **Source:** wwf.eqg \(Loaded via GlobalLoad.txt\)
-  * **WWF** - Werewolf \(Race 454, Gender 2\) - Textures: **00-04**
-* **Source:** kbd.eqg \(Loaded via GlobalLoad.txt\)
-  * **KBD** - Kobold \(Race 455, Gender 2\) - Textures: **00-05**, Heads: **00-05**
-* **Source:** fng.eqg \(Loaded via GlobalLoad.txt\)
-  * **FNG** - Sporali \(Race 456, Gender 2\) - Textures: **00 02 04 06 08 10 12**, Heads: **00 01, 03**
-* **Source:** ork.eqg \(Loaded via GlobalLoad.txt\)
-  * **ORK** - Orc \(Race 458, Gender 2\) - Textures: **00-09**, Heads: **00-09**
-* **Source:** ggy.eqg \(Loaded via GlobalLoad.txt\)
-  * **GGY** - Gargoyle \(Race 464, Gender 2\) - Textures: **00-03**
-* **Source:** eve.eqg \(Loaded via GlobalLoad.txt\)
-  * **EVE** - Evil Eye \(Race 469, Gender 2\) - Textures: **00-02**
-* **Source:** mnr.eqg \(Loaded via GlobalLoad.txt\)
-  * **MNR** - Minotaur \(Race 470, Gender 2\)
-* **Source:** zmf.eqg \(Loaded via GlobalLoad.txt\)
-  * **ZMF** - Zombie Female \(Race 471, Gender 1\)
-* **Source:** zmm.eqg \(Loaded via GlobalLoad.txt\)
-  * **ZMM** - Zombie Male \(Race 471, Gender 0\)
-* **Source:** fry.eqg \(Loaded via GlobalLoad.txt\)
-  * **FRY** - Fairy \(Race 473, Gender 2\) - Textures: **00 01**, Heads: **00 01**
-* **Source:** cwr.eqg \(Loaded via GlobalLoad.txt\)
-  * **CWR** - Clockwork Boar \(Race 472, Gender 2\)
-* **Source:** bas.eqg \(Loaded via GlobalLoad.txt\)
-  * **BAS** - Basilisk \(Race 436, Gender 2\) - Textures: **00 01**
-* **Source:** rap\_chr.s3d \(Loaded via GlobalLoad.txt\)
-  * **RAP** - Raptor \(Race 163, Gender 2\) - Textures: **00 01**
-* **Source:** t00.eqg \(Loaded via GlobalLoad.txt\)
-  * **T00** - Bear Trap \(Race 503, Gender 2\)
-* **Source:** t05.eqg \(Loaded via GlobalLoad.txt\)
-  * **T05** - Stone Ring \(Race 508, Gender 2\)
-* **Source:** t07.eqg \(Loaded via GlobalLoad.txt\)
-  * **T07** - Runic Symbol \(Race 510, Gender 2\)
-* **Source:** t09.eqg \(Loaded via GlobalLoad.txt\)
-  * **T09** - Floating Skull \(Race 512, Gender 2\)
-* **Source:** t10.eqg \(Loaded via GlobalLoad.txt\)
-  * **T10** - Spike Trap \(Race 513, Gender 2\)
-* **Source:** t11.eqg \(Loaded via GlobalLoad.txt\)
-  * **T11** - Totem \(Race 514, Gender 2\)
-* **Source:** spt.eqg \(Loaded via GlobalLoad.txt\)
-  * **SPT** - Spectre \(Race 485, Gender 2\)
-* **Source:** dpm\_chr.s3d \(Loaded via GlobalLoad.txt\)
-  * **DPM** - Pirate Male \(Race 339, Gender 0\)
-* **Source:** dpf\_chr.s3d \(Loaded via GlobalLoad.txt\)
-  * **DPF** - Pirate Female \(Race 339, Gender 1\)
-* **Source:** epm\_chr.s3d \(Loaded via GlobalLoad.txt\)
-  * **EPM** - Pirate Male \(Race 342, Gender 0\)
-* **Source:** epf\_chr.s3d \(Loaded via GlobalLoad.txt\)
-  * **EPF** - Pirate Female \(Race 342, Gender 1\)
-* **Source:** gpm\_chr.s3d \(Loaded via GlobalLoad.txt\)
-  * **GPM** - Pirate Male \(Race 338, Gender 0\)
-* **Source:** gpf\_chr.s3d \(Loaded via GlobalLoad.txt\)
-  * **GPF** - Pirate Female \(Race 338, Gender 1\)
-* **Source:** hpf\_chr.s3d \(Loaded via GlobalLoad.txt\)
-  * **HPF** - Pirate Female \(Race 341, Gender 1\)
-* **Source:** hpm\_chr.s3d \(Loaded via GlobalLoad.txt\)
-  * **HPM** - Pirate Male \(Race 341, Gender 0\)
-* **Source:** opf\_chr.s3d \(Loaded via GlobalLoad.txt\)
-  * **OPF** - Pirate Female \(Race 340, Gender 1\)
-* **Source:** opm\_chr.s3d \(Loaded via GlobalLoad.txt\)
-  * **OPM** - Pirate Male \(Race 340, Gender 0\)
-* **Source:** tbm\_chr.s3d \(Loaded via GlobalLoad.txt\)
-  * **TBM** - Troll Male \(Race 331, Gender 0\)
-* **Source:** tbf\_chr.s3d \(Loaded via GlobalLoad.txt\)
-  * **TBF** - Troll Female \(Race 331, Gender 1\)
-* **Source:** wor.eqg \(Loaded via GlobalLoad.txt\)
-  * **WOR** - Worg \(Race 580, Gender 2\) - Heads: **00-02**
-* **Source:** skt\_chr.s3d \(Loaded via GlobalLoad.txt\)
-  * **SKT** - Skeleton \(Race 367, Gender 2\) - Textures: **00-04**
-* **Source:** global6\_chr.s3d \(Loaded via GlobalLoad.txt\)
-  * **ALL** - Alligator \(Race 91, Gender 2\) - Textures: **00 01**, Heads: **00 01**
-  * **DRK** - Drake \(Race 89, Gender 2\) - Textures: **00-03**
-  * **WOF** - Chokadai \(Race 356, Gender 2\) - Textures: **00 01**
-  * **SKE** - Skeleton \(Race 60, Gender 2\)
-  * **TPN** - Teleport Man \(Race 240, Gender 2\)
-  * **TIG** - Tiger \(Race 63, Gender 2\)
-  * **WOL** - Wolf \(Race 42, Gender 2\) - Textures: **00-03**
-  * **WOE** - Wolf \(Race 120, Gender 2\) - Textures: **00-03**
-* **Source:** global4\_chr.s3d \(Loaded via GlobalLoad.txt\)
-  * **IKS** - Undead Iksar \(Race 161, Gender 2\) - Heads: **00 01**
-  * **SPE** - Spectre \(Race 85, Gender 2\)
-  * **BAF** - Barbarian Female \(Race 2, Gender 1\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
-  * **BAM** - Barbarian Male \(Race 2, Gender 0\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
-  * **IKF** - Iksar Female \(Race 128, Gender 1\) - Textures: **00-04, 10**, Heads: **00-03**, Faces: **00-07**
-  * **IKM** - Iksar Male \(Race 128, Gender 0\) - Textures: **00-04, 10**, Heads: **00-03**, Faces: **00-07**
-* **Source:** global\_chr.s3d \(Loaded via GlobalLoad.txt\)
-  * **ELE** - Elemental \(Race 75, Gender 2\) - Textures: **00-03**, Heads: **00 01**
-  * **EYE** - Eye \(Race 108, Gender 2\) - Textures: **00-03**
-  * **IVM** - Invisible Man Male \(Race 127, Gender 0\)
-  * **SKE** - Skeleton \(Race 60, Gender 2\) - Textures: **00 01**
-  * **WER** - Werewolf \(Race 14, Gender 2\)
-  * **WOE** - Wolf \(Race 120, Gender 2\) - Textures: **00 01**
-  * **BOAT** - Boat \(Race 141, Gender 2\)
-  * **BAF** - Barbarian Female \(Race 2, Gender 1\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
-  * **BAM** - Barbarian Male \(Race 2, Gender 0\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
-  * **DAF** - Dark Elf Female \(Race 6, Gender 1\) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-07**
-  * **DAM** - Dark Elf Male \(Race 6, Gender 0\) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-07**
-  * **DWF** - Dwarf Female \(Race 8, Gender 1\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
-  * **DWM** - Dwarf Male \(Race 8, Gender 0\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
-  * **ERF** - Erudite Female \(Race 3, Gender 1\) - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**
-  * **ERM** - Erudite Male \(Race 3, Gender 0\) - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**
-  * **GNF** - Gnome Female \(Race 12, Gender 1\) - Textures: **00-03, 10-16**, Heads: **00-04**, Faces: **00-07**
-  * **GNM** - Gnome Male \(Race 12, Gender 0\) - Textures: **00-03, 10-16**, Heads: **00-04**, Faces: **00-07**
-  * **HAF** - Half Elf Female \(Race 7, Gender 1\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
-  * **HAM** - Half Elf Male \(Race 7, Gender 0\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
-  * **HOF** - Halfling Female \(Race 11, Gender 1\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
-  * **HOM** - Halfling Male \(Race 11, Gender 0\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
-  * **HIF** - High Elf Female \(Race 5, Gender 1\) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-07**
-  * **HIM** - High Elf Male \(Race 5, Gender 0\) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-07**
-  * **HUF** - Human Female \(Race 1, Gender 1\) - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**
-  * **HUM** - Human Male \(Race 1, Gender 0\) - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**
-  * **OGF** - Ogre Female \(Race 10, Gender 1\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
-  * **OGM** - Ogre Male \(Race 10, Gender 0\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
-  * **TRF** - Troll Female \(Race 9, Gender 1\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
-  * **TRM** - Troll Male \(Race 9, Gender 0\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
-  * **ELF** - Wood Elf Female \(Race 4, Gender 1\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
-  * **ELM** - Wood Elf Male \(Race 4, Gender 0\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
-* **Source:** dkm.eqg \(Loaded via GlobalLoad.txt\)
-  * **DKM** - Drakkin Male \(Race 522, Gender 0\) - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-06**, Hair: **00-08**, Beards: **00-11**, Detail: **00-07**, Tattoo: **00-07**, Heritage: **00-07**
-* **Source:** dkf.eqg \(Loaded via GlobalLoad.txt\)
-  * **DKF** - Drakkin Female \(Race 522, Gender 1\) - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-06**, Hair: **00-07**, Beards: **00-03**, Detail: **00-07**, Tattoo: **00-07**, Heritage: **00-07**
-* **Source:** unm.eqg \(Loaded via GlobalLoad.txt\)
-  * **UNM** - Nightmare/Unicorn \(Race 519, Gender 2\) - Textures: **00 01**, Heads: **00 01**
-* **Source:** hrs.eqg \(Loaded via GlobalLoad.txt\)
-  * **HRS** - Horse \(Race 518, Gender 2\) - Textures: **00-02**, Heads: **00 03 06**
-* **Source:** globalgdb.eqg \(Loaded via GlobalLoad.txt\)
-  * **G00** - Banner \(Race 553, Gender 2\)
-  * **G01** - Banner \(Race 554, Gender 2\)
-  * **G02** - Banner \(Race 555, Gender 2\)
-  * **G03** - Banner \(Race 556, Gender 2\)
-  * **G04** - Banner \(Race 557, Gender 2\)
-* **Source:** glm.eqg \(Loaded via GlobalLoad.txt\)
-  * **GLM** - Golem \(Race 374, Gender 2\) - Textures: **00-04**
-* **Source:** mur.eqg \(Loaded via GlobalLoad.txt\)
-  * **MUR** - Lightning Warrior \(Race 407, Gender 2\)
-* **Source:** dsg.eqg \(Loaded via GlobalLoad.txt\)
-  * **DSG** - Bazu \(Race 409, Gender 2\)
-* **Source:** scu.eqg \(Loaded via GlobalLoad.txt\)
-  * **SCU** - Pyrilen \(Race 411, Gender 2\)
-* **Source:** frd.eqg \(Loaded via GlobalLoad.txt\)
-  * **FRD** - Gelidran \(Race 417, Gender 2\)
-* **Source:** ddv.eqg \(Loaded via GlobalLoad.txt\)
-  * **DDV** - Girplan \(Race 419, Gender 2\) - Textures: **00-03**
-* **Source:** shl.eqg \(Loaded via GlobalLoad.txt\)
-  * **SHL** - Shiliskin \(Race 467, Gender 2\) - Textures: **00-03**, Heads: **00-03**
-* **Source:** bsg.eqg \(Loaded via GlobalLoad.txt\)
-  * **BSG** - Banshee Female \(Race 488, Gender 1\)
-* **Source:** srn.eqg \(Loaded via GlobalLoad.txt\)
-  * **SRN** - Scrykin \(Race 495, Gender 2\) - Textures: **00-03**, Heads: **00-03**
-* **Source:** bxi.eqg \(Loaded via GlobalLoad.txt\)
-  * **BXI** - Bixie \(Race 520, Gender 2\) - Textures: **00-02**, Heads: **00-02**
-* **Source:** drg.eqg \(Loaded via GlobalLoad.txt\)
-  * **DRG** - Dragon \(Race 530, Gender 2\) - Textures: **00-05**, Heads: **00-05**
-* **Source:** mch.eqg \(Loaded via GlobalLoad.txt\)
-  * **MCH** - Chimera \(Race 582, Gender 2\)
-* **Source:** mki.eqg \(Loaded via GlobalLoad.txt\)
-  * **MKI** - Kirin \(Race 583, Gender 2\)
-* **Source:** mpu.eqg \(Loaded via GlobalLoad.txt\)
-  * **MPU** - Puma \(Race 584, Gender 2\) - Textures: **00 01**
-* **Source:** g05.eqg \(Loaded via GlobalLoad.txt\)
-  * **G05** - Banner \(Race 586, Gender 2\)
-* **Source:** i10.eqg \(Loaded via GlobalLoad.txt\)
-  * **I10** - Campfire \(Race 567, Gender 2\)
-* **Source:** global2\_chr.s3d \(Loaded via GlobalLoad.txt\)
-  * **BEA** - Bear \(Race 43, Gender 2\) - Textures: **00-02**, Heads: **00-02**
-  * **BRI** - Bristlebane \(Race 153, Gender 2\)
-  * **CAZ** - Cazic Thule \(Race 95, Gender 2\) - Heads: **00 01**
-  * **ERO** - Erollisi \(Race 150, Gender 2\)
-  * **IMP** - Imp \(Race 46, Gender 2\)
-  * **INN** - Innoruuk \(Race 123, Gender 2\)
-  * **RAL** - Rallos Zek \(Race 66, Gender 2\) - Textures: **00 01**
-  * **SCA** - Scarecrow \(Race 82, Gender 2\)
-  * **SOL** - Solusek Ro \(Race 58, Gender 2\)
-  * **TRI** - Tribunal \(Race 151, Gender 2\)
-  * **TUN** - Tunare \(Race 62, Gender 2\)
+* **Source:** global7\_chr.s3d (Loaded when Luclin models disabled)
+  * **KEF** - Vah Shir Female (Race 130, Gender 1) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
+  * **KEM** - Vah Shir Male (Race 130, Gender 0) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
+* **Source:** globalhum_chr.s3d (Loaded with Luclin models)
+  * **HUM** - Human Male (Race 1, Gender 0) - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Beards: **00-05**
+* **Source:** globalhuf_chr.s3d (Loaded with Luclin models)
+  * **HUF** - Human Female (Race 1, Gender 1) - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**
+* **Source:** globalbam_chr.s3d (Loaded with Luclin models)
+  * **BAM** - Barbarian Male (Race 2, Gender 0) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Beards: **00-05**, Tattoo: **00-08**
+* **Source:** globalbaf_chr.s3d (Loaded with Luclin models)
+  * **BAF** - Barbarian Female (Race 2, Gender 1) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Tattoo: **00-08**
+* **Source:** globalerm_chr.s3d (Loaded with Luclin models)
+  * **ERM** - Erudite Male (Race 3, Gender 0) - Textures: **00-03, 10-16**, Heads: **00-04**, Faces: **00-07**, Hair: **00-05**, Beards: **00-05**
+* **Source:** globalerf_chr.s3d (Loaded with Luclin models)
+  * **ERF** - Erudite Female (Race 3, Gender 1) - Textures: **00-03, 10-16**, Heads: **00-04**, Faces: **00-07**, Hair: **00-08**
+* **Source:** globalelm_chr.s3d (Loaded with Luclin models)
+  * **ELM** - Wood Elf Male (Race 4, Gender 0) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**
+* **Source:** globalelf_chr.s3d (Loaded with Luclin models)
+  * **ELF** - Wood Elf Female (Race 4, Gender 1) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**
+* **Source:** globalhim_chr.s3d (Loaded with Luclin models)
+  * **HIM** - High Elf Male (Race 5, Gender 0) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Beards: **00-03**
+* **Source:** globalhif_chr.s3d (Loaded with Luclin models)
+  * **HIF** - High Elf Female (Race 5, Gender 1) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**
+* **Source:** globaldam_chr.s3d (Loaded with Luclin models)
+  * **DAM** - Dark Elf Male (Race 6, Gender 0) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Beards: **00-03**
+* **Source:** globaldaf_chr.s3d (Loaded with Luclin models)
+  * **DAF** - Dark Elf Female (Race 6, Gender 1) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**
+* **Source:** globalham_chr.s3d (Loaded with Luclin models)
+  * **HAM** - Half Elf Male (Race 7, Gender 0) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Beards: **00-03**
+* **Source:** globalhaf_chr.s3d (Loaded with Luclin models)
+  * **HAF** - Half Elf Female (Race 7, Gender 1) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**
+* **Source:** globaldwm_chr.s3d (Loaded with Luclin models)
+  * **DWM** - Dwarf Male (Race 8, Gender 0) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Beards: **00-05**
+* **Source:** globaldwf_chr.s3d (Loaded with Luclin models)
+  * **DWF** - Dwarf Female (Race 8, Gender 1) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Beards: **00 01**
+* **Source:** globaltrm_chr.s3d (Loaded with Luclin models)
+  * **TRM** - Troll Male (Race 9, Gender 0) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
+* **Source:** globaltrf_chr.s3d (Loaded with Luclin models)
+  * **TRF** - Troll Female (Race 9, Gender 1) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**
+* **Source:** globalogm_chr.s3d (Loaded with Luclin models)
+  * **OGM** - Ogre Male (Race 10, Gender 0) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
+* **Source:** globalogf_chr.s3d (Loaded with Luclin models)
+  * **OGF** - Ogre Female (Race 10, Gender 1) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**
+* **Source:** globalhom_chr.s3d (Loaded with Luclin models)
+  * **HOM** - Halfling Male (Race 11, Gender 0) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Beards: **00-05**
+* **Source:** globalhof_chr.s3d (Loaded with Luclin models)
+  * **HOF** - Halfling Female (Race 11, Gender 1) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**
+* **Source:** globalgnm_chr.s3d (Loaded with Luclin models)
+  * **GNM** - Gnome Male (Race 12, Gender 0) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Beards: **00-05**
+* **Source:** globalgnf_chr.s3d (Loaded with Luclin models)
+  * **GNF** - Gnome Female (Race 12, Gender 1) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**
+* **Source:** globalikm_chr.s3d (Loaded with Luclin models)
+  * **IKM** - Iksar Male (Race 128, Gender 0) - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**
+* **Source:** globalikf_chr.s3d (Loaded with Luclin models)
+  * **IKF** - Iksar Female (Race 128, Gender 1) - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**
+* **Source:** globalkem_chr.s3d (Loaded with Luclin models)
+  * **KEM** - Vah Shir Male (Race 130, Gender 0) - Textures: **00-03, 50**, Heads: **00-03**, Faces: **00-07**
+* **Source:** globalkef_chr.s3d (Loaded with Luclin models)
+  * **KEF** - Vah Shir Female (Race 130, Gender 1) - Textures: **00-03, 50**, Heads: **00-03**, Faces: **00-07**
+* **Source:** global5\_chr.s3d (Loaded with Luclin models)
+  * **AEL** - Air Elemental (Race 210, Gender 2)
+  * **EEL** - Earth Elemental (Race 209, Gender 2)
+  * **FEL** - Fire Elemental (Race 212, Gender 2)
+  * **HSM** - Horse Male (Race 216, Gender 0) - Textures: **00-03**
+  * **WEL** - Water Elemental (Race 211, Gender 2)
+* **Source:** frog_mount_chr.s3d (Loaded with Luclin models)
+  * **HSF** - Horse Female (Race 216, Gender 1) - Textures: **00-03**
+  * **FMT** - Drogmore (Race 348, Gender 2) - Textures: **00-03**
+* **Source:** globalfroglok_chr.s3d (Loaded via GlobalLoad.txt)
+  * **FRO** - Froglok (Race 26, Gender 2)
+  * **FRG** - Froglok (Race 27, Gender 2) - Textures: **00 01**
+* **Source:** globalpcfroglok_chr.s3d (Loaded via GlobalLoad.txt)
+  * **FRF** - Froglok Female (Race 330, Gender 1) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-09**
+  * **FRM** - Froglok Male (Race 330, Gender 0) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-09**
+* **Source:** gbn.eqg (Loaded via GlobalLoad.txt)
+  * **GBN** - Goblin (Race 433, Gender 2) - Textures: **00-08**, Heads: **00 06-08**
+* **Source:** wwf.eqg (Loaded via GlobalLoad.txt)
+  * **WWF** - Werewolf (Race 454, Gender 2) - Textures: **00-04**
+* **Source:** kbd.eqg (Loaded via GlobalLoad.txt)
+  * **KBD** - Kobold (Race 455, Gender 2) - Textures: **00-05**, Heads: **00-05**
+* **Source:** fng.eqg (Loaded via GlobalLoad.txt)
+  * **FNG** - Sporali (Race 456, Gender 2) - Textures: **00 02 04 06 08 10 12**, Heads: **00 01, 03**
+* **Source:** ork.eqg (Loaded via GlobalLoad.txt)
+  * **ORK** - Orc (Race 458, Gender 2) - Textures: **00-09**, Heads: **00-09**
+* **Source:** ggy.eqg (Loaded via GlobalLoad.txt)
+  * **GGY** - Gargoyle (Race 464, Gender 2) - Textures: **00-03**
+* **Source:** eve.eqg (Loaded via GlobalLoad.txt)
+  * **EVE** - Evil Eye (Race 469, Gender 2) - Textures: **00-02**
+* **Source:** mnr.eqg (Loaded via GlobalLoad.txt)
+  * **MNR** - Minotaur (Race 470, Gender 2)
+* **Source:** zmf.eqg (Loaded via GlobalLoad.txt)
+  * **ZMF** - Zombie Female (Race 471, Gender 1)
+* **Source:** zmm.eqg (Loaded via GlobalLoad.txt)
+  * **ZMM** - Zombie Male (Race 471, Gender 0)
+* **Source:** fry.eqg (Loaded via GlobalLoad.txt)
+  * **FRY** - Fairy (Race 473, Gender 2) - Textures: **00 01**, Heads: **00 01**
+* **Source:** cwr.eqg (Loaded via GlobalLoad.txt)
+  * **CWR** - Clockwork Boar (Race 472, Gender 2)
+* **Source:** bas.eqg (Loaded via GlobalLoad.txt)
+  * **BAS** - Basilisk (Race 436, Gender 2) - Textures: **00 01**
+* **Source:** rap_chr.s3d (Loaded via GlobalLoad.txt)
+  * **RAP** - Raptor (Race 163, Gender 2) - Textures: **00 01**
+* **Source:** t00.eqg (Loaded via GlobalLoad.txt)
+  * **T00** - Bear Trap (Race 503, Gender 2)
+* **Source:** t05.eqg (Loaded via GlobalLoad.txt)
+  * **T05** - Stone Ring (Race 508, Gender 2)
+* **Source:** t07.eqg (Loaded via GlobalLoad.txt)
+  * **T07** - Runic Symbol (Race 510, Gender 2)
+* **Source:** t09.eqg (Loaded via GlobalLoad.txt)
+  * **T09** - Floating Skull (Race 512, Gender 2)
+* **Source:** t10.eqg (Loaded via GlobalLoad.txt)
+  * **T10** - Spike Trap (Race 513, Gender 2)
+* **Source:** t11.eqg (Loaded via GlobalLoad.txt)
+  * **T11** - Totem (Race 514, Gender 2)
+* **Source:** spt.eqg (Loaded via GlobalLoad.txt)
+  * **SPT** - Spectre (Race 485, Gender 2)
+* **Source:** dpm_chr.s3d (Loaded via GlobalLoad.txt)
+  * **DPM** - Pirate Male (Race 339, Gender 0)
+* **Source:** dpf_chr.s3d (Loaded via GlobalLoad.txt)
+  * **DPF** - Pirate Female (Race 339, Gender 1)
+* **Source:** epm_chr.s3d (Loaded via GlobalLoad.txt)
+  * **EPM** - Pirate Male (Race 342, Gender 0)
+* **Source:** epf_chr.s3d (Loaded via GlobalLoad.txt)
+  * **EPF** - Pirate Female (Race 342, Gender 1)
+* **Source:** gpm_chr.s3d (Loaded via GlobalLoad.txt)
+  * **GPM** - Pirate Male (Race 338, Gender 0)
+* **Source:** gpf_chr.s3d (Loaded via GlobalLoad.txt)
+  * **GPF** - Pirate Female (Race 338, Gender 1)
+* **Source:** hpf_chr.s3d (Loaded via GlobalLoad.txt)
+  * **HPF** - Pirate Female (Race 341, Gender 1)
+* **Source:** hpm_chr.s3d (Loaded via GlobalLoad.txt)
+  * **HPM** - Pirate Male (Race 341, Gender 0)
+* **Source:** opf_chr.s3d (Loaded via GlobalLoad.txt)
+  * **OPF** - Pirate Female (Race 340, Gender 1)
+* **Source:** opm_chr.s3d (Loaded via GlobalLoad.txt)
+  * **OPM** - Pirate Male (Race 340, Gender 0)
+* **Source:** tbm_chr.s3d (Loaded via GlobalLoad.txt)
+  * **TBM** - Troll Male (Race 331, Gender 0)
+* **Source:** tbf_chr.s3d (Loaded via GlobalLoad.txt)
+  * **TBF** - Troll Female (Race 331, Gender 1)
+* **Source:** wor.eqg (Loaded via GlobalLoad.txt)
+  * **WOR** - Worg (Race 580, Gender 2) - Heads: **00-02**
+* **Source:** skt_chr.s3d (Loaded via GlobalLoad.txt)
+  * **SKT** - Skeleton (Race 367, Gender 2) - Textures: **00-04**
+* **Source:** global6\_chr.s3d (Loaded via GlobalLoad.txt)
+  * **ALL** - Alligator (Race 91, Gender 2) - Textures: **00 01**, Heads: **00 01**
+  * **DRK** - Drake (Race 89, Gender 2) - Textures: **00-03**
+  * **WOF** - Chokadai (Race 356, Gender 2) - Textures: **00 01**
+  * **SKE** - Skeleton (Race 60, Gender 2)
+  * **TPN** - Teleport Man (Race 240, Gender 2)
+  * **TIG** - Tiger (Race 63, Gender 2)
+  * **WOL** - Wolf (Race 42, Gender 2) - Textures: **00-03**
+  * **WOE** - Wolf (Race 120, Gender 2) - Textures: **00-03**
+* **Source:** global4\_chr.s3d (Loaded via GlobalLoad.txt)
+  * **IKS** - Undead Iksar (Race 161, Gender 2) - Heads: **00 01**
+  * **SPE** - Spectre (Race 85, Gender 2)
+  * **BAF** - Barbarian Female (Race 2, Gender 1) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
+  * **BAM** - Barbarian Male (Race 2, Gender 0) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
+  * **IKF** - Iksar Female (Race 128, Gender 1) - Textures: **00-04, 10**, Heads: **00-03**, Faces: **00-07**
+  * **IKM** - Iksar Male (Race 128, Gender 0) - Textures: **00-04, 10**, Heads: **00-03**, Faces: **00-07**
+* **Source:** global_chr.s3d (Loaded via GlobalLoad.txt)
+  * **ELE** - Elemental (Race 75, Gender 2) - Textures: **00-03**, Heads: **00 01**
+  * **EYE** - Eye (Race 108, Gender 2) - Textures: **00-03**
+  * **IVM** - Invisible Man Male (Race 127, Gender 0)
+  * **SKE** - Skeleton (Race 60, Gender 2) - Textures: **00 01**
+  * **WER** - Werewolf (Race 14, Gender 2)
+  * **WOE** - Wolf (Race 120, Gender 2) - Textures: **00 01**
+  * **BOAT** - Boat (Race 141, Gender 2)
+  * **BAF** - Barbarian Female (Race 2, Gender 1) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
+  * **BAM** - Barbarian Male (Race 2, Gender 0) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
+  * **DAF** - Dark Elf Female (Race 6, Gender 1) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-07**
+  * **DAM** - Dark Elf Male (Race 6, Gender 0) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-07**
+  * **DWF** - Dwarf Female (Race 8, Gender 1) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
+  * **DWM** - Dwarf Male (Race 8, Gender 0) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
+  * **ERF** - Erudite Female (Race 3, Gender 1) - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**
+  * **ERM** - Erudite Male (Race 3, Gender 0) - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**
+  * **GNF** - Gnome Female (Race 12, Gender 1) - Textures: **00-03, 10-16**, Heads: **00-04**, Faces: **00-07**
+  * **GNM** - Gnome Male (Race 12, Gender 0) - Textures: **00-03, 10-16**, Heads: **00-04**, Faces: **00-07**
+  * **HAF** - Half Elf Female (Race 7, Gender 1) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
+  * **HAM** - Half Elf Male (Race 7, Gender 0) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
+  * **HOF** - Halfling Female (Race 11, Gender 1) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
+  * **HOM** - Halfling Male (Race 11, Gender 0) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
+  * **HIF** - High Elf Female (Race 5, Gender 1) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-07**
+  * **HIM** - High Elf Male (Race 5, Gender 0) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-07**
+  * **HUF** - Human Female (Race 1, Gender 1) - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**
+  * **HUM** - Human Male (Race 1, Gender 0) - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**
+  * **OGF** - Ogre Female (Race 10, Gender 1) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
+  * **OGM** - Ogre Male (Race 10, Gender 0) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
+  * **TRF** - Troll Female (Race 9, Gender 1) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
+  * **TRM** - Troll Male (Race 9, Gender 0) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
+  * **ELF** - Wood Elf Female (Race 4, Gender 1) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
+  * **ELM** - Wood Elf Male (Race 4, Gender 0) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
+* **Source:** dkm.eqg (Loaded via GlobalLoad.txt)
+  * **DKM** - Drakkin Male (Race 522, Gender 0) - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-06**, Hair: **00-08**, Beards: **00-11**, Detail: **00-07**, Tattoo: **00-07**, Heritage: **00-07**
+* **Source:** dkf.eqg (Loaded via GlobalLoad.txt)
+  * **DKF** - Drakkin Female (Race 522, Gender 1) - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-06**, Hair: **00-07**, Beards: **00-03**, Detail: **00-07**, Tattoo: **00-07**, Heritage: **00-07**
+* **Source:** unm.eqg (Loaded via GlobalLoad.txt)
+  * **UNM** - Nightmare/Unicorn (Race 519, Gender 2) - Textures: **00 01**, Heads: **00 01**
+* **Source:** hrs.eqg (Loaded via GlobalLoad.txt)
+  * **HRS** - Horse (Race 518, Gender 2) - Textures: **00-02**, Heads: **00 03 06**
+* **Source:** globalgdb.eqg (Loaded via GlobalLoad.txt)
+  * **G00** - Banner (Race 553, Gender 2)
+  * **G01** - Banner (Race 554, Gender 2)
+  * **G02** - Banner (Race 555, Gender 2)
+  * **G03** - Banner (Race 556, Gender 2)
+  * **G04** - Banner (Race 557, Gender 2)
+* **Source:** glm.eqg (Loaded via GlobalLoad.txt)
+  * **GLM** - Golem (Race 374, Gender 2) - Textures: **00-04**
+* **Source:** mur.eqg (Loaded via GlobalLoad.txt)
+  * **MUR** - Lightning Warrior (Race 407, Gender 2)
+* **Source:** dsg.eqg (Loaded via GlobalLoad.txt)
+  * **DSG** - Bazu (Race 409, Gender 2)
+* **Source:** scu.eqg (Loaded via GlobalLoad.txt)
+  * **SCU** - Pyrilen (Race 411, Gender 2)
+* **Source:** frd.eqg (Loaded via GlobalLoad.txt)
+  * **FRD** - Gelidran (Race 417, Gender 2)
+* **Source:** ddv.eqg (Loaded via GlobalLoad.txt)
+  * **DDV** - Girplan (Race 419, Gender 2) - Textures: **00-03**
+* **Source:** shl.eqg (Loaded via GlobalLoad.txt)
+  * **SHL** - Shiliskin (Race 467, Gender 2) - Textures: **00-03**, Heads: **00-03**
+* **Source:** bsg.eqg (Loaded via GlobalLoad.txt)
+  * **BSG** - Banshee Female (Race 488, Gender 1)
+* **Source:** srn.eqg (Loaded via GlobalLoad.txt)
+  * **SRN** - Scrykin (Race 495, Gender 2) - Textures: **00-03**, Heads: **00-03**
+* **Source:** bxi.eqg (Loaded via GlobalLoad.txt)
+  * **BXI** - Bixie (Race 520, Gender 2) - Textures: **00-02**, Heads: **00-02**
+* **Source:** drg.eqg (Loaded via GlobalLoad.txt)
+  * **DRG** - Dragon (Race 530, Gender 2) - Textures: **00-05**, Heads: **00-05**
+* **Source:** mch.eqg (Loaded via GlobalLoad.txt)
+  * **MCH** - Chimera (Race 582, Gender 2)
+* **Source:** mki.eqg (Loaded via GlobalLoad.txt)
+  * **MKI** - Kirin (Race 583, Gender 2)
+* **Source:** mpu.eqg (Loaded via GlobalLoad.txt)
+  * **MPU** - Puma (Race 584, Gender 2) - Textures: **00 01**
+* **Source:** g05.eqg (Loaded via GlobalLoad.txt)
+  * **G05** - Banner (Race 586, Gender 2)
+* **Source:** i10.eqg (Loaded via GlobalLoad.txt)
+  * **I10** - Campfire (Race 567, Gender 2)
+* **Source:** global2\_chr.s3d (Loaded via GlobalLoad.txt)
+  * **BEA** - Bear (Race 43, Gender 2) - Textures: **00-02**, Heads: **00-02**
+  * **BRI** - Bristlebane (Race 153, Gender 2)
+  * **CAZ** - Cazic Thule (Race 95, Gender 2) - Heads: **00 01**
+  * **ERO** - Erollisi (Race 150, Gender 2)
+  * **IMP** - Imp (Race 46, Gender 2)
+  * **INN** - Innoruuk (Race 123, Gender 2)
+  * **RAL** - Rallos Zek (Race 66, Gender 2) - Textures: **00 01**
+  * **SCA** - Scarecrow (Race 82, Gender 2)
+  * **SOL** - Solusek Ro (Race 58, Gender 2)
+  * **TRI** - Tribunal (Race 151, Gender 2)
+  * **TUN** - Tunare (Race 62, Gender 2)
 {% endtab %}
 
 {% tab title="RoF2" %}
 ## Globally Available Race Models
 
-* **Source:** global7\_chr.s3d \(Loaded when Luclin models disabled\)
-  * **KEF** - Vah Shir Female \(Race 130, Gender 1\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
-  * **KEM** - Vah Shir Male \(Race 130, Gender 0\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
-* **Source:** globalhum\_chr.s3d \(Loaded with Luclin models\)
-  * **HUM** - Human Male \(Race 1, Gender 0\) - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Beards: **00-05**
-* **Source:** globalhuf\_chr.s3d \(Loaded with Luclin models\)
-  * **HUF** - Human Female \(Race 1, Gender 1\) - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**
-* **Source:** globalbam\_chr.s3d \(Loaded with Luclin models\)
-  * **BAM** - Barbarian Male \(Race 2, Gender 0\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Beards: **00-05**, Tattoo: **00-08**
-* **Source:** globalbaf\_chr.s3d \(Loaded with Luclin models\)
-  * **BAF** - Barbarian Female \(Race 2, Gender 1\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Tattoo: **00-08**
-* **Source:** globalerm\_chr.s3d \(Loaded with Luclin models\)
-  * **ERM** - Erudite Male \(Race 3, Gender 0\) - Textures: **00-03, 10-16**, Heads: **00-04**, Faces: **00-07**, Hair: **00-05**, Beards: **00-05**
-* **Source:** globalerf\_chr.s3d \(Loaded with Luclin models\)
-  * **ERF** - Erudite Female \(Race 3, Gender 1\) - Textures: **00-03, 10-16**, Heads: **00-04**, Faces: **00-07**, Hair: **00-08**
-* **Source:** globalelm\_chr.s3d \(Loaded with Luclin models\)
-  * **ELM** - Wood Elf Male \(Race 4, Gender 0\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**
-* **Source:** globalelf\_chr.s3d \(Loaded with Luclin models\)
-  * **ELF** - Wood Elf Female \(Race 4, Gender 1\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**
-* **Source:** globalhim\_chr.s3d \(Loaded with Luclin models\)
-  * **HIM** - High Elf Male \(Race 5, Gender 0\) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Beards: **00-03**
-* **Source:** globalhif\_chr.s3d \(Loaded with Luclin models\)
-  * **HIF** - High Elf Female \(Race 5, Gender 1\) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**
-* **Source:** globaldam\_chr.s3d \(Loaded with Luclin models\)
-  * **DAM** - Dark Elf Male \(Race 6, Gender 0\) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Beards: **00-03**
-* **Source:** globaldaf\_chr.s3d \(Loaded with Luclin models\)
-  * **DAF** - Dark Elf Female \(Race 6, Gender 1\) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**
-* **Source:** globalham\_chr.s3d \(Loaded with Luclin models\)
-  * **HAM** - Half Elf Male \(Race 7, Gender 0\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Beards: **00-03**
-* **Source:** globalhaf\_chr.s3d \(Loaded with Luclin models\)
-  * **HAF** - Half Elf Female \(Race 7, Gender 1\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**
-* **Source:** globaldwm\_chr.s3d \(Loaded with Luclin models\)
-  * **DWM** - Dwarf Male \(Race 8, Gender 0\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Beards: **00-05**
-* **Source:** globaldwf\_chr.s3d \(Loaded with Luclin models\)
-  * **DWF** - Dwarf Female \(Race 8, Gender 1\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Beards: **00 01**
-* **Source:** globaltrm\_chr.s3d \(Loaded with Luclin models\)
-  * **TRM** - Troll Male \(Race 9, Gender 0\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
-* **Source:** globaltrf\_chr.s3d \(Loaded with Luclin models\)
-  * **TRF** - Troll Female \(Race 9, Gender 1\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**
-* **Source:** globalogm\_chr.s3d \(Loaded with Luclin models\)
-  * **OGM** - Ogre Male \(Race 10, Gender 0\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
-* **Source:** globalogf\_chr.s3d \(Loaded with Luclin models\)
-  * **OGF** - Ogre Female \(Race 10, Gender 1\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**
-* **Source:** globalhom\_chr.s3d \(Loaded with Luclin models\)
-  * **HOM** - Halfling Male \(Race 11, Gender 0\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Beards: **00-05**
-* **Source:** globalhof\_chr.s3d \(Loaded with Luclin models\)
-  * **HOF** - Halfling Female \(Race 11, Gender 1\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**
-* **Source:** globalgnm\_chr.s3d \(Loaded with Luclin models\)
-  * **GNM** - Gnome Male \(Race 12, Gender 0\) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Beards: **00-05**
-* **Source:** globalgnf\_chr.s3d \(Loaded with Luclin models\)
-  * **GNF** - Gnome Female \(Race 12, Gender 1\) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**
-* **Source:** globalikm\_chr.s3d \(Loaded with Luclin models\)
-  * **IKM** - Iksar Male \(Race 128, Gender 0\) - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**
-* **Source:** globalikf\_chr.s3d \(Loaded with Luclin models\)
-  * **IKF** - Iksar Female \(Race 128, Gender 1\) - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**
-* **Source:** globalkem\_chr.s3d \(Loaded with Luclin models\)
-  * **KEM** - Vah Shir Male \(Race 130, Gender 0\) - Textures: **00-03, 50**, Heads: **00-03**, Faces: **00-07**
-* **Source:** globalkef\_chr.s3d \(Loaded with Luclin models\)
-  * **KEF** - Vah Shir Female \(Race 130, Gender 1\) - Textures: **00-03, 50**, Heads: **00-03**, Faces: **00-07**
-* **Source:** global5\_chr.s3d \(Loaded with Luclin models\)
-  * **AEL** - Air Elemental \(Race 210, Gender 2\)
-  * **EEL** - Earth Elemental \(Race 209, Gender 2\)
-  * **FEL** - Fire Elemental \(Race 212, Gender 2\)
-  * **HSM** - Horse Male \(Race 216, Gender 0\) - Textures: **00-03**
-  * **WEL** - Water Elemental \(Race 211, Gender 2\)
-* **Source:** frog\_mount\_chr.s3d \(Loaded with Luclin models\)
-  * **HSF** - Horse Female \(Race 216, Gender 1\) - Textures: **00-03**
-  * **FMT** - Drogmore \(Race 348, Gender 2\) - Textures: **00-03**
-* **Source:** globalfroglok\_chr.s3d \(Loaded via GlobalLoad.txt\)
-  * **FRO** - Froglok \(Race 26, Gender 2\)
-  * **FRG** - Froglok \(Race 27, Gender 2\) - Textures: **00 01**
-* **Source:** globalpcfroglok\_chr.s3d \(Loaded via GlobalLoad.txt\)
-  * **FRF** - Froglok Female \(Race 330, Gender 1\) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-09**
-  * **FRM** - Froglok Male \(Race 330, Gender 0\) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-09**
-* **Source:** frogequip.s3d \(Loaded via GlobalLoad.txt\)
+* **Source:** global7\_chr.s3d (Loaded when Luclin models disabled)
+  * **KEF** - Vah Shir Female (Race 130, Gender 1) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
+  * **KEM** - Vah Shir Male (Race 130, Gender 0) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
+* **Source:** globalhum_chr.s3d (Loaded with Luclin models)
+  * **HUM** - Human Male (Race 1, Gender 0) - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Beards: **00-05**
+* **Source:** globalhuf_chr.s3d (Loaded with Luclin models)
+  * **HUF** - Human Female (Race 1, Gender 1) - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**
+* **Source:** globalbam_chr.s3d (Loaded with Luclin models)
+  * **BAM** - Barbarian Male (Race 2, Gender 0) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Beards: **00-05**, Tattoo: **00-08**
+* **Source:** globalbaf_chr.s3d (Loaded with Luclin models)
+  * **BAF** - Barbarian Female (Race 2, Gender 1) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Tattoo: **00-08**
+* **Source:** globalerm_chr.s3d (Loaded with Luclin models)
+  * **ERM** - Erudite Male (Race 3, Gender 0) - Textures: **00-03, 10-16**, Heads: **00-04**, Faces: **00-07**, Hair: **00-05**, Beards: **00-05**
+* **Source:** globalerf_chr.s3d (Loaded with Luclin models)
+  * **ERF** - Erudite Female (Race 3, Gender 1) - Textures: **00-03, 10-16**, Heads: **00-04**, Faces: **00-07**, Hair: **00-08**
+* **Source:** globalelm_chr.s3d (Loaded with Luclin models)
+  * **ELM** - Wood Elf Male (Race 4, Gender 0) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**
+* **Source:** globalelf_chr.s3d (Loaded with Luclin models)
+  * **ELF** - Wood Elf Female (Race 4, Gender 1) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**
+* **Source:** globalhim_chr.s3d (Loaded with Luclin models)
+  * **HIM** - High Elf Male (Race 5, Gender 0) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Beards: **00-03**
+* **Source:** globalhif_chr.s3d (Loaded with Luclin models)
+  * **HIF** - High Elf Female (Race 5, Gender 1) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**
+* **Source:** globaldam_chr.s3d (Loaded with Luclin models)
+  * **DAM** - Dark Elf Male (Race 6, Gender 0) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Beards: **00-03**
+* **Source:** globaldaf_chr.s3d (Loaded with Luclin models)
+  * **DAF** - Dark Elf Female (Race 6, Gender 1) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**
+* **Source:** globalham_chr.s3d (Loaded with Luclin models)
+  * **HAM** - Half Elf Male (Race 7, Gender 0) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Beards: **00-03**
+* **Source:** globalhaf_chr.s3d (Loaded with Luclin models)
+  * **HAF** - Half Elf Female (Race 7, Gender 1) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**
+* **Source:** globaldwm_chr.s3d (Loaded with Luclin models)
+  * **DWM** - Dwarf Male (Race 8, Gender 0) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Beards: **00-05**
+* **Source:** globaldwf_chr.s3d (Loaded with Luclin models)
+  * **DWF** - Dwarf Female (Race 8, Gender 1) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Beards: **00 01**
+* **Source:** globaltrm_chr.s3d (Loaded with Luclin models)
+  * **TRM** - Troll Male (Race 9, Gender 0) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
+* **Source:** globaltrf_chr.s3d (Loaded with Luclin models)
+  * **TRF** - Troll Female (Race 9, Gender 1) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**
+* **Source:** globalogm_chr.s3d (Loaded with Luclin models)
+  * **OGM** - Ogre Male (Race 10, Gender 0) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
+* **Source:** globalogf_chr.s3d (Loaded with Luclin models)
+  * **OGF** - Ogre Female (Race 10, Gender 1) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**
+* **Source:** globalhom_chr.s3d (Loaded with Luclin models)
+  * **HOM** - Halfling Male (Race 11, Gender 0) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Beards: **00-05**
+* **Source:** globalhof_chr.s3d (Loaded with Luclin models)
+  * **HOF** - Halfling Female (Race 11, Gender 1) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**
+* **Source:** globalgnm_chr.s3d (Loaded with Luclin models)
+  * **GNM** - Gnome Male (Race 12, Gender 0) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**, Beards: **00-05**
+* **Source:** globalgnf_chr.s3d (Loaded with Luclin models)
+  * **GNF** - Gnome Female (Race 12, Gender 1) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-07**, Hair: **00-03**
+* **Source:** globalikm_chr.s3d (Loaded with Luclin models)
+  * **IKM** - Iksar Male (Race 128, Gender 0) - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**
+* **Source:** globalikf_chr.s3d (Loaded with Luclin models)
+  * **IKF** - Iksar Female (Race 128, Gender 1) - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**
+* **Source:** globalkem_chr.s3d (Loaded with Luclin models)
+  * **KEM** - Vah Shir Male (Race 130, Gender 0) - Textures: **00-03, 50**, Heads: **00-03**, Faces: **00-07**
+* **Source:** globalkef_chr.s3d (Loaded with Luclin models)
+  * **KEF** - Vah Shir Female (Race 130, Gender 1) - Textures: **00-03, 50**, Heads: **00-03**, Faces: **00-07**
+* **Source:** global5\_chr.s3d (Loaded with Luclin models)
+  * **AEL** - Air Elemental (Race 210, Gender 2)
+  * **EEL** - Earth Elemental (Race 209, Gender 2)
+  * **FEL** - Fire Elemental (Race 212, Gender 2)
+  * **HSM** - Horse Male (Race 216, Gender 0) - Textures: **00-03**
+  * **WEL** - Water Elemental (Race 211, Gender 2)
+* **Source:** frog_mount_chr.s3d (Loaded with Luclin models)
+  * **HSF** - Horse Female (Race 216, Gender 1) - Textures: **00-03**
+  * **FMT** - Drogmore (Race 348, Gender 2) - Textures: **00-03**
+* **Source:** globalfroglok_chr.s3d (Loaded via GlobalLoad.txt)
+  * **FRO** - Froglok (Race 26, Gender 2)
+  * **FRG** - Froglok (Race 27, Gender 2) - Textures: **00 01**
+* **Source:** globalpcfroglok_chr.s3d (Loaded via GlobalLoad.txt)
+  * **FRF** - Froglok Female (Race 330, Gender 1) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-09**
+  * **FRM** - Froglok Male (Race 330, Gender 0) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-09**
+* **Source:** frogequip.s3d (Loaded via GlobalLoad.txt)
   * **IT4840** - Unrecognized Race Model
   * **IT4841** - Unrecognized Race Model
   * **IT4842** - Unrecognized Race Model
@@ -690,9 +715,9 @@ The example below demonstrates the output for zone 0 - Globals:
   * **IT8847** - Unrecognized Race Model
   * **IT8876** - Unrecognized Race Model
   * **IT8877** - Unrecognized Race Model
-* **Source:** global\_obj.s3d \(Loaded via GlobalLoad.txt\)
+* **Source:** global_obj.s3d (Loaded via GlobalLoad.txt)
   * **POKTELE500** - Unrecognized Race Model
-* **Source:** gequip.s3d \(Loaded via GlobalLoad.txt\)
+* **Source:** gequip.s3d (Loaded via GlobalLoad.txt)
   * **BBBOARD** - Unrecognized Race Model
   * **GENA00** - Unrecognized Race Model
   * **GENA10** - Unrecognized Race Model
@@ -893,10 +918,10 @@ The example below demonstrates the output for zone 0 - Globals:
   * **IT154** - Unrecognized Race Model
   * **IT155** - Unrecognized Race Model
   * **IT156** - Unrecognized Race Model
-* **Source:** gequip8.s3d \(Loaded via GlobalLoad.txt\)
+* **Source:** gequip8.s3d (Loaded via GlobalLoad.txt)
   * **IT10524** - Unrecognized Race Model
   * **IT10733** - Unrecognized Race Model
-* **Source:** gequip2.s3d \(Loaded via GlobalLoad.txt\)
+* **Source:** gequip2.s3d (Loaded via GlobalLoad.txt)
   * **IT11** - Unrecognized Race Model
   * **IT12** - Unrecognized Race Model
   * **IT161** - Unrecognized Race Model
@@ -981,7 +1006,7 @@ The example below demonstrates the output for zone 0 - Globals:
   * **IT650** - Unrecognized Race Model
   * **IT655** - Unrecognized Race Model
   * **IT656** - Unrecognized Race Model
-* **Source:** gequip5.s3d \(Loaded via GlobalLoad.txt\)
+* **Source:** gequip5.s3d (Loaded via GlobalLoad.txt)
   * **IT10400** - Unrecognized Race Model
   * **IT10401** - Unrecognized Race Model
   * **IT10402** - Unrecognized Race Model
@@ -1112,7 +1137,7 @@ The example below demonstrates the output for zone 0 - Globals:
   * **IT10669** - Unrecognized Race Model
   * **IT10670** - Unrecognized Race Model
   * **IT10671** - Unrecognized Race Model
-* **Source:** gequip4.s3d \(Loaded via GlobalLoad.txt\)
+* **Source:** gequip4.s3d (Loaded via GlobalLoad.txt)
   * **IT10015** - Unrecognized Race Model
   * **IT10026** - Unrecognized Race Model
   * **IT10027** - Unrecognized Race Model
@@ -1126,7 +1151,7 @@ The example below demonstrates the output for zone 0 - Globals:
   * **IT11020** - Unrecognized Race Model
   * **IT11502** - Unrecognized Race Model
   * **IT67367** - Unrecognized Race Model
-* **Source:** gequip3.s3d \(Loaded via GlobalLoad.txt\)
+* **Source:** gequip3.s3d (Loaded via GlobalLoad.txt)
   * **IT10000** - Unrecognized Race Model
   * **IT10001** - Unrecognized Race Model
   * **IT10002** - Unrecognized Race Model
@@ -1172,8 +1197,8 @@ The example below demonstrates the output for zone 0 - Globals:
   * **IT11017** - Unrecognized Race Model
   * **IT11500** - Unrecognized Race Model
   * **IT11501** - Unrecognized Race Model
-  * **MINIPOM200** - Mini POM \(Race 252, Gender 2\)
-* **Source:** loyequip.s3d \(Loaded via GlobalLoad.txt\)
+  * **MINIPOM200** - Mini POM (Race 252, Gender 2)
+* **Source:** loyequip.s3d (Loaded via GlobalLoad.txt)
   * **IT10672** - Unrecognized Race Model
   * **IT10673** - Unrecognized Race Model
   * **IT10674** - Unrecognized Race Model
@@ -1199,7 +1224,7 @@ The example below demonstrates the output for zone 0 - Globals:
   * **IT10695** - Unrecognized Race Model
   * **IT10696** - Unrecognized Race Model
   * **IT10697** - Unrecognized Race Model
-* **Source:** ldonequip.s3d \(Loaded via GlobalLoad.txt\)
+* **Source:** ldonequip.s3d (Loaded via GlobalLoad.txt)
   * **IT10700** - Unrecognized Race Model
   * **IT10701** - Unrecognized Race Model
   * **IT10702** - Unrecognized Race Model
@@ -1215,7 +1240,7 @@ The example below demonstrates the output for zone 0 - Globals:
   * **IT10712** - Unrecognized Race Model
   * **IT10713** - Unrecognized Race Model
   * **IT10714** - Unrecognized Race Model
-* **Source:** gatesequip.s3d \(Loaded via GlobalLoad.txt\)
+* **Source:** gatesequip.s3d (Loaded via GlobalLoad.txt)
   * **IT10715** - Unrecognized Race Model
   * **IT10716** - Unrecognized Race Model
   * **IT10717** - Unrecognized Race Model
@@ -1233,112 +1258,111 @@ The example below demonstrates the output for zone 0 - Globals:
   * **IT10730** - Unrecognized Race Model
   * **IT10731** - Unrecognized Race Model
   * **IT10732** - Unrecognized Race Model
-* **Source:** rap\_chr.s3d \(Loaded via GlobalLoad.txt\)
-  * **RAP** - Raptor \(Race 163, Gender 2\) - Textures: **00 01**
-* **Source:** dpm\_chr.s3d \(Loaded via GlobalLoad.txt\)
-  * **DPM** - Pirate Male \(Race 339, Gender 0\)
-* **Source:** dpf\_chr.s3d \(Loaded via GlobalLoad.txt\)
-  * **DPF** - Pirate Female \(Race 339, Gender 1\)
-* **Source:** epm\_chr.s3d \(Loaded via GlobalLoad.txt\)
-  * **EPM** - Pirate Male \(Race 342, Gender 0\)
-* **Source:** epf\_chr.s3d \(Loaded via GlobalLoad.txt\)
-  * **EPF** - Pirate Female \(Race 342, Gender 1\)
-* **Source:** gpm\_chr.s3d \(Loaded via GlobalLoad.txt\)
-  * **GPM** - Pirate Male \(Race 338, Gender 0\)
-* **Source:** gpf\_chr.s3d \(Loaded via GlobalLoad.txt\)
-  * **GPF** - Pirate Female \(Race 338, Gender 1\)
-* **Source:** hpf\_chr.s3d \(Loaded via GlobalLoad.txt\)
-  * **HPF** - Pirate Female \(Race 341, Gender 1\)
-* **Source:** hpm\_chr.s3d \(Loaded via GlobalLoad.txt\)
-  * **HPM** - Pirate Male \(Race 341, Gender 0\)
-* **Source:** opf\_chr.s3d \(Loaded via GlobalLoad.txt\)
-  * **OPF** - Pirate Female \(Race 340, Gender 1\)
-* **Source:** opm\_chr.s3d \(Loaded via GlobalLoad.txt\)
-  * **OPM** - Pirate Male \(Race 340, Gender 0\)
-* **Source:** tbm\_chr.s3d \(Loaded via GlobalLoad.txt\)
-  * **TBM** - Troll Male \(Race 331, Gender 0\)
-* **Source:** tbf\_chr.s3d \(Loaded via GlobalLoad.txt\)
-  * **TBF** - Troll Female \(Race 331, Gender 1\)
-* **Source:** mmm\_chr.s3d \(Loaded via GlobalLoad.txt\)
-  * **MMM** - Vampire Male \(Race 360, Gender 0\) - Textures: **00 01**, Heads: **00 01**
-* **Source:** mmf\_chr.s3d \(Loaded via GlobalLoad.txt\)
-  * **MMF** - Vampire Female \(Race 360, Gender 1\) - Textures: **00 01**, Heads: **00 01**
-* **Source:** tnf\_chr.s3d \(Loaded via GlobalLoad.txt\)
-  * **TNF** - Nihil Female \(Race 385, Gender 1\) - Textures: **00-04**
-* **Source:** tnm\_chr.s3d \(Loaded via GlobalLoad.txt\)
-  * **TNM** - Nihil Male \(Race 385, Gender 0\) - Textures: **00-04**
-* **Source:** skt\_chr.s3d \(Loaded via GlobalLoad.txt\)
-  * **SKT** - Skeleton \(Race 367, Gender 2\) - Textures: **00-04**
-* **Source:** global6\_chr.s3d \(Loaded via GlobalLoad.txt\)
-  * **ALL** - Alligator \(Race 91, Gender 2\) - Textures: **00 01**, Heads: **00 01**
-  * **DRK** - Drake \(Race 89, Gender 2\) - Textures: **00-03**
-  * **WOF** - Chokidai \(Race 356, Gender 2\) - Textures: **00 01**
-  * **SKE** - Skeleton \(Race 60, Gender 2\)
-  * **TPN** - Teleport Man \(Race 240, Gender 2\)
-  * **TIG** - Tiger \(Race 63, Gender 2\)
-  * **WOL** - Wolf \(Race 42, Gender 2\) - Textures: **00-03**
-  * **WOE** - Wolf \(Race 120, Gender 2\) - Textures: **00-03**
-* **Source:** global4\_chr.s3d \(Loaded via GlobalLoad.txt\)
-  * **IKS** - Undead Iksar \(Race 161, Gender 2\) - Heads: **00 01**
-  * **SPE** - Spectre \(Race 85, Gender 2\)
-  * **BAF** - Barbarian Female \(Race 2, Gender 1\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
-  * **BAM** - Barbarian Male \(Race 2, Gender 0\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
-  * **IKF** - Iksar Female \(Race 128, Gender 1\) - Textures: **00-04, 10**, Heads: **00-03**, Faces: **00-07**
-  * **IKM** - Iksar Male \(Race 128, Gender 0\) - Textures: **00-04, 10**, Heads: **00-03**, Faces: **00-07**
-* **Source:** global\_chr.s3d \(Loaded via GlobalLoad.txt\)
-  * **ELE** - Elemental \(Race 75, Gender 2\) - Textures: **00-03**, Heads: **00 01**
-  * **EYE** - Eye \(Race 108, Gender 2\)
-  * **IVM** - Invisible Man of Zomm Male \(Race 600, Gender 0\)
-  * **SKE** - Skeleton \(Race 60, Gender 2\) - Textures: **00 01**
-  * **WER** - Werewolf \(Race 14, Gender 2\)
-  * **WOE** - Wolf \(Race 120, Gender 2\) - Textures: **00 01**
-  * **BOAT** - Boat \(Race 141, Gender 2\)
-  * **BAF** - Barbarian Female \(Race 2, Gender 1\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
-  * **BAM** - Barbarian Male \(Race 2, Gender 0\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
-  * **DAF** - Dark Elf Female \(Race 6, Gender 1\) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-07**
-  * **DAM** - Dark Elf Male \(Race 6, Gender 0\) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-07**
-  * **DWF** - Dwarf Female \(Race 8, Gender 1\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
-  * **DWM** - Dwarf Male \(Race 8, Gender 0\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
-  * **ERF** - Erudite Female \(Race 3, Gender 1\) - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**
-  * **ERM** - Erudite Male \(Race 3, Gender 0\) - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**
-  * **GNF** - Gnome Female \(Race 12, Gender 1\) - Textures: **00-03, 10-16**, Heads: **00-04**, Faces: **00-07**
-  * **GNM** - Gnome Male \(Race 12, Gender 0\) - Textures: **00-03, 10-16**, Heads: **00-04**, Faces: **00-07**
-  * **HAF** - Half Elf Female \(Race 7, Gender 1\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
-  * **HAM** - Half Elf Male \(Race 7, Gender 0\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
-  * **HOF** - Halfling Female \(Race 11, Gender 1\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
-  * **HOM** - Halfling Male \(Race 11, Gender 0\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
-  * **HIF** - High Elf Female \(Race 5, Gender 1\) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-07**
-  * **HIM** - High Elf Male \(Race 5, Gender 0\) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-07**
-  * **HUF** - Human Female \(Race 1, Gender 1\) - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**
-  * **HUM** - Human Male \(Race 1, Gender 0\) - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**
-  * **OGF** - Ogre Female \(Race 10, Gender 1\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
-  * **OGM** - Ogre Male \(Race 10, Gender 0\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
-  * **TRF** - Troll Female \(Race 9, Gender 1\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
-  * **TRM** - Troll Male \(Race 9, Gender 0\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
-  * **ELF** - Wood Elf Female \(Race 4, Gender 1\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
-  * **ELM** - Wood Elf Male \(Race 4, Gender 0\) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
-* **Source:** fgh\_chr.s3d \(Loaded via GlobalLoad.txt\)
-  * **FGH** - Froglok Ghost \(Race 371, Gender 2\)
-* **Source:** ila\_chr.s3d \(Loaded via GlobalLoad.txt\)
-  * **ILA** - Ikaav \(Race 394, Gender 2\)
-* **Source:** rpt.eqg \(Loaded via GlobalLoad.txt\)
-  * **RPT** - Raptor \(Race 609, Gender 2\) - Textures: **00-02**
-* **Source:** jkr\_chr.s3d \(Loaded via GlobalLoad.txt\)
-  * **JKR** - Jokester \(Race 384, Gender 2\) - Textures: **00-02**
-* **Source:** mmy\_chr.s3d \(Loaded via GlobalLoad.txt\)
-  * **MMY** - Mummy \(Race 368, Gender 2\)
-* **Source:** global2\_chr.s3d \(Loaded via GlobalLoad.txt\)
-  * **BEA** - Bear \(Race 43, Gender 2\) - Textures: **00-02**, Heads: **00-02**
-  * **BRI** - Bristlebane \(Race 153, Gender 2\)
-  * **CAZ** - Cazic Thule \(Race 95, Gender 2\) - Heads: **00 01**
-  * **ERO** - Erollisi \(Race 150, Gender 2\)
-  * **IMP** - Imp \(Race 46, Gender 2\)
-  * **INN** - Innoruuk \(Race 123, Gender 2\)
-  * **RAL** - Rallos Zek \(Race 66, Gender 2\) - Textures: **00 01**
-  * **SCA** - Scarecrow \(Race 82, Gender 2\)
-  * **SOL** - Solusek Ro \(Race 58, Gender 2\)
-  * **TRI** - Tribunal \(Race 151, Gender 2\)
-  * **TUN** - Tunare \(Race 62, Gender 2\)
+* **Source:** rap_chr.s3d (Loaded via GlobalLoad.txt)
+  * **RAP** - Raptor (Race 163, Gender 2) - Textures: **00 01**
+* **Source:** dpm_chr.s3d (Loaded via GlobalLoad.txt)
+  * **DPM** - Pirate Male (Race 339, Gender 0)
+* **Source:** dpf_chr.s3d (Loaded via GlobalLoad.txt)
+  * **DPF** - Pirate Female (Race 339, Gender 1)
+* **Source:** epm_chr.s3d (Loaded via GlobalLoad.txt)
+  * **EPM** - Pirate Male (Race 342, Gender 0)
+* **Source:** epf_chr.s3d (Loaded via GlobalLoad.txt)
+  * **EPF** - Pirate Female (Race 342, Gender 1)
+* **Source:** gpm_chr.s3d (Loaded via GlobalLoad.txt)
+  * **GPM** - Pirate Male (Race 338, Gender 0)
+* **Source:** gpf_chr.s3d (Loaded via GlobalLoad.txt)
+  * **GPF** - Pirate Female (Race 338, Gender 1)
+* **Source:** hpf_chr.s3d (Loaded via GlobalLoad.txt)
+  * **HPF** - Pirate Female (Race 341, Gender 1)
+* **Source:** hpm_chr.s3d (Loaded via GlobalLoad.txt)
+  * **HPM** - Pirate Male (Race 341, Gender 0)
+* **Source:** opf_chr.s3d (Loaded via GlobalLoad.txt)
+  * **OPF** - Pirate Female (Race 340, Gender 1)
+* **Source:** opm_chr.s3d (Loaded via GlobalLoad.txt)
+  * **OPM** - Pirate Male (Race 340, Gender 0)
+* **Source:** tbm_chr.s3d (Loaded via GlobalLoad.txt)
+  * **TBM** - Troll Male (Race 331, Gender 0)
+* **Source:** tbf_chr.s3d (Loaded via GlobalLoad.txt)
+  * **TBF** - Troll Female (Race 331, Gender 1)
+* **Source:** mmm_chr.s3d (Loaded via GlobalLoad.txt)
+  * **MMM** - Vampire Male (Race 360, Gender 0) - Textures: **00 01**, Heads: **00 01**
+* **Source:** mmf_chr.s3d (Loaded via GlobalLoad.txt)
+  * **MMF** - Vampire Female (Race 360, Gender 1) - Textures: **00 01**, Heads: **00 01**
+* **Source:** tnf_chr.s3d (Loaded via GlobalLoad.txt)
+  * **TNF** - Nihil Female (Race 385, Gender 1) - Textures: **00-04**
+* **Source:** tnm_chr.s3d (Loaded via GlobalLoad.txt)
+  * **TNM** - Nihil Male (Race 385, Gender 0) - Textures: **00-04**
+* **Source:** skt_chr.s3d (Loaded via GlobalLoad.txt)
+  * **SKT** - Skeleton (Race 367, Gender 2) - Textures: **00-04**
+* **Source:** global6\_chr.s3d (Loaded via GlobalLoad.txt)
+  * **ALL** - Alligator (Race 91, Gender 2) - Textures: **00 01**, Heads: **00 01**
+  * **DRK** - Drake (Race 89, Gender 2) - Textures: **00-03**
+  * **WOF** - Chokidai (Race 356, Gender 2) - Textures: **00 01**
+  * **SKE** - Skeleton (Race 60, Gender 2)
+  * **TPN** - Teleport Man (Race 240, Gender 2)
+  * **TIG** - Tiger (Race 63, Gender 2)
+  * **WOL** - Wolf (Race 42, Gender 2) - Textures: **00-03**
+  * **WOE** - Wolf (Race 120, Gender 2) - Textures: **00-03**
+* **Source:** global4\_chr.s3d (Loaded via GlobalLoad.txt)
+  * **IKS** - Undead Iksar (Race 161, Gender 2) - Heads: **00 01**
+  * **SPE** - Spectre (Race 85, Gender 2)
+  * **BAF** - Barbarian Female (Race 2, Gender 1) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
+  * **BAM** - Barbarian Male (Race 2, Gender 0) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
+  * **IKF** - Iksar Female (Race 128, Gender 1) - Textures: **00-04, 10**, Heads: **00-03**, Faces: **00-07**
+  * **IKM** - Iksar Male (Race 128, Gender 0) - Textures: **00-04, 10**, Heads: **00-03**, Faces: **00-07**
+* **Source:** global_chr.s3d (Loaded via GlobalLoad.txt)
+  * **ELE** - Elemental (Race 75, Gender 2) - Textures: **00-03**, Heads: **00 01**
+  * **EYE** - Eye (Race 108, Gender 2)
+  * **IVM** - Invisible Man of Zomm Male (Race 600, Gender 0)
+  * **SKE** - Skeleton (Race 60, Gender 2) - Textures: **00 01**
+  * **WER** - Werewolf (Race 14, Gender 2)
+  * **WOE** - Wolf (Race 120, Gender 2) - Textures: **00 01**
+  * **BOAT** - Boat (Race 141, Gender 2)
+  * **BAF** - Barbarian Female (Race 2, Gender 1) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
+  * **BAM** - Barbarian Male (Race 2, Gender 0) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
+  * **DAF** - Dark Elf Female (Race 6, Gender 1) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-07**
+  * **DAM** - Dark Elf Male (Race 6, Gender 0) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-07**
+  * **DWF** - Dwarf Female (Race 8, Gender 1) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
+  * **DWM** - Dwarf Male (Race 8, Gender 0) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
+  * **ERF** - Erudite Female (Race 3, Gender 1) - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**
+  * **ERM** - Erudite Male (Race 3, Gender 0) - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**
+  * **GNF** - Gnome Female (Race 12, Gender 1) - Textures: **00-03, 10-16**, Heads: **00-04**, Faces: **00-07**
+  * **GNM** - Gnome Male (Race 12, Gender 0) - Textures: **00-03, 10-16**, Heads: **00-04**, Faces: **00-07**
+  * **HAF** - Half Elf Female (Race 7, Gender 1) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
+  * **HAM** - Half Elf Male (Race 7, Gender 0) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
+  * **HOF** - Halfling Female (Race 11, Gender 1) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
+  * **HOM** - Halfling Male (Race 11, Gender 0) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
+  * **HIF** - High Elf Female (Race 5, Gender 1) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-07**
+  * **HIM** - High Elf Male (Race 5, Gender 0) - Textures: **00-03, 10-16**, Heads: **00-03**, Faces: **00-07**
+  * **HUF** - Human Female (Race 1, Gender 1) - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**
+  * **HUM** - Human Male (Race 1, Gender 0) - Textures: **00-04, 10-16**, Heads: **00-03**, Faces: **00-07**
+  * **OGF** - Ogre Female (Race 10, Gender 1) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
+  * **OGM** - Ogre Male (Race 10, Gender 0) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
+  * **TRF** - Troll Female (Race 9, Gender 1) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
+  * **TRM** - Troll Male (Race 9, Gender 0) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
+  * **ELF** - Wood Elf Female (Race 4, Gender 1) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
+  * **ELM** - Wood Elf Male (Race 4, Gender 0) - Textures: **00-03**, Heads: **00-03**, Faces: **00-07**
+* **Source:** fgh_chr.s3d (Loaded via GlobalLoad.txt)
+  * **FGH** - Froglok Ghost (Race 371, Gender 2)
+* **Source:** ila_chr.s3d (Loaded via GlobalLoad.txt)
+  * **ILA** - Ikaav (Race 394, Gender 2)
+* **Source:** rpt.eqg (Loaded via GlobalLoad.txt)
+  * **RPT** - Raptor (Race 609, Gender 2) - Textures: **00-02**
+* **Source:** jkr_chr.s3d (Loaded via GlobalLoad.txt)
+  * **JKR** - Jokester (Race 384, Gender 2) - Textures: **00-02**
+* **Source:** mmy_chr.s3d (Loaded via GlobalLoad.txt)
+  * **MMY** - Mummy (Race 368, Gender 2)
+* **Source:** global2\_chr.s3d (Loaded via GlobalLoad.txt)
+  * **BEA** - Bear (Race 43, Gender 2) - Textures: **00-02**, Heads: **00-02**
+  * **BRI** - Bristlebane (Race 153, Gender 2)
+  * **CAZ** - Cazic Thule (Race 95, Gender 2) - Heads: **00 01**
+  * **ERO** - Erollisi (Race 150, Gender 2)
+  * **IMP** - Imp (Race 46, Gender 2)
+  * **INN** - Innoruuk (Race 123, Gender 2)
+  * **RAL** - Rallos Zek (Race 66, Gender 2) - Textures: **00 01**
+  * **SCA** - Scarecrow (Race 82, Gender 2)
+  * **SOL** - Solusek Ro (Race 58, Gender 2)
+  * **TRI** - Tribunal (Race 151, Gender 2)
+  * **TUN** - Tunare (Race 62, Gender 2)
 {% endtab %}
 {% endtabs %}
-

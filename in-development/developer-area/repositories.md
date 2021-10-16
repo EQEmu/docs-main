@@ -10,17 +10,17 @@ The purpose of this guide to serve as a reference for our source generated repos
 Reference [https://deviq.com/repository-pattern/](https://deviq.com/repository-pattern/)
 {% endhint %}
 
-![Repository Pattern Illustration A](../../.gitbook/assets/image%20%289%29.png)
+![Repository Pattern Illustration A](<../../.gitbook/assets/image (9).png>)
 
-![Repository Pattern Illustration B ](../../.gitbook/assets/image%20%2810%29.png)
+![Repository Pattern Illustration B ](<../../.gitbook/assets/image (10).png>)
 
-The underlying persistence layer could be anything, file, memory, remote storage, but in most cases relevant to what we are using repositories for right now in this article pertain to the database \(MySQL\)
+The underlying persistence layer could be anything, file, memory, remote storage, but in most cases relevant to what we are using repositories for right now in this article pertain to the database (MySQL)
 
 ### Benefits
 
 * Simplified interaction with the database, instead of manually looking up columns, your IDE will autocomplete the struct fields that you are working with
 * Heavily reducing the mental overhead of having to interact with the database at the programmatic level
-* It creates an object representation of our tables \(persistence layer\) with a 1:1 mapping with what is in the source by having row values stored in a struct \(Data Transfer Object\)
+* It creates an object representation of our tables (persistence layer) with a 1:1 mapping with what is in the source by having row values stored in a struct (Data Transfer Object)
 * We reduce manual overhead by having code generation generate our database table representations
 * Ease of maintenance; whenever we make schema changes, rerunning the repository updates fields and subsequent methods keeping code changes minimal
 
@@ -74,13 +74,13 @@ E:\EQEmu\src>perl utils/scripts/generators/repository-generator.pl E:\EQEmu\buil
 {% endtab %}
 {% endtabs %}
 
-The generator works by examining your database tables found in the connection properties registered in the server config **eqemu\_config** and will generate a **struct** object that tries to represent the database data types as close as possible
+The generator works by examining your database tables found in the connection properties registered in the server config **eqemu_config** and will generate a **struct** object that tries to represent the database data types as close as possible
 
 ### Extending the Base Repository
 
 The base repository is not meant to be touched manually; it is meant to provide generic scaffolding to the underlying persistence layer with generic methods typically needed
 
-To implement your own customary methods you simply add your own methods in the extended repository, for each repository generated it outputs two files, the base repository \(immutable\) and the extended repository \(mutable\)
+To implement your own customary methods you simply add your own methods in the extended repository, for each repository generated it outputs two files, the base repository (immutable) and the extended repository (mutable)
 
 For example when we generate repositories from a single table we get both
 
@@ -146,7 +146,7 @@ Pretty bare right? That's because it should be, this leaves the base repository 
 
 Below we have an example implemented using our CLI menu interface to simply test some code
 
-In **world\_server\_command\_handler.cpp** we've registered a test command for testing repository code 
+In **world_server_command_handler.cpp **we've registered a test command for testing repository code 
 
 ```bash
 /**
@@ -157,7 +157,7 @@ function_map["test:expansion"]  = &WorldserverCommandHandler::ExpansionTestComma
 function_map["test:repository"] = &WorldserverCommandHandler::TestRepository;
 ```
 
-### Base Repository Contents \(Truncated\)
+### Base Repository Contents (Truncated)
 
 ```cpp
 class BaseInstanceListRepository {
@@ -331,10 +331,10 @@ You can see how we've had to use zero raw SQL to interact with the database in o
 
 Another real use example is where we need some additional criteria to pull some results from the database. Instead of querying for grids by zone using raw SQL we want to encapsulate some of this so it can be easily used in our domain logic. We could use `GetWhere` quickly, but to make a more re-usable method we're going to create some new methods for our pathing grids
 
-* static std::vector GetZoneGrids\(int zone\_id\) 
-* static Grid GetGrid\(const std::vector &grids, int grid\_id\)
+* static std::vector GetZoneGrids(int zone_id) 
+* static Grid GetGrid(const std::vector \&grids, int grid_id)
 
-{% code title="grid\_repository.h" %}
+{% code title="grid_repository.h" %}
 ```cpp
 
 	// Custom extended repository methods here
@@ -392,7 +392,7 @@ class Zone {
 ```
 {% endcode %}
 
-We created a function that during zone initialization we call **LoadGrids** so we can reuse it in other parts of the code if we wanted to reload grid data for any reason
+We created a function that during zone initialization we call **LoadGrids **so we can reuse it in other parts of the code if we wanted to reload grid data for any reason
 
 ```cpp
 void Zone::LoadGrids()
@@ -433,4 +433,3 @@ for (auto &entry : zone->zone_grid_entries) {
 	}
 ```
 {% endcode %}
-

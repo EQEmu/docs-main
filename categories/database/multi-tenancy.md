@@ -7,7 +7,7 @@ description: This article describes the ability to use multiple database and dat
 
 
 {% hint style="warning" %}
-**Warning** This feature is for **advanced server operators**
+**Warning **This feature is for **advanced server operators**
 {% endhint %}
 
 ## What is Multi Tenancy in Software?
@@ -18,7 +18,7 @@ There are several types of multi-tenancy in Software, the one we're going to be 
 Multi-tenant architecture hosts data in multiple databases. This model is relatively complex in terms of management and maintenance, but tenants can be separated by a chosen criterion.
 {% endhint %}
 
-![](../../.gitbook/assets/image%20%2819%29.png)
+![](<../../.gitbook/assets/image (19).png>)
 
 ## How is Multi-Tenancy Used in the Server?
 
@@ -61,17 +61,15 @@ The notion of having a content database source is very powerful because it solve
 * **Developing content on a local development server** which has access to a remote content database connection shared with production, allowing a developer to constantly **repop zones, refresh scripts locally** without impacting the state of the **production zone server**
 * A developer can **develop scripts locally**, create database entries that are assigned an ID that will be used in production without having to reconcile data and duplicate ID's in an isolated local database up to a remote database which is very kludgy and cumbersome
 * It **decouples the responsibilities of table types** in the source, content data should not be written to systemically from a server to store player state, zone state, world state and only hold mostly read only data for content
-* It allows **many production servers** to use the same exact data source; **heavily** eliminating duplication of work and maintenance of keeping several different content datasets up to date. 
+* It allows **many production servers** to use the same exact data source; **heavily **eliminating duplication of work and maintenance of keeping several different content datasets up to date. 
 * It allows someone to make **different variants / flavors** of the same server using **different local rulesets**
 * It enables the [Project PEQ Expansions](../../in-development/project-peq-expansions/) project to be able to have many **standing replicas of each Expansion / Era;** enabling PEQ developers to jump between eras and maintain era accuracy
 
-![Many development servers using the same content database](../../.gitbook/assets/image%20%2818%29.png)
+![Many development servers using the same content database](<../../.gitbook/assets/image (18).png>)
 
 ## How Do I Know What Tables Belong to Which Category?
 
-Database table schema reference is maintained in the source at **./common/database\_schema.h** and all table types are defined under **DatabaseSchema::GetContentTables\(\)**
+Database table schema reference is maintained in the source at **./common/database_schema.h** and all table types are defined under **DatabaseSchema::GetContentTables()**
 
-{% embed url="https://github.com/EQEmu/Server/blob/master/common/database\_schema.h\#L165" %}
-
-
+{% embed url="https://github.com/EQEmu/Server/blob/master/common/database_schema.h#L165" %}
 

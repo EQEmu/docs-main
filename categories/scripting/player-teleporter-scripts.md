@@ -6,7 +6,7 @@ Below is an example of a quest script for an NPC that can teleport your players.
 
 This script will name translocate targets and teleport your player based on the target of their choosing.
 
-{% code title="Roald\_Teavee.pl" %}
+{% code title="Roald_Teavee.pl" %}
 ```perl
 sub EVENT_SAY {
 	if ($text =~ /Hail/i) {
@@ -359,6 +359,4 @@ sub DoTeleport {
 	quest::delete_data($key);
 }
 ```
-
-
 

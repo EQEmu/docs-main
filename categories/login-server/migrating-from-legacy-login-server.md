@@ -6,19 +6,19 @@ description: Have an old Login Server from years ago? Here's your reference guid
 
 ## Migrating the Config
 
-There is no straight migration path for the configuration file, you will simply have to reference the values you had in your `login.ini` and look at any that applies to the options in the new `login.json` format that is show in [Configuration]()
+There is no straight migration path for the configuration file, you will simply have to reference the values you had in your `login.ini` and look at any that applies to the options in the new `login.json` format that is show in [Configuration](broken-reference)
 
 ## Migrating the Database
 
 To migrate from a Legacy Login server database, you can use the provided `.sql` that you may find also available in the source at `loginserver/login_util/login_old_to_new_schema_convert.sql`
 
 {% hint style="info" %}
-Take note of the old table names in the script, if you used different table names \(Because they were previously configurable\) you will need to change the table names to reflect
+Take note of the old table names in the script, if you used different table names (Because they were previously configurable) you will need to change the table names to reflect
 {% endhint %}
 
 ### Migration SQL
 
-{% code title="login\_old\_to\_new\_schema\_convert.sql" %}
+{% code title="login_old_to_new_schema_convert.sql" %}
 ```sql
 -- Because the old / legacy schema was mostly inconsistent with naming and overall data structure, we have
 -- migrated to a schema that follows our modern conventions and meanwhile fixes quite a few bugs that
@@ -104,4 +104,3 @@ FROM
   tblWorldServerRegistration;
 ```
 {% endcode %}
-

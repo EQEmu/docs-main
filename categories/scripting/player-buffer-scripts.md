@@ -4,7 +4,7 @@
 
 This script will allow an NPC to train all available disciplines up to the player's current level.
 
-{% code title="Dave\_the\_Disciplinarian.pl" %}
+{% code title="Dave_the_Disciplinarian.pl" %}
 ```perl
 sub EVENT_SAY {
 	#:: Match text for "hail", case insensitive
@@ -38,7 +38,7 @@ This script will train all new disciplines when a player levels up:
 
 {% tabs %}
 {% tab title="Perl" %}
-{% code title="global/global\_player.pl" %}
+{% code title="global/global_player.pl" %}
 ```perl
 sub EVENT_LEVEL_UP {
 	#:: Train all disciplines, maximum set to player's level, minimum set to the level prior
@@ -60,9 +60,9 @@ end
 
 ### Spell Scriber
 
-This script will scribe all available spells \(or songs\) up to the player's current level.
+This script will scribe all available spells (or songs) up to the player's current level.
 
-{% code title="Skippy\_the\_Scribe.pl" %}
+{% code title="Skippy_the_Scribe.pl" %}
 ```perl
 sub EVENT_SAY {
 	#:: Match text for "hail", case insensitive
@@ -114,7 +114,7 @@ This script will scribe all new spells/songs when a player levels up.
 
 {% tabs %}
 {% tab title="Perl" %}
-{% code title="global/global\_player.pl" %}
+{% code title="global/global_player.pl" %}
 ```perl
 sub EVENT_LEVEL_UP {
 	#:: Scribe all spells/songs, maximum set to player's level, minimum set to the level prior
@@ -138,7 +138,7 @@ end
 
 This script will set all available skills to their maximum amount at the player's current level.
 
-{% code title="Scotty\_the\_Skilled.pl" %}
+{% code title="Scotty_the_Skilled.pl" %}
 ```perl
 sub EVENT_SAY {
 	#:: Match text for "hail", case insensitive
@@ -178,7 +178,7 @@ This script will max all skills when a player levels up.
 
 {% tabs %}
 {% tab title="Perl" %}
-{% code title="global/global\_player.pl" %}
+{% code title="global/global_player.pl" %}
 ```perl
 sub EVENT_LEVEL_UP {
 	#:: Set available (non-trade, non-casting specialization) skills to maximum for race/class at current level
@@ -222,7 +222,7 @@ This script will provide buffs and cures to the player and/or the player's pet, 
 
 Credit to Maze who created the original version of this script, which has been adapted for use on this wiki.
 
-{% code title="Canary\_Morris.pl" %}
+{% code title="Canary_Morris.pl" %}
 ```perl
 #:: Create a scalar vaiable to store the maximum level of buffs
 $maxlevelbuffs = 70;
@@ -889,4 +889,3 @@ sub round_up {
 }
 ```
 {% endcode %}
-

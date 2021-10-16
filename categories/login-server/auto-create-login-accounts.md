@@ -4,7 +4,7 @@ description: Ideal for local LAN setups
 
 # Auto Create Login Accounts
 
-**Ideal for local LAN setups**, you can enable this setting. If any login request comes in from a game client, if the account doesn't already exist, it will **auto create the account on first attempt**. Every subsequent attempt will use the **created username and password combination** 
+**Ideal for local LAN setups**, you can enable this setting. If any login request comes in from a game client, if the account doesn't already exist, it will **auto create the account on first attempt**. Every subsequent attempt will use the **created username and password combination **
 
 {% code title="login.json snippet" %}
 ```javascript
@@ -22,11 +22,10 @@ description: Ideal for local LAN setups
 
 When using this configuration, it's easy for friends to forget their password or even your own after a long period. For this situation you can use the CLI interface to bail yourself out of this situation
 
-```text
+```
 ./loginserver login-user:update-credentials test mynewpassword
 
 > Executing CLI Command
 
 [LoginServer] [Info] ChangeLoginserverUserCredentials account [test] source_loginserver [local] credentials updated!
 ```
-

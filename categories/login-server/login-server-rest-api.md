@@ -31,7 +31,7 @@ eqemu@dc25a75287d7:~/server$ ./loginserver web-api-token:create --write --read
 
 The token will persist to the `login_api_tokens` table
 
-```text
+```
 MariaDB [peq]> select * from login_api_tokens;
 +----+--------------------------------------+-----------+----------+---------------------+---------------------+
 | id | token                                | can_write | can_read | created_at          | updated_at          |
@@ -41,11 +41,11 @@ MariaDB [peq]> select * from login_api_tokens;
 ```
 
 {% hint style="warning" %}
-To create read only users, simply specify **only** the **--read** flag when creating users
+To create read only users, simply specify **only** the **--read **flag when creating users
 {% endhint %}
 
 {% hint style="info" %}
-**Note** As a general rule, API calls that are **GET** are going to require **--read** while **POST** HTTP calls will require **--write**
+**Note **As a general rule, API calls that are **GET **are going to require **--read **while **POST** HTTP calls will require **--write**
 {% endhint %}
 
 ## API Endpoints
@@ -60,30 +60,16 @@ There is an example of a PHP client that interacts with this API located here
 
 ## Login Accounts
 
-{% api-method method="post" host="http://loginserver:6000" path="/v1/account/create" %}
-{% api-method-summary %}
-Login Account Create
-{% endapi-method-summary %}
+{% swagger baseUrl="http://loginserver:6000" path="/v1/account/create" method="post" summary="Login Account Create" %}
+{% swagger-description %}
 
-{% api-method-description %}
+{% endswagger-description %}
 
-{% endapi-method-description %}
+{% swagger-parameter in="path" name="Authorization" type="string" %}
+Authorization: Bearer <token>
+{% endswagger-parameter %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="Authorization" type="string" required=true %}
-Authorization: Bearer &lt;token&gt;
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
-{% endapi-method-request %}
-
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```
 [
 	{
@@ -98,13 +84,11 @@ Authorization: Bearer &lt;token&gt;
 	}
 ]
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
 {% code title="Request Body" %}
-```text
+```
 {
     "username": "test",
     "password": "test",
@@ -113,30 +97,16 @@ Authorization: Bearer &lt;token&gt;
 ```
 {% endcode %}
 
-{% api-method method="post" host="http://loginserver:6000" path="/v1/account/credentials/validate/local" %}
-{% api-method-summary %}
-Validate Login Account Credentials
-{% endapi-method-summary %}
+{% swagger baseUrl="http://loginserver:6000" path="/v1/account/credentials/validate/local" method="post" summary="Validate Login Account Credentials" %}
+{% swagger-description %}
 
-{% api-method-description %}
+{% endswagger-description %}
 
-{% endapi-method-description %}
+{% swagger-parameter in="path" name="Authorization" type="string" %}
+Authorization: Bearer <token>
+{% endswagger-parameter %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="Authorization" type="string" required=true %}
-Authorization: Bearer &lt;token&gt;
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
-{% endapi-method-request %}
-
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```
 {
     "data": {
@@ -145,10 +115,8 @@ Authorization: Bearer &lt;token&gt;
     "message": "Credentials valid!"
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
 {% code title="Request Body" %}
 ```javascript
@@ -160,51 +128,31 @@ Authorization: Bearer &lt;token&gt;
 ```
 {% endcode %}
 
-{% api-method method="post" host="http://loginserver:6000" path="/v1/account/credentials/update/local" %}
-{% api-method-summary %}
-Update Login Account Credentials
-{% endapi-method-summary %}
+{% swagger baseUrl="http://loginserver:6000" path="/v1/account/credentials/update/local" method="post" summary="Update Login Account Credentials" %}
+{% swagger-description %}
 
-{% api-method-description %}
+{% endswagger-description %}
 
-{% endapi-method-description %}
+{% swagger-parameter in="path" name="Authorization" type="string" %}
+Authorization: Bearer <token>
+{% endswagger-parameter %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="Authorization" type="string" required=true %}
-Authorization: Bearer &lt;token&gt;
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
-{% endapi-method-request %}
-
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```
 {
     "message": "Loginserver account credentials updated!"
 }
 ```
-{% endapi-method-response-example %}
+{% endswagger-response %}
 
-{% api-method-response-example httpCode=400 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="400" description="" %}
 ```
 {
     "error": "Failed to update loginserver account credentials!"
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
 ```javascript
 {
@@ -215,30 +163,16 @@ Authorization: Bearer &lt;token&gt;
 
 ## World Servers
 
-{% api-method method="get" host="http://loginserver:6000" path="/v1/servers/list" %}
-{% api-method-summary %}
-Get World Server List
-{% endapi-method-summary %}
+{% swagger baseUrl="http://loginserver:6000" path="/v1/servers/list" method="get" summary="Get World Server List" %}
+{% swagger-description %}
 
-{% api-method-description %}
+{% endswagger-description %}
 
-{% endapi-method-description %}
+{% swagger-parameter in="path" name="Authorization" type="string" %}
+Authorization: Bearer <token>
+{% endswagger-parameter %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="Authorization" type="string" required=true %}
-Authorization: Bearer &lt;token&gt;
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
-{% endapi-method-request %}
-
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```
 [
 	{
@@ -253,8 +187,5 @@ Authorization: Bearer &lt;token&gt;
 	}
 ]
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
-
+{% endswagger-response %}
+{% endswagger %}

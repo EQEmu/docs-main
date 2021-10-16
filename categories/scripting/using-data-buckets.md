@@ -17,7 +17,7 @@ description: An explanation of the use of Data Buckets in EQEmu.
 
 Data buckets exist in these 3 main functions in both Perl and LUA
 
-```text
+```
 get_data(std::string bucket_key)
 set_data(std::string bucket_key, std::string bucket_value, std::string expires_in)
 delete_data(std::string bucket_key)
@@ -25,7 +25,7 @@ delete_data(std::string bucket_key)
 
 ## Storage
 
-* Data buckets are stored in the \[\[data\_buckets\]\] table and has a very simple structure
+* Data buckets are stored in the \[\[data_buckets]] table and has a very simple structure
   * **id**
   * **key**
   * **value**
@@ -66,7 +66,7 @@ end
 
 ## Ways to Key Buckets
 
-Keying is simply a way to uniquely identify a flag, if you want to make some data unique to a player, then you would need something to key uniquely to that player, such as their **character\_id**. If you wanted to set a flag uniquely for a NPC for example, you could use the **npc\_type\_id**, for a zone you could use the **zone\_id**. All of these circumstances are completely up to you and you have the entire Quest API to grab something that can make something unique!
+Keying is simply a way to uniquely identify a flag, if you want to make some data unique to a player, then you would need something to key uniquely to that player, such as their **character_id**. If you wanted to set a flag uniquely for a NPC for example, you could use the **npc_type_id**, for a zone you could use the **zone_id**. All of these circumstances are completely up to you and you have the entire Quest API to grab something that can make something unique!
 
 Some of the examples below should give you some ideas!
 
@@ -78,7 +78,7 @@ $value = 70;
 quest::set_data($key, $value);
 ```
 
-**By Door \(And Zone\)**
+**By Door (And Zone)**
 
 ```perl
 sub EVENT_CLICKDOOR {
@@ -126,7 +126,7 @@ sub EVENT_DEATH_COMPLETE {
 
 ## Expiration Examples
 
-* Below in this LUA example we will count the number of times a player has talked to an NPC, first by checking if we've got a bucket set at all, if not we will set an expiration time on it. Each time we call set\_data, it will not over-ride the original expiration time unless we pass a new time parameter
+* Below in this LUA example we will count the number of times a player has talked to an NPC, first by checking if we've got a bucket set at all, if not we will set an expiration time on it. Each time we call set_data, it will not over-ride the original expiration time unless we pass a new time parameter
 
 ```lua
 function event_say(e)
@@ -165,13 +165,13 @@ end
 We have the ability to use time shorthands if need-be, the following are acceptable time inputs
 
 | Input | Time Result |
-| :--- | :--- |
-| 15s | 15 seconds |
-| s15 | 15 seconds |
-| 60m | 60 minutes |
-| 7d | 7 days |
-| 1y | 1 year |
-| 600 | 600 seconds |
+| ----- | ----------- |
+| 15s   | 15 seconds  |
+| s15   | 15 seconds  |
+| 60m   | 60 minutes  |
+| 7d    | 7 days      |
+| 1y    | 1 year      |
+| 600   | 600 seconds |
 
 ### Perl Expiration
 
@@ -183,7 +183,7 @@ quest::set_data("my_example_flag", "some_value", 3600); # 3600 seconds = 1 hour 
 
 ## Benchmarks
 
-* Below are some simple benchmarks used to calculate performance. While even these numbers could be greatly optimized yet, these are plenty good for most use cases that server operators need. If you need even faster temporary data storage within the context of a zone, I would suggest using \[\[Entity Variables\]\] as they operate purely in memory
+* Below are some simple benchmarks used to calculate performance. While even these numbers could be greatly optimized yet, these are plenty good for most use cases that server operators need. If you need even faster temporary data storage within the context of a zone, I would suggest using \[\[Entity Variables]] as they operate purely in memory
 
 ![image](https://user-images.githubusercontent.com/3319450/42429025-83c1d260-82fc-11e8-804f-f7490ac23600.png)
 
@@ -238,7 +238,7 @@ sub EVENT_SAY {
 In South Qeynos, you will find an NPC named Vicus Nonad.  Vicus is a tax collector, but because of his terrible cold, he needs a player to help make the rounds to collect taxes.  The early implementation of this quest script utilized quest globals, and below is an example of replacing the quest global functionality with Data Buckets.
 
 {% tabs %}
-{% tab title="Vicus\_Nonad.pl" %}
+{% tab title="Vicus_Nonad.pl" %}
 ```perl
 sub EVENT_SPAWN {
 	#:: Set a timer "cough" to repeat every 350 seconds (5 min 50 sec)
@@ -319,9 +319,9 @@ sub EVENT_ITEM {
 
 At line 22 above, we see the implementation of the Data Bucket Key.  This replaces the use of `quest::setglobal`.  In the Database, we see the corresponding key:
 
-![](../../.gitbook/assets/_mysql_5_6_45__fvproject_fvproject_data_buckets.png)
+![](../../.gitbook/assets/\_mysql\_5\_6\_45\__fvproject_fvproject_data_buckets.png)
 
-Note that we clean up the key upon handing in the requisite tax money and list with the following \(line 41 above\):
+Note that we clean up the key upon handing in the requisite tax money and list with the following (line 41 above):
 
 ```perl
 		$key = $client->CharacterID() . "-tax-collection";
@@ -341,12 +341,12 @@ elsif ($text=~/help/i) {
 }
 ```
 
-While this implementation may seem to be easier, it should be noted that on a server with many players, running a query through a hash of globals for each event that triggers a look up can cause serious performance issues.  Imagine a hash being created for every global qglobal entry \(the "5" in the script above\), for EVERY event trigger!
+While this implementation may seem to be easier, it should be noted that on a server with many players, running a query through a hash of globals for each event that triggers a look up can cause serious performance issues.  Imagine a hash being created for every global qglobal entry (the "5" in the script above), for EVERY event trigger!
 
-Our intrepid adventurer is required to do this quest in order, by speaking with Vicus prior to the merchants in Qeynos who have to pay taxes.  To enforce this, we verify that the user has the appropriate data bucket key set \(line 9\) before offering the dialogue that results in the tax payment:
+Our intrepid adventurer is required to do this quest in order, by speaking with Vicus prior to the merchants in Qeynos who have to pay taxes.  To enforce this, we verify that the user has the appropriate data bucket key set (line 9) before offering the dialogue that results in the tax payment:
 
 {% tabs %}
-{% tab title="Mar\_Sedder.pl" %}
+{% tab title="Mar_Sedder.pl" %}
 ```perl
 sub EVENT_SAY {
 	if ($text=~/hail/i) {
@@ -373,6 +373,4 @@ sub EVENT_ITEM {
 ```
 {% endtab %}
 {% endtabs %}
-
-
 

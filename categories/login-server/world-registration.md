@@ -23,15 +23,15 @@ The below snippet is part of the current options that drive registration functio
 
 ## Unregistered World Servers
 
-Most world servers that blindly target a login server are considered **unregistered world servers** these servers are just fine and can operate simply; but whether or not you want to **register** a server to an admin depends upon your needs. Most people in LAN environments will not care about registration and just want to get into the game as quick as possible!
+Most world servers that blindly target a login server are considered **unregistered world servers **these servers are just fine and can operate simply; but whether or not you want to **register** a server to an admin depends upon your needs. Most people in LAN environments will not care about registration and just want to get into the game as quick as possible!
 
 ## Registered World Servers
 
 Whether or not you require servers to be registered is up to you and configurable in your config file. However, **most** servers allow **unregistered servers** but allow servers to be **registered** so that those servers have an **authentic owner** and can be promoted to a higher **status**
 
-If a server is registered, the login sever will expect that the world server entry has an associated world admin in the `login_world_servers` table. **If you don't have a server admin account created, you can do so using the CLI**
+If a server is registered, the login sever will expect that the world server entry has an associated world admin in the `login_world_servers` table.** If you don't have a server admin account created, you can do so using the CLI**
 
-```text
+```
 ./loginserver world-admin:create serveradmin serverpassword test@test.com
 
 > Executing CLI Command
@@ -42,7 +42,7 @@ If a server is registered, the login sever will expect that the world server ent
 
 #### Result
 
-```text
+```
 MariaDB [peq]> select * from login_server_admins limit 10;
 +----+--------------+-------------------------------------------------------------------------------------------------------+------------+-----------+---------------+---------------------+-------------------------+
 | id | account_name | account_password                                                                                      | first_name | last_name | email         | registration_date   | registration_ip_address |
@@ -56,13 +56,13 @@ Now we have server admin **1**
 
 If you have had a server try to login already, it should create a world server entry that is unregistered
 
-```text
+```
 [LoginServer] [Info] Server [Akkas Docker PEQ Installer (L)] [peqtest] did not login but unregistered servers are allowed
 ```
 
 We would see an entry as follows
 
-```text
+```
 MariaDB [peq]> select * from login_world_servers;
 +----+--------------------------------+------------+-----------------+---------------------------+---------------------+-----------------+-----------------------+-------------------+------+
 | id | long_name                      | short_name | tag_description | login_server_list_type_id | last_login_date     | last_ip_address | login_server_admin_id | is_server_trusted | note |
@@ -75,6 +75,4 @@ MariaDB [peq]> select * from login_world_servers;
 The main thing here is that we need to make sure the `login_server_admin_id` column is set to the `id` of the server owner. As of this writing there is no CLI call or API call to perform these actions and sounds like a great PR for someone to make in the future
 
 Once the `login_server_admin_id` is set to an appropriate server admin owner, as long as the respective authenticating world server tries to connect the next time with a configured `account` and `password` in their `loginserver` block of their `eqemu_config.json` they should authenticate against this table properly and will be authenticated as a registered server
-
-
 

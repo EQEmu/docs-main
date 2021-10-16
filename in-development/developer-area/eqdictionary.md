@@ -6,14 +6,14 @@ EQDictionary is a collection of lookup references, accessed by specific namespac
 
 References are usually tied back to the originating client definition and are available through an indexed lookup system. Server-based 'hybrid' definitions may also be implemented to bridge differences between client implementations and server requirements.
 
-The purpose of this system is to allow cyclic or minimum conditional evaluations in order to transform data.  
+The purpose of this system is to allow cyclic or minimum conditional evaluations in order to transform data.\
 
 
 #### What can you do with it?
 
 Simplifying coding methodology can change current standards from this:
 
-```text
+```
 if (ClientVersion() >= EQEmu::versions::ClientVersion::SoF) { bank_slot_count = 24; }
 
 else { bank_slot_count = 16; }
@@ -23,7 +23,7 @@ if (current_slot >= bank_slot_count) { return; }
 
 Or this:
 
-```text
+```
 if (m_ClientBitmask & EQEmu::versions::maskSoFAndLater) { bank_slot_count = 24; }
 
 else { bank_slot_count = 16; }
@@ -33,7 +33,7 @@ if (current_slot >= bank_slot_count) { return; }
 
 To this:
 
-```text
+```
 if (current_slot >= m_inv.GetInv().GetLookup()->InventoryTypeSize.Bank) { return; }
 ```
 
@@ -41,9 +41,9 @@ The first case requires that clients to be added in order of release.
 
 The second case will allow clients to be added in any order..but, requires awkward manipulation of mask bits.
 
-The EQDictionary \(last\) case does not require any special ordering of clients or manipulation of mask bits. In fact, this system makes ClientVersion comparison and bitmask use obsolete.
+The EQDictionary (last) case does not require any special ordering of clients or manipulation of mask bits. In fact, this system makes ClientVersion comparison and bitmask use obsolete.
 
-Additionally, duplicate definitions can be avoided by having a singular location to reference.  
+Additionally, duplicate definitions can be avoided by having a singular location to reference.\
 
 
 #### What makes up EQDictionary?
@@ -69,36 +69,35 @@ The entries are constructed based on expansion settings when the initial call to
 
 Creating dynamic lookups and embedding them into system classes allow for criteria updates that would normally require even more state condition checks and more static variable definitions making proper support for per-expansion and gm flag states without them impractical.
 
-\(The number of static lookups required to support non-dynamic lookups would essentially be 'the number of expansions' -&gt; squared, then multiplied by 2 to account for gm state.\)
+(The number of static lookups required to support non-dynamic lookups would essentially be 'the number of expansions' -> squared, then multiplied by 2 to account for gm state.)
 
 Dynamic lookups resolve the complexity of coding needed to support the myriad of conditions required support to customizable server features.
 
-A deep, working knowledge of client behavior is required to correctly set up dynamic entries. Testing through server setting changes and client observation is the best way to achieve this.  
+A deep, working knowledge of client behavior is required to correctly set up dynamic entries. Testing through server setting changes and client observation is the best way to achieve this.\
 
 
 #### Where do I look for all of this?
 
 Currently, the following files comprise the system:
 
-* [emu\_constants.h](https://github.com/EQEmu/Server/blob/master/common/emu_constants.h)
-* [emu\_limits.h](https://github.com/EQEmu/Server/blob/master/common/emu_limits.h)
-* [emu\_limits.cpp](https://github.com/EQEmu/Server/blob/master/common/emu_limits.cpp)
-* [eq\_limits.h](https://github.com/EQEmu/Server/blob/master/common/eq_limits.h)
-* [eq\_limits.cpp](https://github.com/EQEmu/Server/blob/master/common/eq_limits.cpp)
-* [titanium\_limits.h](https://github.com/EQEmu/Server/blob/master/common/patches/titanium_limits.h)
-* [titanium\_limits.cpp](https://github.com/EQEmu/Server/blob/master/common/patches/titanium_limits.cpp)
-* [sof\_limits.h](https://github.com/EQEmu/Server/blob/master/common/patches/sof_limits.h)
-* [sof\_limits.cpp](https://github.com/EQEmu/Server/blob/master/common/patches/sof_limits.cpp)
-* [sod\_limits.h](https://github.com/EQEmu/Server/blob/master/common/patches/sod_limits.h)
-* [sod\_limits.cpp](https://github.com/EQEmu/Server/blob/master/common/patches/sod_limits.cpp)
-* [uf\_limits.h](https://github.com/EQEmu/Server/blob/master/common/patches/uf_limits.h)
-* [uf\_limits.cpp](https://github.com/EQEmu/Server/blob/master/common/patches/uf_limits.cpp)
-* [rof\_limits.h](https://github.com/EQEmu/Server/blob/master/common/patches/rof_limits.h)
-* [rof\_limits.cpp](https://github.com/EQEmu/Server/blob/master/common/patches/rof_limits.cpp)
-* [rof2\_limits.h](https://github.com/EQEmu/Server/blob/master/common/patches/rof2_limits.h)
-* [rof2\_limits.cpp](https://github.com/EQEmu/Server/blob/master/common/patches/rof2_limits.cpp)
+* [emu_constants.h](https://github.com/EQEmu/Server/blob/master/common/emu_constants.h)
+* [emu_limits.h](https://github.com/EQEmu/Server/blob/master/common/emu_limits.h)
+* [emu_limits.cpp](https://github.com/EQEmu/Server/blob/master/common/emu_limits.cpp)
+* [eq_limits.h](https://github.com/EQEmu/Server/blob/master/common/eq_limits.h)
+* [eq_limits.cpp](https://github.com/EQEmu/Server/blob/master/common/eq_limits.cpp)
+* [titanium_limits.h](https://github.com/EQEmu/Server/blob/master/common/patches/titanium_limits.h)
+* [titanium_limits.cpp](https://github.com/EQEmu/Server/blob/master/common/patches/titanium_limits.cpp)
+* [sof_limits.h](https://github.com/EQEmu/Server/blob/master/common/patches/sof_limits.h)
+* [sof_limits.cpp](https://github.com/EQEmu/Server/blob/master/common/patches/sof_limits.cpp)
+* [sod_limits.h](https://github.com/EQEmu/Server/blob/master/common/patches/sod_limits.h)
+* [sod_limits.cpp](https://github.com/EQEmu/Server/blob/master/common/patches/sod_limits.cpp)
+* [uf_limits.h](https://github.com/EQEmu/Server/blob/master/common/patches/uf_limits.h)
+* [uf_limits.cpp](https://github.com/EQEmu/Server/blob/master/common/patches/uf_limits.cpp)
+* [rof_limits.h](https://github.com/EQEmu/Server/blob/master/common/patches/rof_limits.h)
+* [rof_limits.cpp](https://github.com/EQEmu/Server/blob/master/common/patches/rof_limits.cpp)
+* [rof2\_limits.h](https://github.com/EQEmu/Server/blob/master/common/patches/rof2\_limits.h)
+* [rof2\_limits.cpp](https://github.com/EQEmu/Server/blob/master/common/patches/rof2\_limits.cpp)
 
 #### How do I create a new lookup or add to an existing one?
 
 Adding properties to an existing lookup involves most of the same steps as creating a new lookup system.
-

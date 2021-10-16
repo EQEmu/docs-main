@@ -14,9 +14,9 @@ Once you have logged into your PEQ Editor, click on the NPCs tab.  Here you will
 
 ### Select A Zone
 
-Your NPC will be create under a particular zone.  Note that while you can spawn your NPC in other zones, you should pay careful attention to the available models, as an NPC will appear as a Human Male if the client does not support a particular model in a particular zone \(client customization for model support is a different topic\).
+Your NPC will be create under a particular zone.  Note that while you can spawn your NPC in other zones, you should pay careful attention to the available models, as an NPC will appear as a Human Male if the client does not support a particular model in a particular zone (client customization for model support is a different topic).
 
-We will work on creating an NPC in the Tutorial \(tutorialb\).  Select the tutorialb from the zone list pull-down:
+We will work on creating an NPC in the Tutorial (tutorialb).  Select the tutorialb from the zone list pull-down:
 
 ![tutorialb is the selected zone](../../../.gitbook/assets/peq_database_editor-2.png)
 
@@ -34,15 +34,15 @@ A dazzling array of NPC attributes are displayed on the page.  These attributes 
 
 ![Default settings for our new NPC](../../../.gitbook/assets/peq_database_editor-5.png)
 
-Explanations for each of these fields can be found on the [npc\_types](https://eqemu.gitbook.io/database-schema/categories/npcs/npc_types) page \(opens new window\) in the Database Schema documentation.  
+Explanations for each of these fields can be found on the [npc_types](https://eqemu.gitbook.io/database-schema/categories/npcs/npc_types) page (opens new window) in the Database Schema documentation.  
 
-For our Server Greeter Bot, we are going to input the NPC Name as "_**Salutation\_Model\_XIV**_", select the **457 - Gnomework** _race_, with a **5 - Construct** _bodytype_ setting, _gender_ **Neuter**. These options will cause the NPC to display correctly to the client.  Be sure to also place a checkmark in the following boxes:  **Will Not Aggro \(24\)**, **Immune to Aggro \(25\)**, and **Has Quest File**.  The rest of the settings are entirely up to you.  You can choose to match the settings below for the purposes of this guide.  We do want our Greeter Bot to be noticeable, so we have increased the _size_ to **10**.  We also don't want our Greeter Bot to be accidentally killed, so we have made the NPC quite resilient by granting ridiculous HP and resist.  
+For our Server Greeter Bot, we are going to input the NPC Name as "_**Salutation_Model_XIV**_", select the **457 - Gnomework** _race_, with a **5 - Construct** _bodytype_ setting, _gender_ **Neuter**. These options will cause the NPC to display correctly to the client.  Be sure to also place a checkmark in the following boxes:  **Will Not Aggro (24)**, **Immune to Aggro (25)**, and **Has Quest File**.  The rest of the settings are entirely up to you.  You can choose to match the settings below for the purposes of this guide.  We do want our Greeter Bot to be noticeable, so we have increased the _size_ to **10**.  We also don't want our Greeter Bot to be accidentally killed, so we have made the NPC quite resilient by granting ridiculous HP and resist.  
 
-![Submit your selections once complete](../../../.gitbook/assets/peq-database-editor%20%281%29.jpg)
+![Submit your selections once complete](<../../../.gitbook/assets/peq-database-editor (1).jpg>)
 
 ### Review your NPC
 
-Once you submit your selections, you can review the settings of your NPC.  Note the "Is Quest NPC" indicator below the NPC Name.  This indicates that this NPC will have an associated quest script, and was caused by our selection of the **Has Quest File** checkbox in the previous step.  Clicking this link allows you to view \(not edit\) the quest script for the NPC.
+Once you submit your selections, you can review the settings of your NPC.  Note the "Is Quest NPC" indicator below the NPC Name.  This indicates that this NPC will have an associated quest script, and was caused by our selection of the **Has Quest File** checkbox in the previous step.  Clicking this link allows you to view (not edit) the quest script for the NPC.
 
 ![Your first NPC!](../../../.gitbook/assets/peq_database_editor-6.png)
 
@@ -56,23 +56,23 @@ NPCs must be assigned additional information to allow them to spawn in the world
 
 ![The Spawns tab has all of the information regarding the spawning of your NPC](../../../.gitbook/assets/peq_database_editor-7.png)
 
-A _Spawngroup_ is a grouping of one or more NPCs.  A Spawngroup can have one member, which will be the case for our Greeter Bot, or it can have many members; a Spawngroup with many members can create a more random feel for your world, since the same NPC may not always appear.  You can review the fields in database table on the [spawngroup](https://eqemu.gitbook.io/database-schema/categories/spawns/spawngroup) page \(opens new window\) in the Database Schema documentation.
+A _Spawngroup_ is a grouping of one or more NPCs.  A Spawngroup can have one member, which will be the case for our Greeter Bot, or it can have many members; a Spawngroup with many members can create a more random feel for your world, since the same NPC may not always appear.  You can review the fields in database table on the [spawngroup](https://eqemu.gitbook.io/database-schema/categories/spawns/spawngroup) page (opens new window) in the Database Schema documentation.
 
 Click on the _Click here to create a new spawngroup_ link.
 
 ![Default Spawngroup settings](../../../.gitbook/assets/peq_database_editor-8.png)
 
-As with the Add an NPC step above, many values are pre-populated in the PEQ Editor to help you out.  Leave the default values and click the _Submit_ button.
+As with the Add an NPC step above, many values are pre-populated in the PEQ Editor to help you out.  Leave the default values and click the _Submit _button.
 
 ### Review your Spawngroup
 
 After you click Submit, you will be redirected to a page that allows you to review your Spawngroup. From this page, you can assign additional NPCs to the Spawngroup, delete or rename the Spawngroup, or edit the various settings for the Spawngroup itself, or the settings for the members of the Spawngroup.
 
-Choose the link in yellow text that says _View Spawnpoints \(0\) for this Spawngroup._
+Choose the link in yellow text that says _View Spawnpoints (0) for this Spawngroup._
 
 ### Create a Spawnpoint
 
-A Spawnpoint is the database entry that determines the location and behavior when the NPC spawns in the world.  These values are stored in the spawn2 table in your database.  You can review the fields of this table on the [spawn2](https://eqemu.gitbook.io/database-schema/categories/spawns/spawn2) page \(opens new window\) of the Database Schema documentation.
+A Spawnpoint is the database entry that determines the location and behavior when the NPC spawns in the world.  These values are stored in the spawn2 table in your database.  You can review the fields of this table on the [spawn2](https://eqemu.gitbook.io/database-schema/categories/spawns/spawn2) page (opens new window) of the Database Schema documentation.
 
 Since there are no Spawnpoints associated with this Spawngroup, this area is empty.
 
@@ -94,9 +94,9 @@ Once you click the _Add Spawnpoint_ button, you are redirected to a page that al
 
 ### Create a Pathgrid
 
-A Pathing Grid is the mechanism that allows an NPC to appear as though it is traveling around inside of your world.  This mechanism is separate from Pathing Nodes \(which your NPC would follow when chasing a player after losing Line of Sight\), and separate from scripted Wandering.  
+A Pathing Grid is the mechanism that allows an NPC to appear as though it is traveling around inside of your world.  This mechanism is separate from Pathing Nodes (which your NPC would follow when chasing a player after losing Line of Sight), and separate from scripted Wandering.  
 
-The Pathing Grid has Wander types, Pause types, and a listing of Waypoints that your NPC will follow.  To review the Grid fields in your database, reference the [grid](https://eqemu.gitbook.io/database-schema/categories/grids/grid) page \(opens new window\) in the Database Schema documentation.  For information regarding the Waypoint entry fields in your database, reference the [grid\_entries](https://eqemu.gitbook.io/database-schema/categories/grids/grid_entries) page \(opens new window\).
+The Pathing Grid has Wander types, Pause types, and a listing of Waypoints that your NPC will follow.  To review the Grid fields in your database, reference the [grid](https://eqemu.gitbook.io/database-schema/categories/grids/grid) page (opens new window) in the Database Schema documentation.  For information regarding the Waypoint entry fields in your database, reference the [grid_entries](https://eqemu.gitbook.io/database-schema/categories/grids/grid_entries) page (opens new window).
 
 Since we have not defined any information about this particular Pathing Grid, we will do so now.
 
@@ -112,30 +112,30 @@ Begin by clicking the _edit_ hyperlink in your PEQ Editor next to the word _Grid
 
 Click the yellow + icon in the _Grid Entries_ area on the PEQ Editor page.  This will allow you to add a Waypoint.  We are going to repeat this process several times to establish a nice loop for our NPC to travel.
 
-The first Waypoint \(waypoint number 0\) will be our Spawnpoint, always.  Enter in the values and click the _Submit Changes_ button.  You will be redirected to the Grid Editor review screen.
+The first Waypoint (waypoint number 0) will be our Spawnpoint, always.  Enter in the values and click the _Submit Changes_ button.  You will be redirected to the Grid Editor review screen.
 
 ![Your Waypoint Entry](../../../.gitbook/assets/peq_database_editor-20.png)
 
-We will enter in a number of Grid Entry Waypoints.  Here is a table of the values for each \(note that 0 is repeated in the table, but does not have to be added a second time!\).  Keep clicking the yellow + sign to add each Waypoint, input the values below, and submit your changes.
+We will enter in a number of Grid Entry Waypoints.  Here is a table of the values for each (note that 0 is repeated in the table, but does not have to be added a second time!).  Keep clicking the yellow + sign to add each Waypoint, input the values below, and submit your changes.
 
-| Number | X | Y | Z | Heading | Pause |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| 0 | -162.35 | -152.14 | 16.78 | -1 | 30 |
-| 1 | -132.503 | -153.421 | 15.9178 | -1 | 30 |
-| 2 | -94.1068 | -148.684 | 14.2662 | -1 | 30 |
-| 3 | -34.0962 | -141.684 | 14.7164 | -1 | 30 |
-| 4 | 23.1549 | -111.449 | 13.9895 | -1 | 30 |
-| 5 | 38.2853 | -40.2572 | 16.5154 | -1 | 30 |
-| 6 | -57.144 | -53.4567 | 19.0392 | -1 | 30 |
-| 7 | -94.8163 | -2.66101 | 20.0491 | -1 | 30 |
-| 8 | -143.811 | -35.4007 | 18.8172 | -1 | 30 |
-| 9 | -177.327 | -82.1346 | 19.5479 | -1 | 30 |
+| Number | X        | Y        | Z       | Heading | Pause |
+| ------ | -------- | -------- | ------- | ------- | ----- |
+| 0      | -162.35  | -152.14  | 16.78   | -1      | 30    |
+| 1      | -132.503 | -153.421 | 15.9178 | -1      | 30    |
+| 2      | -94.1068 | -148.684 | 14.2662 | -1      | 30    |
+| 3      | -34.0962 | -141.684 | 14.7164 | -1      | 30    |
+| 4      | 23.1549  | -111.449 | 13.9895 | -1      | 30    |
+| 5      | 38.2853  | -40.2572 | 16.5154 | -1      | 30    |
+| 6      | -57.144  | -53.4567 | 19.0392 | -1      | 30    |
+| 7      | -94.8163 | -2.66101 | 20.0491 | -1      | 30    |
+| 8      | -143.811 | -35.4007 | 18.8172 | -1      | 30    |
+| 9      | -177.327 | -82.1346 | 19.5479 | -1      | 30    |
 
 Once you have completed entering all of the Grid Entry Waypoints, your screen should look like this:
 
 ![Complete!](../../../.gitbook/assets/peq_database_editor-21.png)
 
-Congratulations!  You have created your first Pathing Grid.  If you want to experiment with different locations, feel free to run around in game and make use of the \#loc command to interrogate your current position.  Update the Grid Entries to your desired location.  The next step is to assign a quest script so that we can interact.
+Congratulations!  You have created your first Pathing Grid.  If you want to experiment with different locations, feel free to run around in game and make use of the #loc command to interrogate your current position.  Update the Grid Entries to your desired location.  The next step is to assign a quest script so that we can interact.
 
 ## Add a Quest Script
 
@@ -147,13 +147,13 @@ Start by going to the TutorialB directory in your Quest Directory:  `cd /home/eq
 
 ### Create the File
 
-Create a new file with your favorite editor:  `nano Salutation_Model_XIV.pl` 
+Create a new file with your favorite editor:  `nano Salutation_Model_XIV.pl `
 
 ### Add the Code
 
-Paste in the following code \(fill in the blanks!\) and save:
+Paste in the following code (fill in the blanks!) and save:
 
-{% code title="Salutation\_Model\_XIV.pl" %}
+{% code title="Salutation_Model_XIV.pl" %}
 ```perl
 #:: Zone: The Mines of Gloomingdeep (tutorialb) >> Salutation_Model_XIV (189490)
 
@@ -233,7 +233,7 @@ Congratulations!  You have added your first quest script to your first NPC!  The
 
 ## In Game Steps
 
-If you're hanging out in The Mines of Gloomingdeep, you can issue three commands to get your bot to spawn.  Be sure to review the [In Game Command Reference](https://eqemu.gitbook.io/server/categories/reference-lists/in-game-command-reference) \(opens new window\) if you're not sure what all of these do.
+If you're hanging out in The Mines of Gloomingdeep, you can issue three commands to get your bot to spawn.  Be sure to review the [In Game Command Reference](https://eqemu.gitbook.io/server/categories/reference-lists/in-game-command-reference) (opens new window) if you're not sure what all of these do.
 
 > \#hotfix
 >
@@ -246,4 +246,3 @@ This will bring over all of your NPC settings, reload your quest files and repop
 ![Salutation Model XIV](../../../.gitbook/assets/salutation_model_xiv.jpg)
 
 Your NPC should begin to path around and will respond to your messages as indicated in the quest script.  
-

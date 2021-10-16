@@ -6,17 +6,17 @@ description: >-
 
 # CLI Management Interface
 
-In the latest overhaul of the login server, an enhanced command-line management interface was introduced to easily interface with basic management functionality needs. If you want to do more enhanced functionality such as integrating with the HTTP API, you can reference [API Endpoints]()
+In the latest overhaul of the login server, an enhanced command-line management interface was introduced to easily interface with basic management functionality needs. If you want to do more enhanced functionality such as integrating with the HTTP API, you can reference [API Endpoints](broken-reference)
 
 ## CLI Menu
 
-![](../../.gitbook/assets/image%20%2817%29.png)
+![](<../../.gitbook/assets/image (17).png>)
 
 ### Help Menu
 
 The login server command line help menu can be accessed by simply running the server binary from the command line with the option `--help`
 
-```text
+```
 eqemu@dc25a75287d7:~/server$ ./loginserver --help
 
 > EQEmulator [LoginServer] CLI Menu
@@ -33,11 +33,11 @@ world-admin
   world-admin:create                     Creates Loginserver World Administrator Account
 ```
 
-### Command Example\(s\)
+### Command Example(s)
 
 To see the required options and/or arguments for a command, simply type out the command to get the required context
 
-```text
+```
 loginserver login-user:create
 
 Command
@@ -47,4 +47,3 @@ login-user:create {username} {password}
 Options
   --email=*
 ```
-
