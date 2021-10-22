@@ -25,7 +25,7 @@ $ code .
 ```
 
 {% hint style="info" %}
- If `code` is not a recognized command, you can alternatively Open Visual Studio Code manually, and drag-drop the Server folder into the window.
+&#x20;If `code` is not a recognized command, you can alternatively Open Visual Studio Code manually, and drag-drop the Server folder into the window.
 {% endhint %}
 
 
@@ -42,13 +42,16 @@ Next, if not already installed, go into your extensions and search for **remote 
 
 ![Remote containers in the extensions list](../../.gitbook/assets/screen-shot-2020-02-22-at-4.29.10-pm.png)
 
-Once extension is finished installing, This prompt should pop up on the bottom left area. (Some times, click the bell icon on bottom right of the VS Code window to get this prompt)
+Once extension is finished installing, This prompt should pop up on the bottom left area. (Some times, click the bell icon on bottom right of the VS Code window to get this prompt). If you never see this, click the bottom left >< looking icon, to Reopen in Container.
 
 ![Click Reopen in Container](../../.gitbook/assets/screen-shot-2020-02-22-at-4.32.07-pm.png)
 
 After clicking Reopen in Container,  you will be waiting a while for the first image build, as the environment is set up. You can click the (**details**) link if curious what the process is doing. The Dockerfile being generated can be found in the .dev-containers/Dockerfile directory.
 
-Once the build is complete, click **Terminal, Run Build Task **on the top menu of VS Code. After a moment, an option list of **cmake** or **make** will appear. First, run **cmake.**
+Once the build is complete, You can do one of two things:
+
+* click **Terminal, Run Build Task **on the top menu of VS Code. After a moment, an option list of **cmake** or **make** will appear. First, run **cmake.**
+* or run manually**: mkdir -p build && cd build && cmake ..**
 
 cmake will open a pane on the bottom half of your screen with the task being ran, and any errors it has will appear will display on the last line
 
@@ -58,6 +61,6 @@ Next, run **Terminal, Run Build Task** again, and this time choose **make**
 
 ![Here is an example of make running](../../.gitbook/assets/screen-shot-2020-02-22-at-4.42.46-pm.png)
 
-The first build will take a while. Once you have everything built, the additional runs will be much faster. Note that the output binaries are being generated in the **build/bin/** directory of the repository.
+The first build will take a while. Once you have everything built, the additional runs will be much faster. Note that the output binaries are being generated in the **build/bin/** directory.
 
 Once the make build task command finishes, open any .cpp file to trigger the building of intellisense.
