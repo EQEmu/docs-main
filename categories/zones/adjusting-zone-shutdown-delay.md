@@ -10,7 +10,7 @@ In a typical server installation; the server launcher boots what are called **dy
 
 ### Shutdown Delay
 
-Typically most zones in a default PEQ database installation have a shutdown delay of 60 minutes, if you look in the **zone **table this value is configured in **milliseconds. **Below this is illustrated in minutes to make it easier to read
+Typically most zones in a default PEQ database installation have a shutdown delay of 60 minutes, if you look in the **zone** table this value is configured in **milliseconds.** Below this is illustrated in minutes to make it easier to read
 
 Shutdown delays are configured two ways, through the rule **Zone:AutoShutdownDelay** or the value in the zone table. Whichever one is higher is the one that the zone uses to enforce shutting back down
 

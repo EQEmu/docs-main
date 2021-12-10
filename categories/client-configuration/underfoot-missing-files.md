@@ -6,19 +6,19 @@
 
 > Once you purchase Underfoot from Steam and have it downloaded, you should make a backup copy of the entire folder immediately and store it somewhere else on your system. Next you should make a copy of the folder where ever you want it to be to played from, C:\EQ\Underfoot is a good location. Playing from the Steam folder can ruin your install if Steam updates the download, so you will not want to do that.
 
-* You will need at least a Titanium or older install for the zones that have been changed or no longer exist on Live. Some examples of these zones are East and West Commonlands, Nektulos, North and South Ro, The Oasis, and East and West Freeport. The only place to find these files is from a Titanium or older install. Seeds of Destruction (SoD) and newer clients do not have these files at all. 
+* You will need at least a Titanium or older install for the zones that have been changed or no longer exist on Live. Some examples of these zones are East and West Commonlands, Nektulos, North and South Ro, The Oasis, and East and West Freeport. The only place to find these files is from a Titanium or older install. Seeds of Destruction (SoD) and newer clients do not have these files at all.&#x20;
 * The other files you will need are files that should be in a normal EverQuest install but are missing from the Steam download for some reason. Most, but all of these files can also be taken from a Titanium install, but as more things are discovered it may be required to get them from a newer source. Once Underfoot has all of its missing files, it should run as well as the SoD client.
 * There is no way to help you get the older missing files except from the original discs such as Titanium or another box set. Titanium is the best source, but anything from the Gold box or newer should have most of them. If you are really desperate, you could likely salvage most of the files from the Trilogy discs and then the rest from the PoP expansion discs.
-* For the missing/corrupt files that can still be gotten from a Live install, you can now get a fully patched to live client by signing up for the 14 day free trial. 
+* For the missing/corrupt files that can still be gotten from a Live install, you can now get a fully patched to live client by signing up for the 14 day free trial.&#x20;
 
-#### Update August 18, 2011 <a href="ac_update-august-18-2011" id="ac_update-august-18-2011"></a>
+#### Update August 18, 2011 <a href="#ac_update-august-18-2011" id="ac_update-august-18-2011"></a>
 
 > The old Escape To Norrath trial was never useful because it was only a partial client. But Sony has now changed the trial to be a trial on the actual live servers. Go make a new SOE account and hit the trial button. It will download the full client (6.5GB). To speed up the download, you can take your existing UF install and copy all of those files to the folder where you told the live install to go. That will extremely shorten your download time. Note that the steps below describe how to copy your UF install folder and create a new Live folder that will be used to attain the files needed for UF. NEVER patch your UF install folder or it will fail to work with EQEmu!
 
-**These steps were used on August 18, 2011: **
+**These steps were used on August 18, 2011:**&#x20;
 
-1. Locate the Underfoot install. Mine resides in C:\EQ\Everquest_UF\\.
-2. Make a new folder for the Live install, C:\EQ\Everquest_Live\ is a good location.
+1. Locate the Underfoot install. Mine resides in C:\EQ\Everquest\_UF\\.
+2. Make a new folder for the Live install, C:\EQ\Everquest\_Live\ is a good location.
 3. Copy everything from the Underfoot folder to the Live folder.
 4. While that is copying, open your browser and go to http://www.everquest.com∞ and click on Everquest and then look for the button for the free trial.
 5. Create a new account. An existing account will not work. When it tells you to download the installer, ignore it.
@@ -30,8 +30,8 @@
 ## **Missing Files**
 
 * Here is a list compiled from different posts of files missing in the UF client that can be copied over from Live or another client like SoF or even some from Titanium:
-  * **dbstr_us.txt** - This one is the most important, otherwise many AAs and spell descriptions will not show.
-  * **dkm_anims.eqg** - This one is important for playing Male Drakkin, otherwise they don't animate.
+  * **dbstr\_us.txt** - This one is the most important, otherwise many AAs and spell descriptions will not show.
+  * **dkm\_anims.eqg** - This one is important for playing Male Drakkin, otherwise they don't animate.
 
 These files are required for revamped or removed zones to show everything correctly, and can all be found in a Titanium installation. These are all original zones that were changed and it is likely that even an original EverQuest disc would work, but no one has reported testing it out.
 
@@ -110,5 +110,5 @@ These files are required for revamped or removed zones to show everything correc
 2011-02-04 20:32       1402768  mpu.eqg
 ```
 
-* Alternatively to copying these files over 1 by 1 from another client, you can simply select all files in another client such as a EQLive patched client install folder and paste them into the Underfoot folder. Then, when prompted if you want to replace existing files, just set it to say no to all, and only missing files will be copied over. Then, the only thing that has to be manually copied over is the dbstr_us.txt file.
+* Alternatively to copying these files over 1 by 1 from another client, you can simply select all files in another client such as a EQLive patched client install folder and paste them into the Underfoot folder. Then, when prompted if you want to replace existing files, just set it to say no to all, and only missing files will be copied over. Then, the only thing that has to be manually copied over is the dbstr\_us.txt file.
 * If there are more missing files that are not listed here, feel free to update this Wiki page to add the additional file names to the list, or any extra helpful details.

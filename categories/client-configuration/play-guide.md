@@ -2,7 +2,7 @@
 
 ## Description
 
-#### This guide will take you through the steps necessary to play on an EQEmulator Server. <a href="ac_this-guide-will-take-you-through-the-steps-necessary-to-play-on-an-eqemulator-server" id="ac_this-guide-will-take-you-through-the-steps-necessary-to-play-on-an-eqemulator-server"></a>
+#### This guide will take you through the steps necessary to play on an EQEmulator Server. <a href="#ac_this-guide-will-take-you-through-the-steps-necessary-to-play-on-an-eqemulator-server" id="ac_this-guide-will-take-you-through-the-steps-necessary-to-play-on-an-eqemulator-server"></a>
 
 * **Please note: As of this time you MUST have one of the follow versions of Everquest**
 
@@ -16,11 +16,11 @@
 
 See the ClientFeatures page to view some of the differences between the clients. Also see the [Client Versions](../player/client-version-bitmasks.md) page for details on determining if the client you have is compatible with EQEmu or not.
 
-* Note: If using the Underfoot client, some files may need to be copied from another EQ install as mentioned in the[ ](http://wiki.eqemulator.org/p?UFMissingFilesList\&frm=Frequently_Asked_Questions--Play_Guide%3A_Getting_Started)[Underfoot Missing Files](underfoot-missing-files.md) page and discussed [here](http://www.eqemulator.org/forums/showthread.php?t=31635)
+* Note: If using the Underfoot client, some files may need to be copied from another EQ install as mentioned in the[ ](http://wiki.eqemulator.org/p?UFMissingFilesList\&frm=Frequently\_Asked\_Questions--Play\_Guide%3A\_Getting\_Started)[Underfoot Missing Files](underfoot-missing-files.md) page and discussed [here](http://www.eqemulator.org/forums/showthread.php?t=31635)
 * Note: Do not download the Rain of Fear client from anyplace other than Steam, or you may get an incompatible version of the client!
   * The Rain of Fear client is no longer available from Steam.
 
-## Step 1 - Installing 
+## Step 1 - Installing&#x20;
 
 ### **Tit | SoF**
 
@@ -31,7 +31,7 @@ See the ClientFeatures page to view some of the differences between the clients.
 ### **SoD | UF | RoF | RoF2**
 
 * Note It is HIGHLY recommended that you make a backup copy of your SoD/UF/RoF/RoF2 download folder before taking any further actions in the case that your download gets corrupted or patched by mistake.  Do not attempt to run Everquest using the shortcut on your Desktop before making a backup or it will patch your client and break it for EQEmu!
-* To make a backup, simply copy the installed Everquest folder to some other place on your hard drive. Naming it something like C:\Everquest_SoD or C:\Everquest_RoF2 would make it easy to identify.
+* To make a backup, simply copy the installed Everquest folder to some other place on your hard drive. Naming it something like C:\Everquest\_SoD or C:\Everquest\_RoF2 would make it easy to identify.
 * Note: If using the SoD, UF, RoF, or RoF2 client from Steam, it will get installed into one of the following folders by default:
 * **On 32bit Windows:**
   * C:\Program Files\Steam\steamapps\common\EverQuest
@@ -85,10 +85,10 @@ Host=login.eqemulator.net:5999
 ### Quick FAQs
 
 * **Can I use the anniversary edition or other expansions?**
-  * NO. As the it says above, you can only use Titanium, Secrets of Faydwer, Seeds of Destruction, Underfoot, or Rain of Fear at this time. Other versions like platinum, anniversary, and trilogy WILL NOT WORK. EQEmu compatibility is created for very specific versions of the eqgame.exe file.  Every time SOE releases a patch, it is a different version.  See the[ Client_Versions](http://wiki.eqemulator.org/p?Client_Versions\&frm=Frequently_Asked_Questions--Play_Guide%3A_Getting_Started) page for specific version details.
+  * NO. As the it says above, you can only use Titanium, Secrets of Faydwer, Seeds of Destruction, Underfoot, or Rain of Fear at this time. Other versions like platinum, anniversary, and trilogy WILL NOT WORK. EQEmu compatibility is created for very specific versions of the eqgame.exe file.  Every time SOE releases a patch, it is a different version.  See the[ Client\_Versions](http://wiki.eqemulator.org/p?Client\_Versions\&frm=Frequently\_Asked\_Questions--Play\_Guide%3A\_Getting\_Started) page for specific version details.
 * **Can I use third party software like MacroQuest and Magelo?**
   * Check the rules for the server you play on. Why people would lie about this is beyond me.
-* **Can I use custom UIs? **
+* **Can I use custom UIs?**&#x20;
   * YES! Most custom UIs work with EMU, there may be a few flaws, where as live uses corrupt resist and the rest timer where EMU doesn't, which would show "unknown" in your skin where it doesn't exist yet in EMU.
 * **Is EMU free?**
   * 100% free to play, however you have to acquire a compatible version of Everquest by yourself.

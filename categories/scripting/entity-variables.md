@@ -4,7 +4,7 @@
 
 I would hope you read [Entity Lists](entity-lists.md) and understand entities and how they work before reading this. If you have, then it will help understanding what entity variables are and how powerful they can be in helping you do whatever it is you are trying to do
 
-When you are using Perl, and in a script you define an object, you define it like so, **$object = 1; **Easy, right?** **- Yes, but there is a problem. **ANY NPC** who also has this same script loaded could overwrite this variable. When I am trying to set and read data unique to a particular NPC, using this method does not make things all that easy. Given, you COULD use a Perl array accessor unique to the NPCID but that is not quite as flexible to this system that has been developed by KLS to do.
+When you are using Perl, and in a script you define an object, you define it like so, **$object = 1;** Easy, right? **** - Yes, but there is a problem. **ANY NPC** who also has this same script loaded could overwrite this variable. When I am trying to set and read data unique to a particular NPC, using this method does not make things all that easy. Given, you COULD use a Perl array accessor unique to the NPCID but that is not quite as flexible to this system that has been developed by KLS to do.
 
 So here I am going to show you some examples and why **entity variables are amazing.**
 
@@ -16,11 +16,11 @@ Picture it like this, these NPCs below have a '**virtual bucket**' of variables 
 
 With this, you can get really really creative as to how you pass variables around.
 
-* **$entity->SetEntityVariable("variable_name", "value") - Write**
-* **$entity->GetEntityVariable("variable_name") - Read - Would return whatever the variable is set to for that NPC**
+* **$entity->SetEntityVariable("variable\_name", "value") - Write**
+* **$entity->GetEntityVariable("variable\_name") - Read - Would return whatever the variable is set to for that NPC**
 * **There are Perl Plugin Shorthands for these functions (For speed of writing scripts)**
-  * **plugin::SEV($entity, "variable_name", "value"); - Write**
-  * **plugin::REV($entity, "variable_name"); - Returns value, Read**
+  * **plugin::SEV($entity, "variable\_name", "value"); - Write**
+  * **plugin::REV($entity, "variable\_name"); - Returns value, Read**
   * See [Plugins Reference](https://eqemu.gitbook.io/quest-api/perl/plugins)
 
 ## Example

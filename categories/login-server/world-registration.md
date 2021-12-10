@@ -23,13 +23,13 @@ The below snippet is part of the current options that drive registration functio
 
 ## Unregistered World Servers
 
-Most world servers that blindly target a login server are considered **unregistered world servers **these servers are just fine and can operate simply; but whether or not you want to **register** a server to an admin depends upon your needs. Most people in LAN environments will not care about registration and just want to get into the game as quick as possible!
+Most world servers that blindly target a login server are considered **unregistered world servers** these servers are just fine and can operate simply; but whether or not you want to **register** a server to an admin depends upon your needs. Most people in LAN environments will not care about registration and just want to get into the game as quick as possible!
 
 ## Registered World Servers
 
 Whether or not you require servers to be registered is up to you and configurable in your config file. However, **most** servers allow **unregistered servers** but allow servers to be **registered** so that those servers have an **authentic owner** and can be promoted to a higher **status**
 
-If a server is registered, the login sever will expect that the world server entry has an associated world admin in the `login_world_servers` table.** If you don't have a server admin account created, you can do so using the CLI**
+If a server is registered, the login sever will expect that the world server entry has an associated world admin in the `login_world_servers` table. **If you don't have a server admin account created, you can do so using the CLI**
 
 ```
 ./loginserver world-admin:create serveradmin serverpassword test@test.com
@@ -52,7 +52,7 @@ MariaDB [peq]> select * from login_server_admins limit 10;
 1 row in set (0.00 sec)
 ```
 
-Now we have server admin **1** 
+Now we have server admin **1**&#x20;
 
 If you have had a server try to login already, it should create a world server entry that is unregistered
 

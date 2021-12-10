@@ -4,7 +4,7 @@
 
 So you would like to understand spells? It's a bit of a journey, so let's get started.
 
-There are tens of thousands of records in your [spells_new](https://eqemu.gitbook.io/database-schema/tables/spells_new) table, and making sense of them all can be a little daunting (at least at first).
+There are tens of thousands of records in your [spells\_new](https://eqemu.gitbook.io/database-schema/tables/spells\_new) table, and making sense of them all can be a little daunting (at least at first).
 
 Each spell has MANY fields related to it--and you're probably wondering what all of these fields do. You may even be up against some [Client Limitations](https://eqemu.gitbook.io/server/categories/reference-lists/client-spell-id-limitations), or perhaps you've just discovered that AAs are actually spells! Don't get too worked up!! (╯°□°）╯彡 ┻━┻
 
@@ -14,7 +14,7 @@ We'll explore these topics below.
 
 The first concept is that many fields are related to each other. We have commonly referred to these related fields as "Slots", and most understand the concept that slots are somehow related. There are 12 of these slots available, and the values in your database determine what happens when the spell is cast.
 
-It might be easiest to view in simplified table, rather than as a series of fields. It will also be useful to disregard many of the fields so that we can focus on understanding the mechanics of the spell, before we try to understand all of the fields in the spells_new database table. Below is a simplified table of the spell "Greater Healing", that has a default Spell ID of 15:
+It might be easiest to view in simplified table, rather than as a series of fields. It will also be useful to disregard many of the fields so that we can focus on understanding the mechanics of the spell, before we try to understand all of the fields in the spells\_new database table. Below is a simplified table of the spell "Greater Healing", that has a default Spell ID of 15:
 
 | **Slot** | **Effect ID** | **Effect Base Value** | **Max** | **Formula** |
 | -------- | ------------- | --------------------- | ------- | ----------- |
@@ -31,19 +31,19 @@ It might be easiest to view in simplified table, rather than as a series of fiel
 | 11       | 254           | 0                     | 0       | 100         |
 | 12       | 254           | 0                     | 0       | 100         |
 
-This simplified table shows that Slot 1 is where all the action is in the Greater Healing spell. Slots 2-12 in this case just have default values, as they are unused. If you're looking in your database at your spells_new table, you will see that each header row from table above appears as a database field for each slot (IE effectid1, effectid2...effectid12; max1, max2...max12).
+This simplified table shows that Slot 1 is where all the action is in the Greater Healing spell. Slots 2-12 in this case just have default values, as they are unused. If you're looking in your database at your spells\_new table, you will see that each header row from table above appears as a database field for each slot (IE effectid1, effectid2...effectid12; max1, max2...max12).
 
 ### Spell Effects
 
 There is an entire page on the Wiki describing each [Spell Effect](https://eqemu.gitbook.io/server/categories/spells/spell-effect-ids). A spell effect, in simplest terms, determines what is modified, or what is caused to happen, by the spell. It is important to understand that each slot, as shown above, can have a Spell Effect enumerated in the Effect ID field--that is to say that each Spell can have one or more spell effects that occur when the spell is cast.
 
-Dissecting the information presented in the Greater Healing spell table above, we see that Spell Effect 0 is listed in the first slot (effectid1 field in your database). Cross-referencing with the Spell Effect list, we find that Spell Effect 0 is "SE_CurrentHP", or Spell Effect Current Hit Points. We can therefore surmise the the Greater Healing spell must have something to do with hit points.
+Dissecting the information presented in the Greater Healing spell table above, we see that Spell Effect 0 is listed in the first slot (effectid1 field in your database). Cross-referencing with the Spell Effect list, we find that Spell Effect 0 is "SE\_CurrentHP", or Spell Effect Current Hit Points. We can therefore surmise the the Greater Healing spell must have something to do with hit points.
 
 ### Base Values
 
 Base Values are integers that are used in coordination with the Spell Effect to determine an outcome. Each Spell Effect does something slightly different with its base value, as demonstrated in the Spell Effects table.
 
-In the case of our Greater Healing spell, we see a Base Value of 140 in Slot 1 (effect_base_value1 field in your database). Since we know the Spell Effect will impact Current Hit Points, and since 140 is a positive value (as opposed to -140, for instance), we can say that the Healing spell will increase current hitpoints by 140--it will heal (add), rather than damage (subtract) from our current hit points.
+In the case of our Greater Healing spell, we see a Base Value of 140 in Slot 1 (effect\_base\_value1 field in your database). Since we know the Spell Effect will impact Current Hit Points, and since 140 is a positive value (as opposed to -140, for instance), we can say that the Healing spell will increase current hitpoints by 140--it will heal (add), rather than damage (subtract) from our current hit points.
 
 Something isn't quite adding up yet, however: we know that as you level up, your healing power seems to increase. This mechanic can be explained by examining some additional fields.
 
@@ -51,15 +51,15 @@ Something isn't quite adding up yet, however: we know that as you level up, your
 
 Max Values are integers that are also used in coordination with the Spell Effect to determine an outcome. Each Spell Effect's Max Value can do something slightly different, as demonstrated in the Spell Effect table.
 
-In the case of our Greater Healing spell, we see a Max Value of 300 in Slot 1 (max1 field in your database). This means that the most this spell will adjust Current Hit Points by, is 300. This is indicated by "Max Amt" in the Max Value column of the Spell Effect table for SE_CurrentHP. Instead, if "Max Level" were indicated for Max Value of this spell effect, we would surmise that the spell would continue to scale as the player character gained levels, with each new level adding to the amount of hit points that could be restored.
+In the case of our Greater Healing spell, we see a Max Value of 300 in Slot 1 (max1 field in your database). This means that the most this spell will adjust Current Hit Points by, is 300. This is indicated by "Max Amt" in the Max Value column of the Spell Effect table for SE\_CurrentHP. Instead, if "Max Level" were indicated for Max Value of this spell effect, we would surmise that the spell would continue to scale as the player character gained levels, with each new level adding to the amount of hit points that could be restored.
 
 So we have established that the Greater Healing spell is capable of changing current hit points in the amount of 140 to a maximum amount of 300--but how does it scale as you increase in levels from the first level you get the spell, until you max out the effectiveness of the spell and are able to heal 300 hit points?
 
 ### Formula
 
-Formula values are integers that are used in coordination with the Spell Effect to determine its outcome as well. Each Spell Effect can use a different formula, and those are found in the [spell_effects.cpp](https://github.com/EQEmu/Server/blob/master/zone/spell_effects.cpp) source file. A wiki page also details those [Base Value Formulas](https://eqemu.gitbook.io/server/categories/spells/base-value-formulas) if you're not comfortable looking at the code.
+Formula values are integers that are used in coordination with the Spell Effect to determine its outcome as well. Each Spell Effect can use a different formula, and those are found in the [spell\_effects.cpp](https://github.com/EQEmu/Server/blob/master/zone/spell\_effects.cpp) source file. A wiki page also details those [Base Value Formulas](https://eqemu.gitbook.io/server/categories/spells/base-value-formulas) if you're not comfortable looking at the code.
 
-In the case of our Greater Healing spell, we see that the value for Formula in Slot 1 is 7 (formula1 field in your database). Referencing the source, we find that the spell calc is Base Value + User Level _ _\* Formula. If we assume that we are a level 20 Cleric, casting the Greater Healing spell: 140 + 20 \* 7 = 280. This of course assumes that there are no focus effects being taken into consideration. If we are instead a level 29 Druid, we would hit the spell's max value: 140 + 29 \* 7 = 343--which is greater than the 300 hit point Max Value. As a result, the Druid would only heal 300 hit points using this spell.
+In the case of our Greater Healing spell, we see that the value for Formula in Slot 1 is 7 (formula1 field in your database). Referencing the source, we find that the spell calc is Base Value + User Level __ \* Formula. If we assume that we are a level 20 Cleric, casting the Greater Healing spell: 140 + 20 \* 7 = 280. This of course assumes that there are no focus effects being taken into consideration. If we are instead a level 29 Druid, we would hit the spell's max value: 140 + 29 \* 7 = 343--which is greater than the 300 hit point Max Value. As a result, the Druid would only heal 300 hit points using this spell.
 
 ### Summary
 
@@ -94,33 +94,33 @@ We see that slots 1 through 4 have something going on, and slots 5 through 12 ar
 
 Cross reference the Spell Effects table.
 
-`Slot 1: 97 - SE_ManaPool: Increase/Decrease max mana pool `\
-`Slot 2: 15 - SE_CurrentMana: Direct +/- mana, duration allows for mana over time `\
-`Slot 3: 8 - SE_INT: +/- INT `\
-`Slot 4: 9 - SE_WIS: +/- WIS `\
+`Slot 1: 97 - SE_ManaPool: Increase/Decrease max mana pool` \
+`Slot 2: 15 - SE_CurrentMana: Direct +/- mana, duration allows for mana over time` \
+`Slot 3: 8 - SE_INT: +/- INT` \
+`Slot 4: 9 - SE_WIS: +/- WIS` \
 
 
 #### Effect Base Value
 
-`Slot 1: SE_ManaPool - +250 `\
-`Slot 2: SE_CurrentMana - +14 `\
-`Slot 3: SE_INT - +25 `\
-`Slot 4: SE_WIS - +25 `\
+`Slot 1: SE_ManaPool - +250` \
+`Slot 2: SE_CurrentMana - +14` \
+`Slot 3: SE_INT - +25` \
+`Slot 4: SE_WIS - +25` \
 
 
 #### Max
 
-`Slot 1: SE_ManaPool - 250 `\
-`Slot 2: SE_CurrentMana - 14 `\
-`Slot 3: SE_INT - 25 `\
-`Slot 4: SE_WIS - 25 `\
+`Slot 1: SE_ManaPool - 250` \
+`Slot 2: SE_CurrentMana - 14` \
+`Slot 3: SE_INT - 25` \
+`Slot 4: SE_WIS - 25` \
 
 
 #### Formula
 
-All slots use Formula 100. When we analyze the [spell_effects.cpp](https://github.com/EQEmu/Server/blob/master/zone/spell_effects.cpp) source file, we see the corresponding formula establishes that the base value is used (result = ubase).
+All slots use Formula 100. When we analyze the [spell\_effects.cpp](https://github.com/EQEmu/Server/blob/master/zone/spell\_effects.cpp) source file, we see the corresponding formula establishes that the base value is used (result = ubase).
 
-Since the Spell Effect Current Mana (SE_CurrentMana) allows for duration, we see that you will receive 14 mana per tick while the spell is active.
+Since the Spell Effect Current Mana (SE\_CurrentMana) allows for duration, we see that you will receive 14 mana per tick while the spell is active.
 
 #### Summary
 
@@ -158,40 +158,40 @@ We see that slots 1 through 6 have something going on, and slots 7 through 12 ar
 
 Cross reference the Spell Effects table.
 
-`Slot 1: 1 - SE_ArmorClass: +/- AC `\
-`Slot 2: 69 - SE_TotalHP: Increases Max HP (standard 'HP Buffs') `\
-`Slot 3: 79 - SE_CurrentHPOnce: Direct Damage/Healing `\
-`Slot 4: 15 - SE_CurrentMana: Direct +/- mana, duration allows for mana over time `\
-`Slot 5: 148 - SE_StackingCommand_Block: Prevents buff from taking hold if criteria met. (SLOT = 'formula - 201') Buff Stacking `\
-`Slot 6: 148 - SE_StackingCommand_Block: Prevents buff from taking hold if criteria met. (SLOT = 'formula - 201') Buff Stacking `\
+`Slot 1: 1 - SE_ArmorClass: +/- AC` \
+`Slot 2: 69 - SE_TotalHP: Increases Max HP (standard 'HP Buffs')` \
+`Slot 3: 79 - SE_CurrentHPOnce: Direct Damage/Healing` \
+`Slot 4: 15 - SE_CurrentMana: Direct +/- mana, duration allows for mana over time` \
+`Slot 5: 148 - SE_StackingCommand_Block: Prevents buff from taking hold if criteria met. (SLOT = 'formula - 201') Buff Stacking` \
+`Slot 6: 148 - SE_StackingCommand_Block: Prevents buff from taking hold if criteria met. (SLOT = 'formula - 201') Buff Stacking` \
 
 
 #### Effect Base Value
 
-`Slot 1: SE_ArmorClass - +25 `\
-`Slot 2: SE_TotalHP - +290 `\
-`Slot 3: SE_CurrentHPOnce - +290 (heal up the new-found reservoir of hit points) `\
-`Slot 4: SE_CurrentMana - +6 (remember duration allows for mana over time) `\
-`Slot 5: SE_StackingCommand_Block - 1 (block spells using SE_ArmorClass) `\
-`Slot 6: SE_StackingCommand_Block - 69 (block spells using SE_TotalHP) `\
+`Slot 1: SE_ArmorClass - +25` \
+`Slot 2: SE_TotalHP - +290` \
+`Slot 3: SE_CurrentHPOnce - +290 (heal up the new-found reservoir of hit points)` \
+`Slot 4: SE_CurrentMana - +6 (remember duration allows for mana over time)` \
+`Slot 5: SE_StackingCommand_Block - 1 (block spells using SE_ArmorClass)` \
+`Slot 6: SE_StackingCommand_Block - 69 (block spells using SE_TotalHP)` \
 
 
 #### Max
 
-`Slot 1: SE_ArmorClass - 80 `\
-`Slot 2: SE_TotalHP - 485 `\
-`Slot 3: SE_CurrentHPOnce - 485 `\
-`Slot 4: SE_CurrentMana - 0 (not used) `\
+`Slot 1: SE_ArmorClass - 80` \
+`Slot 2: SE_TotalHP - 485` \
+`Slot 3: SE_CurrentHPOnce - 485` \
+`Slot 4: SE_CurrentMana - 0 (not used)` \
 `Slot 5: SE_StackingCommand_Block - Less than 1081 (block spells with less than 1081 AC addition)`\
 `Slot 6: SE_StackingCommand_Block - Less than 2486 (block spells with less than 2486 HP addition)`
 
 #### Formula
 
-All slots 1 through 4 use Formula 100. When we analyze the [spell_effects.cpp](https://github.com/EQEmu/Server/blob/master/zone/spell_effects.cpp) source file, we see the corresponding formula establishes that the base value is used (result = ubase).
+All slots 1 through 4 use Formula 100. When we analyze the [spell\_effects.cpp](https://github.com/EQEmu/Server/blob/master/zone/spell\_effects.cpp) source file, we see the corresponding formula establishes that the base value is used (result = ubase).
 
-Since the Spell Effect Current Mana (SE_CurrentMana) allows for duration, we see that you will receive 6 mana per tick while the spell is active.
+Since the Spell Effect Current Mana (SE\_CurrentMana) allows for duration, we see that you will receive 6 mana per tick while the spell is active.
 
-Slots 5 and 6, utilizing SE_StackingCommand_Block, will apply to the slot indicated by calculating 'formula - 201'. So slot 5 applies to slot 1 (201 - 201 = 0, remember that computers count 0, 1, 2...), and slot 6 applies to slot 2 (202 - 201 = 1, remembering that computers count 0, 1, 2...).
+Slots 5 and 6, utilizing SE\_StackingCommand\_Block, will apply to the slot indicated by calculating 'formula - 201'. So slot 5 applies to slot 1 (201 - 201 = 0, remember that computers count 0, 1, 2...), and slot 6 applies to slot 2 (202 - 201 = 1, remembering that computers count 0, 1, 2...).
 
 #### Summary
 
@@ -208,7 +208,7 @@ Protection of the Glades:
 
 ## Understanding the Remaining Fields
 
-A dizzying array of fields exists that have not been covered above. Many of these fields are quite self-explanatory, such as the level at which each class can use the spell, the deities allowed to use the spell, cast-on messages, etc. This section is meant to cover the remaining fields as questions arise about their functionality. Remember to reference the information on [spells_new](https://eqemu.gitbook.io/database-schema/tables/spells_new) found on this wiki, and the information contained in the [spdat.h](https://github.com/EQEmu/Server/blob/master/common/spdat.h) source file, as well as the other helpful wiki pages for [Base Value Formulas](https://eqemu.gitbook.io/server/categories/spells/base-value-formulas), [Spell Target Restrictions](https://eqemu.gitbook.io/server/categories/spells/spell-target-restrictions), [Spell Resist Types](spell-resist-types.md), and [Damage Shield Types](https://eqemu.gitbook.io/server/categories/spells/damage-shield-types).
+A dizzying array of fields exists that have not been covered above. Many of these fields are quite self-explanatory, such as the level at which each class can use the spell, the deities allowed to use the spell, cast-on messages, etc. This section is meant to cover the remaining fields as questions arise about their functionality. Remember to reference the information on [spells\_new](https://eqemu.gitbook.io/database-schema/tables/spells\_new) found on this wiki, and the information contained in the [spdat.h](https://github.com/EQEmu/Server/blob/master/common/spdat.h) source file, as well as the other helpful wiki pages for [Base Value Formulas](https://eqemu.gitbook.io/server/categories/spells/base-value-formulas), [Spell Target Restrictions](https://eqemu.gitbook.io/server/categories/spells/spell-target-restrictions), [Spell Resist Types](spell-resist-types.md), and [Damage Shield Types](https://eqemu.gitbook.io/server/categories/spells/damage-shield-types).
 
 ## Reagents
 

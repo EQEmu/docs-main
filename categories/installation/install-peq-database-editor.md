@@ -121,7 +121,7 @@ Use the find command (ctrl+w) to locate the configuration parameter for short op
 short_open_tag = On
 ```
 
-Also look for **error_reporting** to turn turn off some warnings.
+Also look for **error\_reporting** to turn turn off some warnings.
 
 ```
 error_reporting = E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED
@@ -217,7 +217,7 @@ Use the find command (ctrl+w) to locate the configuration parameter for short op
 short_open_tag = On
 ```
 
-Also look for **error_reporting** to turn turn off some warnings.
+Also look for **error\_reporting** to turn turn off some warnings.
 
 ```
 error_reporting = E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED
@@ -356,13 +356,13 @@ sudo sed -i 's/short_open_tag\ =\ Off/short_open_tag\ =\ on/g' /etc/php/7.3/cli/
 ```
 {% endhint %}
 
-Search (ctrl + W) for "short_open_tag"
+Search (ctrl + W) for "short\_open\_tag"
 
 ```
 short_open_tag = On
 ```
 
-Also look for **error_reporting** to turn turn off some warnings.
+Also look for **error\_reporting** to turn turn off some warnings.
 
 ```
 error_reporting = E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED
@@ -450,14 +450,14 @@ You can download XAMPP at:  [https://www.apachefriends.org/index.html](https://w
 
 ### Install XAMPP
 
-Run the installer for XAMPP.  Choose `continue` when you receive the Windows Firewall warning, and `continue` to install XAMPP.  
+Run the installer for XAMPP.  Choose `continue` when you receive the Windows Firewall warning, and `continue` to install XAMPP. &#x20;
 
 Choose `OK` to approve the User Account Control (UAC) permission.
 
 ![UAC Warning](../../.gitbook/assets/uac-warning.png)
 
 {% hint style="warning" %}
-Be sure to **deselect **MySQL!! (assuming you used the Akkadius EQEmu Server Installer, you already have MariaDB)
+Be sure to **deselect** MySQL!! (assuming you used the Akkadius EQEmu Server Installer, you already have MariaDB)
 {% endhint %}
 
 ![Deselect MySQL before continuing](../../.gitbook/assets/deselect-mysql.png)
@@ -537,9 +537,9 @@ Open the `php.ini` file with a text editor.
 
 Locate the `short_open_tag` line and set it to `On`.
 
-![Search for "short_open_tag" and set to On](../../.gitbook/assets/php-ini-short_open_tag.png)
+![Search for "short\_open\_tag" and set to On](../../.gitbook/assets/php-ini-short\_open\_tag.png)
 
-Also look for **error_reporting** to turn turn off some warnings.
+Also look for **error\_reporting** to turn turn off some warnings.
 
 ```
 error_reporting = E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED

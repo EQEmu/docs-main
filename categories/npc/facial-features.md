@@ -8,7 +8,7 @@ Tattoo/Woad is based on multiples of 10 from the face setting. Since there are 8
 
 ## Erudite
 
-Hair Style is based on multiples of 10 from the face setting. Both Male and Female have 8 faces, but Males have only 6 hair styles while Females have 9.**  **Male max face is 57 (6th hair style and 8th face), while Female is 87 (9th hair style and 8th face).
+Hair Style is based on multiples of 10 from the face setting. Both Male and Female have 8 faces, but Males have only 6 hair styles while Females have 9.  ****  Male max face is 57 (6th hair style and 8th face), while Female is 87 (9th hair style and 8th face).
 
 ## High Elf, Dark Elf, Half Elf
 

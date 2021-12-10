@@ -74,7 +74,7 @@ E:\EQEmu\src>perl utils/scripts/generators/repository-generator.pl E:\EQEmu\buil
 {% endtab %}
 {% endtabs %}
 
-The generator works by examining your database tables found in the connection properties registered in the server config **eqemu_config** and will generate a **struct** object that tries to represent the database data types as close as possible
+The generator works by examining your database tables found in the connection properties registered in the server config **eqemu\_config** and will generate a **struct** object that tries to represent the database data types as close as possible
 
 ### Extending the Base Repository
 
@@ -90,7 +90,7 @@ and
 
 `./common/repositories/instance_list_repository.h`
 
-The class structure in the non-base repository looks something like this 
+The class structure in the non-base repository looks something like this&#x20;
 
 ```cpp
 #include "../database.h"
@@ -146,7 +146,7 @@ Pretty bare right? That's because it should be, this leaves the base repository 
 
 Below we have an example implemented using our CLI menu interface to simply test some code
 
-In **world_server_command_handler.cpp **we've registered a test command for testing repository code 
+In **world\_server\_command\_handler.cpp** we've registered a test command for testing repository code&#x20;
 
 ```bash
 /**
@@ -331,8 +331,8 @@ You can see how we've had to use zero raw SQL to interact with the database in o
 
 Another real use example is where we need some additional criteria to pull some results from the database. Instead of querying for grids by zone using raw SQL we want to encapsulate some of this so it can be easily used in our domain logic. We could use `GetWhere` quickly, but to make a more re-usable method we're going to create some new methods for our pathing grids
 
-* static std::vector GetZoneGrids(int zone_id) 
-* static Grid GetGrid(const std::vector \&grids, int grid_id)
+* static std::vector GetZoneGrids(int zone\_id)&#x20;
+* static Grid GetGrid(const std::vector \&grids, int grid\_id)
 
 {% code title="grid_repository.h" %}
 ```cpp
@@ -392,7 +392,7 @@ class Zone {
 ```
 {% endcode %}
 
-We created a function that during zone initialization we call **LoadGrids **so we can reuse it in other parts of the code if we wanted to reload grid data for any reason
+We created a function that during zone initialization we call **LoadGrids** so we can reuse it in other parts of the code if we wanted to reload grid data for any reason
 
 ```cpp
 void Zone::LoadGrids()

@@ -28,51 +28,51 @@ The most up to date information regarding the database schema can be found in th
 
 #### Field Descriptions
 
-| Column           | Data Type | Description                                                                                                                                  |
-| ---------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| id               | int       | Unique Task Identifier; use 1 - 9999, a value of 0 should NOT be used                                                                        |
-| type             | tinyint   | [Task Type](https://eqemu.gitbook.io/server/categories/types/task-types); 0=Task, 1=Shared, 2=Quest, 3=Expedition                            |
-| duration         | int       | Duration in seconds; if 0, the task has no time limit                                                                                        |
-| duration_code    | tinyint   | [Duration Code](https://eqemu.gitbook.io/server/categories/reference-lists/task-duration-codes); 0=None, 1=Short, 2=Medium, 3=Long           |
-| title            | varchar   | Title                                                                                                                                        |
-| description      | text      | Description; only the active task description displays                                                                                       |
-| reward           | varchar   | Reward Description                                                                                                                           |
-| rewardid         | int       | Item ID number, or a reference to a list of item ID numbers (from goallists table)                                                           |
-| cashreward       | int       | Cash Reward, listed in copper (system will convert to plat, gold, etc.)                                                                      |
-| xpreward         | int       | Experience Reward; for level-based, set a negative value using the following formula:  max level \* 100 + experience percent                 |
-| rewardmethod     | tinyint   | Reward Method: 0 = Single Item ID, 1 = List of Items (in the goallist table), 2 = Quest Controlled (reward granted through NPC quest script) |
-| minlevel         | tinyint   | Minimum Level to obtain tasks                                                                                                                |
-| maxlevel         | tinyint   | Maximum Level to obtain tasks                                                                                                                |
-| repeatable       | tinyint   | Repeatable: 0 = False, 1 = True                                                                                                              |
-| faction_reward   | int       | Faction Reward                                                                                                                               |
-| completion_emote | varchar   | Completion Emote                                                                                                                             |
+| Column            | Data Type | Description                                                                                                                                  |
+| ----------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| id                | int       | Unique Task Identifier; use 1 - 9999, a value of 0 should NOT be used                                                                        |
+| type              | tinyint   | [Task Type](https://eqemu.gitbook.io/server/categories/types/task-types); 0=Task, 1=Shared, 2=Quest, 3=Expedition                            |
+| duration          | int       | Duration in seconds; if 0, the task has no time limit                                                                                        |
+| duration\_code    | tinyint   | [Duration Code](https://eqemu.gitbook.io/server/categories/reference-lists/task-duration-codes); 0=None, 1=Short, 2=Medium, 3=Long           |
+| title             | varchar   | Title                                                                                                                                        |
+| description       | text      | Description; only the active task description displays                                                                                       |
+| reward            | varchar   | Reward Description                                                                                                                           |
+| rewardid          | int       | Item ID number, or a reference to a list of item ID numbers (from goallists table)                                                           |
+| cashreward        | int       | Cash Reward, listed in copper (system will convert to plat, gold, etc.)                                                                      |
+| xpreward          | int       | Experience Reward; for level-based, set a negative value using the following formula:  max level \* 100 + experience percent                 |
+| rewardmethod      | tinyint   | Reward Method: 0 = Single Item ID, 1 = List of Items (in the goallist table), 2 = Quest Controlled (reward granted through NPC quest script) |
+| minlevel          | tinyint   | Minimum Level to obtain tasks                                                                                                                |
+| maxlevel          | tinyint   | Maximum Level to obtain tasks                                                                                                                |
+| repeatable        | tinyint   | Repeatable: 0 = False, 1 = True                                                                                                              |
+| faction\_reward   | int       | Faction Reward                                                                                                                               |
+| completion\_emote | varchar   | Completion Emote                                                                                                                             |
 
-### Task_Activities Table
+### Task\_Activities Table
 
 #### Field Descriptions
 
-| Column               | Data Type | Description                                                                                                                                                                                                                                                    |
-| -------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| taskid               | int       | Task Identifier (ID from Tasks table); each activity for a task will utilize the same ID.                                                                                                                                                                      |
-| activityid           | int       | Activity Identifier: Starts at 0, **must be sequential**                                                                                                                                                                                                       |
-| step                 | int       | Step: 0 = Always Available, >0 = Must Complete Previous ("stepped" task)                                                                                                                                                                                       |
-| activitytype         | tinyint   | [Activity Type](https://eqemu.gitbook.io/server/categories/types/task-activity-types) (or see below)                                                                                                                                                           |
-| target_name          | varchar   | Target Name                                                                                                                                                                                                                                                    |
-| item_list            | varchar   | Item Identifier List                                                                                                                                                                                                                                           |
-| skill_list           | varchar   | Skill Identifier List                                                                                                                                                                                                                                          |
-| spell_list           | varchar   | Spell Identifier List                                                                                                                                                                                                                                          |
-| description_override | varchar   | Description Override                                                                                                                                                                                                                                           |
-| goalid               | int       | Goal Identifier or Goal List Identifier                                                                                                                                                                                                                        |
-| goalmethod           | int       | <p>Goal Method: </p><p>0 = Single Value (npc_type ID or item ID)</p><p>1 = List (refers to the goallist table to use a list of npc_type IDs or Item IDs)</p><p>2 = Under control of quest system</p>                                                           |
-| goalcount            | int       | Goal Count (how many of the things in the goal id must be done)                                                                                                                                                                                                |
-| delivertonpc         | int       | Deliver To NPC: 0 = No Delivery NPC, >0 = npc_type ID                                                                                                                                                                                                          |
-| zones                | varchar   | [Zones List](https://eqemu.gitbook.io/server/categories/reference-lists/zones)--use the zoneidnumber field; "0" displays "ALL".  Activities will only be counted if completed in the assigned zone. Can also be used as "Touch" for visiting an assigned zone. |
-| optional             | tinyint   | Optional: 0 = False, 1 = True; if a task activity is optional, the task will be complete when all non-optional task activities are completed.                                                                                                                  |
+| Column                | Data Type | Description                                                                                                                                                                                                                                                    |
+| --------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| taskid                | int       | Task Identifier (ID from Tasks table); each activity for a task will utilize the same ID.                                                                                                                                                                      |
+| activityid            | int       | Activity Identifier: Starts at 0, **must be sequential**                                                                                                                                                                                                       |
+| step                  | int       | Step: 0 = Always Available, >0 = Must Complete Previous ("stepped" task)                                                                                                                                                                                       |
+| activitytype          | tinyint   | [Activity Type](https://eqemu.gitbook.io/server/categories/types/task-activity-types) (or see below)                                                                                                                                                           |
+| target\_name          | varchar   | Target Name                                                                                                                                                                                                                                                    |
+| item\_list            | varchar   | Item Identifier List                                                                                                                                                                                                                                           |
+| skill\_list           | varchar   | Skill Identifier List                                                                                                                                                                                                                                          |
+| spell\_list           | varchar   | Spell Identifier List                                                                                                                                                                                                                                          |
+| description\_override | varchar   | Description Override                                                                                                                                                                                                                                           |
+| goalid                | int       | Goal Identifier or Goal List Identifier                                                                                                                                                                                                                        |
+| goalmethod            | int       | <p>Goal Method: </p><p>0 = Single Value (npc_type ID or item ID)</p><p>1 = List (refers to the goallist table to use a list of npc_type IDs or Item IDs)</p><p>2 = Under control of quest system</p>                                                           |
+| goalcount             | int       | Goal Count (how many of the things in the goal id must be done)                                                                                                                                                                                                |
+| delivertonpc          | int       | Deliver To NPC: 0 = No Delivery NPC, >0 = npc\_type ID                                                                                                                                                                                                         |
+| zones                 | varchar   | [Zones List](https://eqemu.gitbook.io/server/categories/reference-lists/zones)--use the zoneidnumber field; "0" displays "ALL".  Activities will only be counted if completed in the assigned zone. Can also be used as "Touch" for visiting an assigned zone. |
+| optional              | tinyint   | Optional: 0 = False, 1 = True; if a task activity is optional, the task will be complete when all non-optional task activities are completed.                                                                                                                  |
 
 #### Activity Types
 
 {% hint style="info" %}
-Please note that **quest::updatetaskactivity **could be used in many EVENT triggers if you did not want to use the task system as described in the table below.
+Please note that **quest::updatetaskactivity** could be used in many EVENT triggers if you did not want to use the task system as described in the table below.
 {% endhint %}
 
 | Type ID | <p>Type <br>Name</p> | Information and usage                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
@@ -90,25 +90,25 @@ Please note that **quest::updatetaskactivity **could be used in many EVENT trigg
 | 11      | Touch                | <p>To have this activity automatically handled by the task system, set:</p><ul><li>goalmethod to 0</li></ul><p>Since the zoneid field is used to specify the zoneidnumber, the goalid field is not used. It is also not possible to specify a list of zones.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | 100     | Give Cash            | <p>To have this activity automatically handled by the task system, set:</p><ul><li>goalmethod to 0</li><li>npctypeid to the id of the NPC that the cash should be given to</li><li>zoneid should be set to 0 (any zone), or the zoneidnumber that the NPC is found in.</li></ul>                                                                                                                                                                                                                                                                                                                                                                                                                   |
 
-### Character_Tasks Table
+### Character\_Tasks Table
 
 #### Field Descriptions
 
 | Column       | Data Type | Description                                                                                                       |
 | ------------ | --------- | ----------------------------------------------------------------------------------------------------------------- |
-| charid       | int       | Character Identifier; ID from character_data                                                                      |
+| charid       | int       | Character Identifier; ID from character\_data                                                                     |
 | taskid       | int       | Task Identifier; ID from tasks table                                                                              |
 | slot         | int       | <p>Slot; the slot number (up to 19) that causes the activity to </p><p>display in order to the client</p>         |
 | type         | tinyint   | [Task Type](https://eqemu.gitbook.io/server/categories/types/task-types); 0=Task, 1=Shared, 2=Quest, 3=Expedition |
 | acceptedtime | int       | Accepted Time UNIX Timestamp                                                                                      |
 
-### Character_Activities Table
+### Character\_Activities Table
 
 #### Field Descriptions
 
 | Column     | Data Type | Description                                         |
 | ---------- | --------- | --------------------------------------------------- |
-| charid     | int       | Character Identifier; ID from character_data        |
+| charid     | int       | Character Identifier; ID from character\_data       |
 | taskid     | int       | Task Identifier; ID from tasks table                |
 | activityid | int       | Activity Identifier, ID from tasks table            |
 | donecount  | int       | Done Count (IE 'items looted', 'npcs killed', etc.) |
@@ -122,12 +122,12 @@ If the rule **TaskSystem:RecordCompletedTasks** is set to **false**, then this t
 
 #### Field Descriptions
 
-| Column        | Data Type | Description                                        |
-| ------------- | --------- | -------------------------------------------------- |
-| charid        | int       | Character Identifier; ID from character_data table |
-| completedtime | int       | Completed Time UNIX Timestamp                      |
-| taskid        | int       | Task Identifier; ID from tasks table               |
-| activityid    | int       | Activity Identifier; ID from tasks table           |
+| Column        | Data Type | Description                                         |
+| ------------- | --------- | --------------------------------------------------- |
+| charid        | int       | Character Identifier; ID from character\_data table |
+| completedtime | int       | Completed Time UNIX Timestamp                       |
+| taskid        | int       | Task Identifier; ID from tasks table                |
+| activityid    | int       | Activity Identifier; ID from tasks table            |
 
 {% hint style="info" %}
 This table may have duplicate entries for repeatable tasks.  To display Optional Tasks, be sure to set the rule **TaskSystem:RecordCompletedOptionalTasks** to **true**.
@@ -140,7 +140,7 @@ This table may have duplicate entries for repeatable tasks.  To display Optional
 | Column | Data Type | Description                                          |
 | ------ | --------- | ---------------------------------------------------- |
 | listid | int       | Goal List Identifier; repeat ID for multiple entries |
-| entry  | int       | Entry Identifier; either npc_type id or item id      |
+| entry  | int       | Entry Identifier; either npc\_type id or item id     |
 
 {% hint style="info" %}
 Example: list id 10 for a "kill" mission could have three rows, all with list id 10, and entries of 2001, 2102, and 2103 (for Fippy Darkpaw, Kraxz Darkpaw, and Grarrax Darkpaw).
@@ -149,7 +149,7 @@ Example: list id 10 for a "kill" mission could have three rows, all with list id
 ### Proximities Table
 
 {% hint style="warning" %}
-The rule **TaskSystem:EnableTaskProximity** must be set to **true **to allow the use of proximities independent of proximities defined by quest scripts for npcs (IE for "explore" tasks).
+The rule **TaskSystem:EnableTaskProximity** must be set to **true** to allow the use of proximities independent of proximities defined by quest scripts for npcs (IE for "explore" tasks).
 {% endhint %}
 
 #### Field Descriptions
@@ -182,14 +182,14 @@ Task Sets are intended to make it easier to write quest NPCs that can offer a lo
 | id     | int       | Unique Task Set Entry Identifier         |
 | taskid | int       | Task Identifier; ID from the tasks table |
 
-### Character_enabledtasks Table
+### Character\_enabledtasks Table
 
 #### Field Descriptions
 
-| Column | Data Type | Description                                  |
-| ------ | --------- | -------------------------------------------- |
-| charid | int       | Character Identifier; ID from character_data |
-| taskid | int       | Task Identifier; ID from tasks table         |
+| Column | Data Type | Description                                   |
+| ------ | --------- | --------------------------------------------- |
+| charid | int       | Character Identifier; ID from character\_data |
+| taskid | int       | Task Identifier; ID from tasks table          |
 
 ## GM Commands
 
@@ -208,17 +208,17 @@ Task Sets are intended to make it easier to write quest NPCs that can offer a lo
 | Rule Name                                    | Default Value | Description                                                                                                                |
 | -------------------------------------------- | ------------- | -------------------------------------------------------------------------------------------------------------------------- |
 | TaskSystem:KeepOneRecordPerCompletedTask     | True          | Keeps one record for each completed task (the client displays the most recent 50; use quest::istaskcompleted for lookups). |
-| TaskSystem:EnableTaskProximity               | True          | Makes use of the 'proximities' table, independent of quest::set_proximitiy                                                 |
-| TaskSystem:RecordCompletedOptionalActivities | True          | Makes use of the 'character_activities' table for optional tasks                                                           |
+| TaskSystem:EnableTaskProximity               | True          | Makes use of the 'proximities' table, independent of quest::set\_proximitiy                                                |
+| TaskSystem:RecordCompletedOptionalActivities | True          | Makes use of the 'character\_activities' table for optional tasks                                                          |
 | TaskSystem:PeriodicCheckTimer                | 5             | Seconds between checks for failed tasks. Also used by the 'Touch' activity                                                 |
-| TaskSystem:RecordCompletedTasks              | True          | Makes use of the 'character_activities' table for non-optional tasks                                                       |
+| TaskSystem:RecordCompletedTasks              | True          | Makes use of the 'character\_activities' table for non-optional tasks                                                      |
 | TaskSystem:EnableTaskSystem                  | True          | Globally enable or disable the Task system                                                                                 |
 | QueryServ:PlayerLogTaskUpdates               | False         | Logs Player Task Updates                                                                                                   |
 
 ## Logging Options
 
 {% hint style="info" %}
-These options are present in the Logging System through [logsys_categories](https://eqemu.gitbook.io/database-schema/categories/admin/logsys_categories) or in-game via command #logs set \[output] \[type] \[level]
+These options are present in the Logging System through [logsys\_categories](https://eqemu.gitbook.io/database-schema/categories/admin/logsys\_categories) or in-game via command #logs set \[output] \[type] \[level]
 {% endhint %}
 
 ```sql
@@ -243,15 +243,15 @@ Be sure to reference the [Quest API](https://eqemu.gitbook.io/quest-api/) in the
 
 ### taskselector
 
-      **Parameter(s):**
+&#x20;     **Parameter(s):**
 
-      task_id _(int)_
+&#x20;     task\_id _(int)_
 
-      **Usage:**
+&#x20;     **Usage:**
 
-      Used to bring up the Task Selector Window with the specified tasks available for selection (from 1 to 40 task_id(s)). Note that when the task selector is brought up via this method, no check is made as to whether the character has the tasks enabled.
+&#x20;     Used to bring up the Task Selector Window with the specified tasks available for selection (from 1 to 40 task\_id(s)). Note that when the task selector is brought up via this method, no check is made as to whether the character has the tasks enabled.
 
-      **Example:**
+&#x20;     **Example:**
 
 ```perl
 sub EVENT_SAY {
@@ -265,17 +265,17 @@ sub EVENT_SAY {
 }
 ```
 
-### task_setselector
+### task\_setselector
 
-      **Parameter(s):**
+&#x20;     **Parameter(s):**
 
-      task_set_id _(int)_
+&#x20;     task\_set\_id _(int)_
 
-      **Usage:**
+&#x20;     **Usage:**
 
-      Sets the Task Set, by provided Task Set ID.
+&#x20;     Sets the Task Set, by provided Task Set ID.
 
-      **Example:**
+&#x20;     **Example:**
 
 ```perl
 #:: Set task set 202
@@ -284,15 +284,15 @@ quest::task_setselector(202);
 
 ### istaskactive
 
-      **Parameter(s):**
+&#x20;     **Parameter(s):**
 
-      task_id _(int)_
+&#x20;     task\_id _(int)_
 
-      **Usage:**
+&#x20;     **Usage:**
 
-      Used to determine if a task is active, by Task ID.
+&#x20;     Used to determine if a task is active, by Task ID.
 
-      **Example:**
+&#x20;     **Example:**
 
 ```perl
 #:: Check if task 212 is active
@@ -301,15 +301,15 @@ quest::istaskactive(212); #:: Returns bool
 
 ### istaskactivityactive
 
-      **Parameter(s):**
+&#x20;     **Parameter(s):**
 
-      task_id _(int)_, activity_id _(int)_
+&#x20;     task\_id _(int)_, activity\_id _(int)_
 
-      **Usage:**
+&#x20;     **Usage:**
 
-      Used to determine if a task activity is active, by Task ID and Activity ID.
+&#x20;     Used to determine if a task activity is active, by Task ID and Activity ID.
 
-      **Example:**
+&#x20;     **Example:**
 
 ```perl
 #:: Check if Activity 9 of Task 212 is active 
@@ -318,15 +318,15 @@ quest::istaskactivityactive(212, 9); #:: Returns bool
 
 ### updatetaskactivity
 
-      **Parameter(s):**
+&#x20;     **Parameter(s):**
 
-      task_id _(int)_, activity_id _(int)_, count _(int)_, ignore_quest_update _(bool)_
+&#x20;     task\_id _(int)_, activity\_id _(int)_, count _(int)_, ignore\_quest\_update _(bool)_
 
-      **Usage:**
+&#x20;     **Usage:**
 
-      Used to increment the done count of the specified task is active. The parameter for ignore_quest_update is optional, and defaults to false; the parameter for count default to 1 (increase count by 1).
+&#x20;     Used to increment the done count of the specified task is active. The parameter for ignore\_quest\_update is optional, and defaults to false; the parameter for count default to 1 (increase count by 1).
 
-      **Example:**
+&#x20;     **Example:**
 
 ```perl
 #:: Update Task ID 219 activity 9, by 1 count
@@ -335,15 +335,15 @@ quest::updatetaskactivity(216,9);
 
 ### resettaskactivity
 
-      **Parameter(s):**
+&#x20;     **Parameter(s):**
 
-      task_id _(int)_, activity_id _(int)_
+&#x20;     task\_id _(int)_, activity\_id _(int)_
 
-      **Usage:**
+&#x20;     **Usage:**
 
-      Sets the done count to 0 for the specified Task ID
+&#x20;     Sets the done count to 0 for the specified Task ID
 
-      **Example:**
+&#x20;     **Example:**
 
 ```perl
 #:: Reset the activity done count for task 202
@@ -352,15 +352,15 @@ quest::resettaskactivity(202);
 
 ### taskexplorearea
 
-      **Parameter(s):**
+&#x20;     **Parameter(s):**
 
-      explore_id _(int)_
+&#x20;     explore\_id _(int)_
 
-      **Usage:**
+&#x20;     **Usage:**
 
-      Used to mark any explore activities (type 5), which have the numeric value Explore ID in their Goal ID field, and for which the Zone ID of the activity is either 0 or this zone, as completed.
+&#x20;     Used to mark any explore activities (type 5), which have the numeric value Explore ID in their Goal ID field, and for which the Zone ID of the activity is either 0 or this zone, as completed.
 
-      **Example:**
+&#x20;     **Example:**
 
 ```perl
 #:: Mark Task 21 complete
@@ -369,15 +369,15 @@ quest::taskexplorearea(21);
 
 ### assigntask
 
-      **Parameter(s):**
+&#x20;     **Parameter(s):**
 
-      task_id _(int)_, npcid _(int)_, enforce_level_requirement = false _(bool)_
+&#x20;     task\_id _(int)_, npcid _(int)_, enforce\_level\_requirement = false _(bool)_
 
-      **Usage:**
+&#x20;     **Usage:**
 
-      Used to assign a task to a client, optionally this can include the NPC ID and whether or not to enforce the level requirement specified in the DB.
+&#x20;     Used to assign a task to a client, optionally this can include the NPC ID and whether or not to enforce the level requirement specified in the DB.
 
-      **Example:**
+&#x20;     **Example:**
 
 ```perl
 #:: Assign Task 102
@@ -392,15 +392,15 @@ $client->AssignTask(105, $npc->GetID(), 1);
 
 ### failtask
 
-      **Parameter(s):**
+&#x20;     **Parameter(s):**
 
-      task_id _(int)_
+&#x20;     task\_id _(int)_
 
-      **Usage:**
+&#x20;     **Usage:**
 
-      Fails the task, by Task ID, for the client character that triggered the event.
+&#x20;     Fails the task, by Task ID, for the client character that triggered the event.
 
-      **Example:**
+&#x20;     **Example:**
 
 ```perl
 #:: Fail Task 216
@@ -409,15 +409,15 @@ quest::failtask(216);
 
 ### tasktimeleft
 
-      **Parameter(s):**
+&#x20;     **Parameter(s):**
 
-      task_id _(int)_
+&#x20;     task\_id _(int)_
 
-      **Usage:**
+&#x20;     **Usage:**
 
-      Returns the amount of time left, in seconds, before the specified task runs out. -1 is returned if there is no time limit, or if the player does not have the task.
+&#x20;     Returns the amount of time left, in seconds, before the specified task runs out. -1 is returned if there is no time limit, or if the player does not have the task.
 
-      **Example:**
+&#x20;     **Example:**
 
 ```perl
 #:: Create a scalar variable to store the amount of time left for Task ID 22
@@ -432,15 +432,15 @@ else {
 
 ### istaskcompleted
 
-      **Parameter(s):**
+&#x20;     **Parameter(s):**
 
-      task_id (int)
+&#x20;     task\_id (int)
 
-      **Usage:**
+&#x20;     **Usage:**
 
-      Used to determine if a task is completed, by Task ID.
+&#x20;     Used to determine if a task is completed, by Task ID.
 
-      **Example:**
+&#x20;     **Example:**
 
 ```perl
 #:: Check if task 212 is completed
@@ -449,15 +449,15 @@ quest::istaskcompleted(212); #:: Returns bool
 
 ### enabletask
 
-      **Parameter(s):**
+&#x20;     **Parameter(s):**
 
-      task_id _(int)_
+&#x20;     task\_id _(int)_
 
-      **Usage:**
+&#x20;     **Usage:**
 
-      Enables a task.
+&#x20;     Enables a task.
 
-      **Example:**
+&#x20;     **Example:**
 
 ```perl
 #:: Match if the player has an active task
@@ -487,15 +487,15 @@ if ($task != 0) {
 
 ### disabletask
 
-      **Parameter(s):**
+&#x20;     **Parameter(s):**
 
-      task_id _(int)_
+&#x20;     task\_id _(int)_
 
-      **Usage:**
+&#x20;     **Usage:**
 
-      Disables a task so that it is not available to a client character. Useful if you do not want someone to repeat a task.
+&#x20;     Disables a task so that it is not available to a client character. Useful if you do not want someone to repeat a task.
 
-      **Example:**
+&#x20;     **Example:**
 
 ```perl
 #:: Match if the player has an active task
@@ -525,15 +525,15 @@ if ($task != 0) {
 
 ### istaskenabled
 
-      **Parameter(s):**
+&#x20;     **Parameter(s):**
 
-      task_id (int)
+&#x20;     task\_id (int)
 
-      **Usage:**
+&#x20;     **Usage:**
 
-      Used to determine if a task is enabled, by Task ID.
+&#x20;     Used to determine if a task is enabled, by Task ID.
 
-      **Example:**
+&#x20;     **Example:**
 
 ```perl
 #:: Check if task 212 is enabled
@@ -542,15 +542,15 @@ quest::istaskenabled(212); #:: Returns bool
 
 ### enabledtaskcount
 
-      **Parameter(s):**
+&#x20;     **Parameter(s):**
 
-      task_set _(int)_
+&#x20;     task\_set _(int)_
 
-      **Usage:**
+&#x20;     **Usage:**
 
-      Counts the enabled tasks in the specified Task Set.
+&#x20;     Counts the enabled tasks in the specified Task Set.
 
-      **Example:**
+&#x20;     **Example:**
 
 ```perl
 #:: Match if there are no enabled tasks in Task Set 10
@@ -561,15 +561,15 @@ if (quest::enabledtaskcount(10) == 0) {
 
 ### firsttaskinset
 
-      **Parameter(s):**
+&#x20;     **Parameter(s):**
 
-      task_set _(int)_
+&#x20;     task\_set _(int)_
 
-      **Usage:**
+&#x20;     **Usage:**
 
-      Returns the first task in the specified Task Set.
+&#x20;     Returns the first task in the specified Task Set.
 
-      **Example:**
+&#x20;     **Example:**
 
 ```perl
 sub EVENT_SAY {
@@ -587,15 +587,15 @@ sub EVENT_SAY {
 
 ### lasttaskinset
 
-      **Parameter(s):**
+&#x20;     **Parameter(s):**
 
-      task_set _(int)_
+&#x20;     task\_set _(int)_
 
-      **Usage:**
+&#x20;     **Usage:**
 
-      Returns the last task in the specified Task Set.
+&#x20;     Returns the last task in the specified Task Set.
 
-      **Example:**
+&#x20;     **Example:**
 
 ```perl
 #:: Find the Task ID of the last task in Task Set 200
@@ -604,15 +604,15 @@ quest::lasttaskinset(200); #:: Returns int
 
 ### nexttaskinset
 
-      **Parameter(s):**
+&#x20;     **Parameter(s):**
 
-      task_set _(int)_, task_id _(int)_
+&#x20;     task\_set _(int)_, task\_id _(int)_
 
-      **Usage:**
+&#x20;     **Usage:**
 
-      Returns the next task in the specified Task Set that comes after the specified Task ID.
+&#x20;     Returns the next task in the specified Task Set that comes after the specified Task ID.
 
-      **Example:**
+&#x20;     **Example:**
 
 ```perl
 sub EVENT_SAY {
@@ -640,17 +640,17 @@ sub EVENT_SAY {
 
 ### activespeaktask
 
-      **Parameter(s):**
+&#x20;     **Parameter(s):**
 
-      None.
+&#x20;     None.
 
-      **Usage:**
+&#x20;     **Usage:**
 
-      Returns the Task ID of the lowest numbered task slot if the player who triggered the event has an active task with an active activity to speak to the NPC (returns 0 if not).
+&#x20;     Returns the Task ID of the lowest numbered task slot if the player who triggered the event has an active task with an active activity to speak to the NPC (returns 0 if not).
 
-      **Example:**
+&#x20;     **Example:**
 
-      If you have task id 150: activity 0--kill three rats, activity 1--talk with NPC, activity 2--kill four fire beetles, activity 3--talk with NPC.
+&#x20;     If you have task id 150: activity 0--kill three rats, activity 1--talk with NPC, activity 2--kill four fire beetles, activity 3--talk with NPC.
 
 ```perl
 sub EVENT_SAY {
@@ -672,17 +672,17 @@ sub EVENT_SAY {
 
 ### activespeakactivity
 
-      **Parameter(s):**
+&#x20;     **Parameter(s):**
 
-      task_id _(int)_
+&#x20;     task\_id _(int)_
 
-      **Usage:**
+&#x20;     **Usage:**
 
-      Returns the Activity ID of the lowest numbered active activity to speak with an NPC in the specified task.
+&#x20;     Returns the Activity ID of the lowest numbered active activity to speak with an NPC in the specified task.
 
-      **Example:**
+&#x20;     **Example:**
 
-      If you have task id 150: activity 0--kill three rats, activity 1--talk with NPC, activity 2--kill four fire beetles, activity 3--talk with NPC.
+&#x20;     If you have task id 150: activity 0--kill three rats, activity 1--talk with NPC, activity 2--kill four fire beetles, activity 3--talk with NPC.
 
 ```perl
 sub EVENT_SAY {
@@ -704,17 +704,17 @@ sub EVENT_SAY {
 
 ### activetasksinset
 
-      **Parameter(s):**
+&#x20;     **Parameter(s):**
 
-      task_set _(int)_
+&#x20;     task\_set _(int)_
 
-      **Usage:**
+&#x20;     **Usage:**
 
-      Returns the number of tasks in the given TaskSet that the player has active.
+&#x20;     Returns the number of tasks in the given TaskSet that the player has active.
 
-      **Example:**
+&#x20;     **Example:**
 
-      You have a TaskSet "20", which consists of three tasks--200, 201, 202.
+&#x20;     You have a TaskSet "20", which consists of three tasks--200, 201, 202.
 
 ```perl
 sub EVENT_SAY {
@@ -729,15 +729,15 @@ sub EVENT_SAY {
 
 ### completedtasksinset
 
-      **Parameter(s):**
+&#x20;     **Parameter(s):**
 
-      task_set _(int)_
+&#x20;     task\_set _(int)_
 
-      **Usage:**
+&#x20;     **Usage:**
 
-      Returns the number of tasks in the given Task Set that the player has completed.
+&#x20;     Returns the number of tasks in the given Task Set that the player has completed.
 
-      **Example:**
+&#x20;     **Example:**
 
 ```perl
 sub EVENT_SAY {
@@ -750,17 +750,17 @@ sub EVENT_SAY {
 }
 ```
 
-### EVENT_TASKACCEPTED
+### EVENT\_TASKACCEPTED
 
 #### Trigger
 
 * when a player accepts a task from the task selector window.
 
 {% hint style="info" %}
-If the assigntask(taskid) function is used to forcibly assign a task to a player, then this sub will also be called with task_id set to taskid if assigntask is successful.
+If the assigntask(taskid) function is used to forcibly assign a task to a player, then this sub will also be called with task\_id set to taskid if assigntask is successful.
 {% endhint %}
 
-### EVENT_TASK_COMPLETE
+### EVENT\_TASK\_COMPLETE
 
 #### Trigger
 
@@ -768,13 +768,13 @@ If the assigntask(taskid) function is used to forcibly assign a task to a player
 
 #### Exports
 
-| Name        | Type | Usage                                     |
-| ----------- | ---- | ----------------------------------------- |
-| donecount   | int  | `quest::say($donecount); # returns int`   |
-| activity_id | int  | `quest::say($activity_id); # returns int` |
-| task_id     | int  | `quest::say($task_id); # returns int`     |
+| Name         | Type | Usage                                     |
+| ------------ | ---- | ----------------------------------------- |
+| donecount    | int  | `quest::say($donecount); # returns int`   |
+| activity\_id | int  | `quest::say($activity_id); # returns int` |
+| task\_id     | int  | `quest::say($task_id); # returns int`     |
 
-### EVENT_TASK_FAIL
+### EVENT\_TASK\_FAIL
 
 #### Trigger
 
@@ -782,11 +782,11 @@ If the assigntask(taskid) function is used to forcibly assign a task to a player
 
 #### Exports
 
-| Name    | Type | Usage                                 |
-| ------- | ---- | ------------------------------------- |
-| task_id | int  | `quest::say($task_id); # returns int` |
+| Name     | Type | Usage                                 |
+| -------- | ---- | ------------------------------------- |
+| task\_id | int  | `quest::say($task_id); # returns int` |
 
-### EVENT_TASK_STAGE_COMPLETE
+### EVENT\_TASK\_STAGE\_COMPLETE
 
 #### Trigger
 
@@ -794,10 +794,10 @@ If the assigntask(taskid) function is used to forcibly assign a task to a player
 
 #### Exports
 
-| Name        | Type | Usage                                     |
-| ----------- | ---- | ----------------------------------------- |
-| activity_id | int  | `quest::say($activity_id); # returns int` |
-| task_id     | int  | `quest::say($task_id); # returns int`     |
+| Name         | Type | Usage                                     |
+| ------------ | ---- | ----------------------------------------- |
+| activity\_id | int  | `quest::say($activity_id); # returns int` |
+| task\_id     | int  | `quest::say($task_id); # returns int`     |
 
 #### Example
 
@@ -827,7 +827,7 @@ end
 {% endtab %}
 {% endtabs %}
 
-### EVENT_TASK_UPDATE
+### EVENT\_TASK\_UPDATE
 
 #### Trigger
 
@@ -835,8 +835,8 @@ end
 
 #### Exports
 
-| Name        | Type | Usage                                     |
-| ----------- | ---- | ----------------------------------------- |
-| donecount   | int  | `quest::say($donecount); # returns int`   |
-| activity_id | int  | `quest::say($activity_id); # returns int` |
-| task_id     | int  | `quest::say($task_id); # returns int`     |
+| Name         | Type | Usage                                     |
+| ------------ | ---- | ----------------------------------------- |
+| donecount    | int  | `quest::say($donecount); # returns int`   |
+| activity\_id | int  | `quest::say($activity_id); # returns int` |
+| task\_id     | int  | `quest::say($task_id); # returns int`     |

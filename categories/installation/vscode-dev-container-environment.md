@@ -50,7 +50,7 @@ After clicking Reopen in Container,  you will be waiting a while for the first i
 
 Once the build is complete, You can do one of two things:
 
-* click **Terminal, Run Build Task **on the top menu of VS Code. After a moment, an option list of **cmake** or **make** will appear. First, run **cmake.**
+* click **Terminal, Run Build Task** on the top menu of VS Code. After a moment, an option list of **cmake** or **make** will appear. First, run **cmake.**
 * or run manually**: mkdir -p build && cd build && cmake ..**
 
 cmake will open a pane on the bottom half of your screen with the task being ran, and any errors it has will appear will display on the last line

@@ -9,13 +9,13 @@ This article also assumes you have read other articles and have a relatively bas
 To start off, an entity could be any of the following:
 
 * **NPC** ($npc)
-* **Mob** ($mob Almost the same thing as NPC, can be used interchangeably) 
+* **Mob** ($mob Almost the same thing as NPC, can be used interchangeably)&#x20;
 * **Client** ($client)
 * **Door** ($door - not implied)
 * **Object** ($object - not implied)
 * **Corpse** ($corpse - not implied)
 
-In this simple example below you can always assume that the **client** is the player who **'triggered'** the script to occur, and the **NPC** who is bound to the script that has triggered:[?](http://wiki.eqemulator.org/p?Entity_Lists\_-\_How_to_Use_Them\&frm=Ultimate_Perl_Reference#)
+In this simple example below you can always assume that the **client** is the player who **'triggered'** the script to occur, and the **NPC** who is bound to the script that has triggered:[?](http://wiki.eqemulator.org/p?Entity\_Lists\_-\_How\_to\_Use\_Them\&frm=Ultimate\_Perl\_Reference#)
 
 {% tabs %}
 {% tab title="Perl" %}
@@ -47,7 +47,7 @@ Some of you may already know this as common knowledge, but in order for this to 
 
 Entity objects are used most commonly as a way encorporate the simple example above, I have one **$client** that **triggered** the script and a **$npc** that was triggered when I **hailed** the npc, but what they were really intended for is so you can flexibly 'select' any NPC in the zone when trying to perform any specific function.
 
-We can essentially use a **Controller NPC** or any **NPC **for that matter to control any other NPC in the zone using entity objects, you just need to know how to select them and use them to your extreme advantage.
+We can essentially use a **Controller NPC** or any **NPC** for that matter to control any other NPC in the zone using entity objects, you just need to know how to select them and use them to your extreme advantage.
 
 **Crushbone**
 
@@ -229,11 +229,11 @@ end
 {% endtab %}
 {% endtabs %}
 
-*  Now, I see exactly what we would expect, the slaves shouting for help, of course you could just have the elven scripts shout in their script but we're using this simply as an example
+* &#x20;Now, I see exactly what we would expect, the slaves shouting for help, of course you could just have the elven scripts shout in their script but we're using this simply as an example
 
 ![](https://firebasestorage.googleapis.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F-LnsZsY32yEVJrtyioON%2Fuploads%2FNFb0vJedzuIFIiYTaF16%2Ffile.png?alt=media)
 
-* The same exact thing applies for clients, you can use any $client object listed in the [Quest API](https://eqemu.gitbook.io/quest-api/) manipulate the entity list and trigger any action in any event that you want. It is a less frequent thing to want to use a full list of clients to do something, but you can use it for a variety of things depending on the cool ideas that you come up with. But for examples sake I want to use an example where maybe I want to freeze all of the clients in a zone in a boss fight with **Emperor Crushbone **for many a few seconds at a time
+* The same exact thing applies for clients, you can use any $client object listed in the [Quest API](https://eqemu.gitbook.io/quest-api/) manipulate the entity list and trigger any action in any event that you want. It is a less frequent thing to want to use a full list of clients to do something, but you can use it for a variety of things depending on the cool ideas that you come up with. But for examples sake I want to use an example where maybe I want to freeze all of the clients in a zone in a boss fight with **Emperor Crushbone** for many a few seconds at a time
 
 ## Client Example
 
@@ -296,11 +296,11 @@ We've already used some selectors in previous examples, but to to give you an id
 | GetGroupByMob(mob)                                      |
 | GetMob(name)                                            |
 | GetMobByID(id)                                          |
-| GetMobByNpcTypeID(get_id)                               |
+| GetMobByNpcTypeID(get\_id)                              |
 | GetMobID(id)                                            |
 | GetMobList()                                            |
 | GetNPCByID(id)                                          |
-| GetNPCByNPCTypeID(npc_id)                               |
+| GetNPCByNPCTypeID(npc\_id)                              |
 | GetNPCList()                                            |
 | GetObjectByDBID()                                       |
 | GetObjectByID()                                         |
@@ -309,7 +309,7 @@ We've already used some selectors in previous examples, but to to give you an id
 | GetRaidByID(id)                                         |
 | GetRandomClient(x, y, z, range, ClientToExclude = NULL) |
 
-So let's say, I wanted to get something by any of these above? I use examples very similar to the one above, except for getting a single 'entity' does not require me to 'loop' through all the entries in a foreach or things of the like. If I wanted to for example just get ONE NPC, a very common method to do this is to use **$entity_list->GetNPCByNPCTypeID(YourNPCIDGoesHere);**
+So let's say, I wanted to get something by any of these above? I use examples very similar to the one above, except for getting a single 'entity' does not require me to 'loop' through all the entries in a foreach or things of the like. If I wanted to for example just get ONE NPC, a very common method to do this is to use **$entity\_list->GetNPCByNPCTypeID(YourNPCIDGoesHere);**
 
 * **You would use this example if you are specifically trying to select a unique NPC in the zone that there is only one NPC ID of that NPC, to knock out two birds in one stone, I'm going to make this specific NPC attack a player by using a player selector.**
   * **In this example I will have Emperor Crush get Lord Darnish NPCID (58028) attack the player as well just incase the player hacked his way to the tower**
@@ -347,11 +347,11 @@ end
 ## **More on Selectors**
 
 * Keep in mind, you are not limited to the examples I have illustrated, there are many ways you can define a single object and how you define them is up to you.
-* To make use of the $lord_darnish selector example above, I could not even define $lord_darnish, I just did that for readability and examples
-  * When I do this: **$entity_list->GetNPCByNPCTypeID(58028)** (I can now use another pointer right here and go straight to my object)
-    * So: **$entity_list->GetNPCByNPCTypeID(58028)->Attack($client); - Would be equivalent to my example above**
-* When using an entity_list selector, you are simply grabbing that entity object and depending on that type, $client/$npc/$object/$door/etc you can access its methods
+* To make use of the $lord\_darnish selector example above, I could not even define $lord\_darnish, I just did that for readability and examples
+  * When I do this: **$entity\_list->GetNPCByNPCTypeID(58028)** (I can now use another pointer right here and go straight to my object)
+    * So: **$entity\_list->GetNPCByNPCTypeID(58028)->Attack($client); - Would be equivalent to my example above**
+* When using an entity\_list selector, you are simply grabbing that entity object and depending on that type, $client/$npc/$object/$door/etc you can access its methods
   * So For example if I use an entity selector that gets a client, all of $client is available to use off of that object
-    * **$entity_list->GetClientByName("Akkadius")->Duck();** - Would make me duck ($client method)
-    * **$entity_list->GetNPCByNPCTypeID(58028)->WipeHateList();** - Wipes that particular NPC's hatelist
+    * **$entity\_list->GetClientByName("Akkadius")->Duck();** - Would make me duck ($client method)
+    * **$entity\_list->GetNPCByNPCTypeID(58028)->WipeHateList();** - Wipes that particular NPC's hatelist
 * At this point just knowing this little bit of knowledge you have all kinds of possibilities in your arsenal

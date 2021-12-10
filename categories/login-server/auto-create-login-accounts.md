@@ -4,7 +4,7 @@ description: Ideal for local LAN setups
 
 # Auto Create Login Accounts
 
-**Ideal for local LAN setups**, you can enable this setting. If any login request comes in from a game client, if the account doesn't already exist, it will **auto create the account on first attempt**. Every subsequent attempt will use the **created username and password combination **
+**Ideal for local LAN setups**, you can enable this setting. If any login request comes in from a game client, if the account doesn't already exist, it will **auto create the account on first attempt**. Every subsequent attempt will use the **created username and password combination**&#x20;
 
 {% code title="login.json snippet" %}
 ```javascript

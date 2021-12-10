@@ -41,11 +41,11 @@ MariaDB [peq]> select * from login_api_tokens;
 ```
 
 {% hint style="warning" %}
-To create read only users, simply specify **only** the **--read **flag when creating users
+To create read only users, simply specify **only** the **--read** flag when creating users
 {% endhint %}
 
 {% hint style="info" %}
-**Note **As a general rule, API calls that are **GET **are going to require **--read **while **POST** HTTP calls will require **--write**
+**Note** As a general rule, API calls that are **GET** are going to require **--read** while **POST** HTTP calls will require **--write**
 {% endhint %}
 
 ## API Endpoints

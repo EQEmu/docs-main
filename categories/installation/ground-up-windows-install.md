@@ -119,7 +119,7 @@ There are two options:
 1. Create a local repository from the parent EQEmulator project that can be updated, managed and maintained (recommended)
 2.  Create a local repository from a fork of the EQEmulator project that you manage (optional - select only if you want to contribute back to the parent project)
 
-    _Note: If you choose to create a fork of the EQEmulator repository, you will need to create a _\[[github.com](https://github.com)] _account._
+    _Note: If you choose to create a fork of the EQEmulator repository, you will need to create a_ \[[github.com](https://github.com)] _account._
 
 If you chose option 1, create a sub-folder called `git-eqemulator` in the root folder of c: drive.
 
@@ -164,7 +164,7 @@ Submodules are now installed.\
 
 To install the required dependencies:
 
-* Download the \[[dependencies](https://github.com/EQEmu/eqemu.github.com/raw/master/downloads/WindowsDependencies_x86.zip)] file
+* Download the \[[dependencies](https://github.com/EQEmu/eqemu.github.com/raw/master/downloads/WindowsDependencies\_x86.zip)] file
 * Navigate down to `c:\<account>\Server\dependencies`
 * Copy the downloaded file into the folder
 * Unpack the file
@@ -204,7 +204,7 @@ Once CMake knows where to look, click the `Configure` button. You will get a pop
 
 The next window will be for compiler selection. Ensure that the version of Visual Studio that you installed is selected (`Visual Studio 15 2017` or `Visual Studio 16 2019`). Leave the `Use default native compilers` option as-is. If you are using a newer version of CMake that has the `Optional platform for generator` drop-down box, ensure that `Win32` is selected. Finally, click `Finish` to proceed.
 
-![](../../.gitbook/assets/cmake_compiler_updated\_2.png)
+![](../../.gitbook/assets/cmake\_compiler\_updated\_2.png)
 
 _Note: CMake will download the appropriate vcpkg and install its contents. User intervention is no longer required._\
 
@@ -268,7 +268,7 @@ There are 4 options:
 * `MinSizeRel` - Same as `Release` with the exception of trading off faster code for smaller size (not recommended)
 
 {% hint style="info" %}
-**Debug** _is _preferred_ for a local test server_
+**Debug** _is_ preferred _for a local test server_
 {% endhint %}
 
 To compile your server code, you have two choices:
