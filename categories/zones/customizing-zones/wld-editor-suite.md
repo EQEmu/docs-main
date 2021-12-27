@@ -2,6 +2,10 @@
 
 This is a suite of tools for manipulation of WLD files created by [Zaela](https://github.com/Zaela) with some (plagiarized} instructions describing their use.
 
+{% hint style="info" %}
+wld files are exclusive to the legacy s3d extension. This page is not applicable to eqg zones.
+{% endhint %}
+
 ## Download
 
 {% file src="../../../.gitbook/assets/wldeditorsuite.7z" %}
@@ -16,7 +20,7 @@ Texture Adder is a tool for adding new texture set data, allowing you to add cus
 
 1. Pick your desired \_chr.s3d file and make a backup copy of it.
 2. Extract the internal .wld file using S3DSpy.
-3. Run Texture Adder and select the .wld file from File > Load WLD. This will produce a list of model texture sets, like so:  
+3. Run Texture Adder and select the .wld file from File > Load WLD. This will produce a list of model texture sets, like so: &#x20;
 
 ![](../../../.gitbook/assets/tglgjza.png)
 
