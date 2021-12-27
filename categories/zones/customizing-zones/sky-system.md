@@ -4,6 +4,10 @@ description: This page describes the makeup of the sky in EverQuest.
 
 # Sky System
 
+{% hint style="info" %}
+This page is applicable to s3d. Files with eqg use similar features, but are not yet documented. Ping [Shin Noir](https://app.gitbook.com/u/oiWcOf6AgrVo6XlwKzUJYq7nd0p1 "mention") or Xackery on discord if you discover more information about skies in eqg format.
+{% endhint %}
+
 EverQuest’s sky system has five variants each with a pair of sky layer meshes and a collection of shared sky object meshes. Each sky layer pair has an uppermost opaque layer and a transparent layer below. While most meshes are shaped as a skydome (half of an oblate spheroid), the Plane of Sky uses a skysphere (full spheroid) allowing the sky to be visible from 360 degrees.
 
 &#x20;**** ![](https://lh4.googleusercontent.com/JJTvqm5fQj111az4R6DR1AGcJIzVKv0B-mUWnjfCrpH7-frq5HQYtZjWTy2ZFNbYHtH1DE52h1iNQUyGb\_woHzK\_q7mfvepg3IKLs3dvmyPUGQDCphQZD\_37tXzpd9nQc-q3olDU)![](https://lh3.googleusercontent.com/t42EwxjJkDmTu6nK--sYkG5RLVMR4FSauwff-dftYCY90CdPvCxT8-6OPymNuOmIaIKNMuf4CE33kSQmMQQri-AGofM8S\_0u6HRxG80J3R0jjU9obIMMoJIBOlQt3oRaSVTyuPUo)****\
