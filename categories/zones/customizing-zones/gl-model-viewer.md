@@ -1,5 +1,9 @@
 # GL Model Viewer
 
+{% hint style="info" %}
+This viewer is legacy and only supports s3d and V1 eqg files, V2+ is not supported, an alternative is the EQG Model Viewer [https://github.com/Zaela/S3DModelExtracter](https://github.com/Zaela/S3DModelExtracter) But it is not actively maintained at this time.
+{% endhint %}
+
 **GL Model Viewer** is a tool used to view and scroll through viewable objects in a zone
 
 * [Download](https://drive.google.com/uc?id=1hwr7HYuRoznXzrUKE7d9E7-crAtpr5Ha)
@@ -10,7 +14,7 @@ These same models can be spawned using [doors](https://github.com/EQEmu/Server/w
 
 **Usage**
 
-```text
+```
 glmodelviewer.exe <zone_short_name>
 ```
 
@@ -21,4 +25,3 @@ glmodelviewer.exe <zone_short_name>
 ![](https://camo.githubusercontent.com/3e299d99ef96b9ff81d6aecc6d0b3b90a940f708/68747470733a2f2f64726976652e676f6f676c652e636f6d2f75633f69643d313773494b76717a3333615f48766f51535138617732714b627630554c5941527a)
 
 ![](https://camo.githubusercontent.com/032c158bac44a11ff5860ebb2eda8257703614d6/68747470733a2f2f64726976652e676f6f676c652e636f6d2f75633f69643d314b366938734b4e70777848684d314e7243367563535a7072737635777652756f)
-
