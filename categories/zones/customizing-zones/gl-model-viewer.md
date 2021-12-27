@@ -1,7 +1,7 @@
 # GL Model Viewer
 
 {% hint style="info" %}
-This viewer is legacy and only supports s3d and V1 eqg files, V2+ is not supported, an alternative is the EQG Model Viewer [https://github.com/Zaela/S3DModelExtracter](https://github.com/Zaela/S3DModelExtracter) But it is not actively maintained at this time.
+This viewer supports s3d and eqg for V1 to V3+, no textures are rendered. EQGZoneImporter has similar features with it's preview system.
 {% endhint %}
 
 **GL Model Viewer** is a tool used to view and scroll through viewable objects in a zone
