@@ -4,6 +4,10 @@ description: Version 1.1, by Windcatcher
 
 # WLD File Reference
 
+{% hint style="info" %}
+wld files are part of the legacy s3d zone system. This page does not cover eqg
+{% endhint %}
+
 ## Overview
 
 EQWldData.pas in the OpenZone source is a direct translation of the corresponding ZoneConverter file, but also has bug fixes and improvements.
@@ -98,7 +102,7 @@ There are other fragment types in the ZoneConverter source, but I haven't encoun
 
 0x29 - Region Flag - This is similar to the 0x2A fragment in that it contains a list of numbers, where each number refers to a 0x22 region. It tells the client that those regions are "special". The name of the fragment is "magic" in that it determines how the regions are flagged:
 
-"WT_ZONE" .................... Regions are underwater "LA_ZONE" ................... Regions are lava "DRP_ZONE" ................... Regions are PvP areas
+"WT\_ZONE" .................... Regions are underwater "LA\_ZONE" ................... Regions are lava "DRP\_ZONE" ................... Regions are PvP areas
 
 "DRNTP##########\_ZONE" ....... e.g. DRNTP00025-02698-645.6-00020999\_ZONE. This seems to tell the client that these regions constitute a zoneline. If the player enters one of these regions the client knows the player is zoning and knows the destination. I don't know if the client makes use of this since I don't think every zone has this at all zone points, but it looks interesting. I don't understand the format of the numbered part of the name.
 
@@ -108,7 +112,7 @@ There are other fragment types in the ZoneConverter source, but I haven't encoun
 
 0x11 - Skeleton Track Set Reference - Refers to a 0x10 fragment.
 
-0x10 - Skeleton Track Set - Contains multiple references to 0x13 fragments as well as references to one or more 0x2D fragments (generally more than one). Note that this typically only refers to the basic stance of a mob model and not alternate animations (attacking, walking, running, etc.). Software reading the .WLD file should use the name of the first 0x13 fragment this references to discover alternate animations. Alternate animations will have sets of 0x13 and 0x12 fragments where the name of the alternate fragments have a prefix before their names (e.g. if the base 0x13 fragment’s name is “LION_TRACK” then an alternate could be “C01LION_TRACK”). Each 0x13 fragment in an alternate set will have the same prefix before its name, and the rest of the name will correspond to the analogous 0x13 fragment in the base animation set. Different animation sets will have different prefixes (e.g. “C01” for one combat animation, “C02” for another combat animation, etc.).
+0x10 - Skeleton Track Set - Contains multiple references to 0x13 fragments as well as references to one or more 0x2D fragments (generally more than one). Note that this typically only refers to the basic stance of a mob model and not alternate animations (attacking, walking, running, etc.). Software reading the .WLD file should use the name of the first 0x13 fragment this references to discover alternate animations. Alternate animations will have sets of 0x13 and 0x12 fragments where the name of the alternate fragments have a prefix before their names (e.g. if the base 0x13 fragment’s name is “LION\_TRACK” then an alternate could be “C01LION\_TRACK”). Each 0x13 fragment in an alternate set will have the same prefix before its name, and the rest of the name will correspond to the analogous 0x13 fragment in the base animation set. Different animation sets will have different prefixes (e.g. “C01” for one combat animation, “C02” for another combat animation, etc.).
 
 0x12 - Mob Skeleton Piece Track - Describes how an individual part of a skeleton (e.g. a forearm) is shifted and/or rotated relative to its “parent” piece.
 
@@ -288,7 +292,7 @@ One or more references to 0x03 fragments.
 
 ## 0x05 — Texture Bitmap Info Reference — REFERENCE
 
-Reference points to a 0x04 Texture Bitmap Info fragment. 
+Reference points to a 0x04 Texture Bitmap Info fragment.&#x20;
 
 ### Fields
 
@@ -413,7 +417,7 @@ Their purpose is unknown. Only exists if bit 5 of Params7Flags is 1.
 
 ## 0x07 — Camera Reference — REFERENCE
 
-Reference points to a 0x06 Two-dimensional Object fragment. 
+Reference points to a 0x06 Two-dimensional Object fragment.&#x20;
 
 ### Fields
 
@@ -427,7 +431,7 @@ Its purpose is unknown, but it always seems to contain 0.
 
 This fragment is poorly understood. It seems to contain 26 parameters, some of which are DWORDS (32-bit integers) and some of which are FLOATS (32-bit floating-point values). Until more is known, they are here described as Params\[0..25] and their known values are documented.
 
-In main zone files, the name of this fragment always seems to be CAMERA_DUMMY. 
+In main zone files, the name of this fragment always seems to be CAMERA\_DUMMY.&#x20;
 
 ### Fields
 
@@ -454,7 +458,7 @@ All fields not mentioned contain zero (0).
 
 ## 0x09 — Camera Reference — REFERENCE
 
-Reference points to a 0x08 Camera fragment. 
+Reference points to a 0x08 Camera fragment.&#x20;
 
 ### Fields
 
@@ -546,7 +550,7 @@ There are Size2 of these. It’s unknown what they typically contain. This field
 
 ## 0x11 — Skeleton Track Set Reference — REFERENCE
 
-Reference points to a 0x10 Skeleton Track Set fragment. 
+Reference points to a 0x10 Skeleton Track Set fragment.&#x20;
 
 ### Fields
 
@@ -625,7 +629,7 @@ There are (4 x Size) DWORDs here. Their purpose is unknown. This field exists on
 
 ## 0x13 — Mob Skeleton Piece Track Reference — REFERENCE
 
-Reference points to a 0x12 Mob Skeleton Piece Track fragment. 
+Reference points to a 0x12 Mob Skeleton Piece Track fragment.&#x20;
 
 ### Fields
 
@@ -810,7 +814,7 @@ There are Entry2Size of these. These appear to be indices into the X, Y, Z entri
 
 ## 0x18 — Polygon Animation Reference? — REFERENCE
 
-Reference points to a 0x17 Polygon Animation? fragment. 
+Reference points to a 0x17 Polygon Animation? fragment.&#x20;
 
 ### Fields
 
@@ -824,7 +828,7 @@ Unknown purpose.
 
 ## 0x1B — Light Source — PLAIN
 
-When used in main zone files, the name of this fragment is typically DEFAULT_LIGHTDEF. 
+When used in main zone files, the name of this fragment is typically DEFAULT\_LIGHTDEF.&#x20;
 
 ### Fields
 
@@ -865,7 +869,7 @@ Light blue component, scaled from 0 (no blue component) to 1 (100% blue).
 
 ## 0x1C — Light Source Reference — REFERENCE
 
-Reference points to a 0x1B Light Source fragment. 
+Reference points to a 0x1B Light Source fragment.&#x20;
 
 ### Fields:
 
@@ -1098,7 +1102,7 @@ If there are any polygons in this region, then this region points to a 0x36 Mesh
 
 ## 0x28 — Light Info — REFERENCE
 
-Reference points to a 0x1C Light Source Reference fragment. 
+Reference points to a 0x1C Light Source Reference fragment.&#x20;
 
 ### Fields
 
@@ -1128,9 +1132,9 @@ Contains the light radius.
 
 This fragment lets you flag certain regions (as defined by 0x22 BSP Region fragments) in a particular way. The flagging is done by setting the name of this fragment to a particular “magic” value. The possible values are:
 
-WT_ZONE ................................................ Flag all regions in the list as underwater regions.\
-LA_ZONE ................................................. Flag all regions in the list as lava regions.\
-DRP_ZONE .............................................. Flag all regions in the list as PvP regions.\
+WT\_ZONE ................................................ Flag all regions in the list as underwater regions.\
+LA\_ZONE ................................................. Flag all regions in the list as lava regions.\
+DRP\_ZONE .............................................. Flag all regions in the list as PvP regions.\
 DRNTP##########\_ZONE............. Flag all regions in the list as zone point regions. The ####’s are actually numbers and hyphens that somehow tell the client the zone destination. This method of setting zone points may or may not be obsolete.
 
 ### Fields
@@ -1153,11 +1157,11 @@ Tells how many bytes follow in the Data2 field.
 
 #### Data2 : BYTEs
 
-An encoded string. An alternate way of using this fragment is to call this fragment Z####\_ZONE, where #### is a four- digit number starting with zero. Then Data2 would contain a “magic” string that told the client what was special about the included regions (e.g. WTN\_\_01521000000000000000000000\__\_000000000000). This field is padded with nulls to make it end on a DWORD boundary.
+An encoded string. An alternate way of using this fragment is to call this fragment Z####\_ZONE, where #### is a four- digit number starting with zero. Then Data2 would contain a “magic” string that told the client what was special about the included regions (e.g. WTN\_\_01521000000000000000000000\_\_\_000000000000). This field is padded with nulls to make it end on a DWORD boundary.
 
 ## 0x2A — Ambient Light — REFERENCE
 
-Reference points to a 0x1C Light Source Reference fragment. 
+Reference points to a 0x1C Light Source Reference fragment.&#x20;
 
 ### Fields
 
@@ -1390,7 +1394,7 @@ Its purpose is unknown. This field only exists if bit 13 of Flags is 1.
 
 ## 0x2D — Mesh Reference — REFERENCE
 
-Reference points to either a 0x36 Mesh or 0x2C Alternate Mesh fragment. 
+Reference points to either a 0x36 Mesh or 0x2C Alternate Mesh fragment.&#x20;
 
 ### Fields
 
@@ -1400,7 +1404,7 @@ Apparently must be zero.
 
 ## 0x2F — Mesh Animated Vertices Reference — REFERENCE
 
-Reference points to a 0x37 Mesh Animated Vertices fragment. 
+Reference points to a 0x37 Mesh Animated Vertices fragment.&#x20;
 
 ### Fields
 
@@ -1410,7 +1414,7 @@ Typically contains zero.
 
 ## 0x30 — Texture — REFERENCE
 
-Reference points to a 0x05 Texture Bitmap Info Reference fragment. 
+Reference points to a 0x05 Texture Bitmap Info Reference fragment.&#x20;
 
 ### Fields
 
@@ -1493,7 +1497,7 @@ This field works in exactly the same way as it does in the 0x36 Mesh fragment.
 
 ## 0x33 — Vertex Color Reference — REFERENCE
 
-Reference points to a 0x32 Vertex Color fragment 
+Reference points to a 0x32 Vertex Color fragment&#x20;
 
 ### Fields
 
@@ -1684,7 +1688,7 @@ Index of the polygon’s second vertex.
 #### Vertex3 : WORD
 
 Index of the polygon’s third vertex.\
- VertexPiece entries (there are VertexPieceCount of these)
+&#x20;VertexPiece entries (there are VertexPieceCount of these)
 
 #### VertexCount : WORD
 
