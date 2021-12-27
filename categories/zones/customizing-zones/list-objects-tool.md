@@ -1,5 +1,9 @@
 # List Objects Tool
 
+{% hint style="info" %}
+This tool supports s3d and eqg v1+, confirmed with v3, this tool is similar to EQGZoneImporter in features for model listing
+{% endhint %}
+
 **List Objects Tool** is a tool used to list placeable objects in a zone, part of the mechanics of this is used to determine line of sight in zones
 
 * [Download](https://drive.google.com/uc?id=170xrRqE4Ww9IFNma3xbpiUbx6ymP-gTD)
@@ -10,13 +14,13 @@ These same models can be spawned using [doors](https://github.com/EQEmu/Server/w
 
 **Usage**
 
-```text
+```
 listobj <zone_short_name>
 ```
 
 **Example Output**
 
-```text
+```
 LISTOBJ: List Placeable Objects in .S3D or .EQG zone files.
 Placeable Object    0 @ (   110.78,    -13.69,   -143.85 uses model   12 BBROCK8_DMSPRITEDEF
 Placeable Object    1 @ (  -195.45,   -233.00,      9.10 uses model    4 BBDIRTDARK_DMSPRITEDEF
@@ -302,4 +306,3 @@ Placeable Object  280 @ (   -13.85,      1.83,      0.00 uses model    8 BBGROUN
 Placeable Object  281 @ (   -10.50,     -5.78,      0.00 uses model    8 BBGROUND_DMSPRITEDEF
 Placeable Object  282 @ (   -12.87,    -14.71,      0.00 uses model    7 BBGRASS2_DMSPRITEDEF
 ```
-
