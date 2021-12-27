@@ -11,6 +11,7 @@ These shaders are only applicable to eqg files, s3d uses a different method
 # Shader List
 
 |Note|Zone|Material|Shader|Property|Type|Value|Descrption|Triangle|Bits|Location
+|---|---|---|---|---|---|---|---|---|---|---
 typical texture|dranikhollowsb|tunnel02|Opaque_MaxCB1.fx|e_TextureDiffuse0|2|sp_tunn05.dds|generic texture|1|17|-61.324 256.222 2.408
 typical texture|dranikhollowsb|tunnel02|Opaque_MaxCB1.fx|e_TextureNormal0|2|sp_tunn05_n.dds|generic texture|1|17|-61.324 256.222 2.408
 waterfall animated|broodlands|waterfalls|Opaque_MaxWaterFall.fx|e_TextureDiffuse0|2|wtr_waterfall_tile.dds|generic texture
