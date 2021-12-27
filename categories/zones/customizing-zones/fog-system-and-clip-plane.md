@@ -4,16 +4,20 @@ description: This page describes the fog system and clip plane usage.
 
 # Fog System and Clip Plane
 
+{% hint style="info" %}
+This page is applicable to both s3d and eqg format zones.
+{% endhint %}
+
 EverQuest uses linear per vertex fog. Each zone has the option of using fog, sky or both together. Fog variables, included with other zone variables, are sent to the client each time you enter the zone. Variables that affect the fog include FogRed, FogGreen, FogBlue, FogStart, FogEnd, MinClip and MaxClip. When a zone does not use fog, the far plane defines the maximum distance from the camera that geometry is rendered. Beyond the far clip plane, the sky can be visible, or a solid color in non fog zones.\
 ****
 
-![](https://lh6.googleusercontent.com/Lk0uLAMT7mSS_hw-GgqHf2JapAa84FO3D0gwUjbHCFx6slg8zpkIXuinueCfUwv3XBlhqKOvFlq6BwiwnRS4kKB9UGOYP_E6AaiobbonnEGj4e1fhhiHztkBzGMUkqd4ZzXjlEDN)![](https://lh4.googleusercontent.com/lVgi_Q6ByP6FF6dhUH80HSIOL4wKmjuYj2u0wIy7Ggh8XKxf6-TFdqNAd8Yjh7vcdCxYd5l8TPUxqnA7zuoUXXc4zkf7Ja1Wv05Oy1GfXlA85wgaadPhtqjmD7Kbvkoexl5rVLto)
+![](https://lh6.googleusercontent.com/Lk0uLAMT7mSS\_hw-GgqHf2JapAa84FO3D0gwUjbHCFx6slg8zpkIXuinueCfUwv3XBlhqKOvFlq6BwiwnRS4kKB9UGOYP\_E6AaiobbonnEGj4e1fhhiHztkBzGMUkqd4ZzXjlEDN)![](https://lh4.googleusercontent.com/lVgi\_Q6ByP6FF6dhUH80HSIOL4wKmjuYj2u0wIy7Ggh8XKxf6-TFdqNAd8Yjh7vcdCxYd5l8TPUxqnA7zuoUXXc4zkf7Ja1Wv05Oy1GfXlA85wgaadPhtqjmD7Kbvkoexl5rVLto)
 
 _Nektulos with just fog (left) and fog and sky (right)_
 
 ### **Fog Color**
 
-The fog color for each zone is mixed with a blend color that corresponds with in game time. As a result, the fog color in game will be significantly darker than the raw value sent to the client. The fog blend color mimics the ambient light hour values where during the sunset and sunrise the is a slight red tint and during nighttime, a very slight blue tint which allows the fog to better blend with the skydome visuals. These color values are consistent regardless if the zone uses a sky or not. 
+The fog color for each zone is mixed with a blend color that corresponds with in game time. As a result, the fog color in game will be significantly darker than the raw value sent to the client. The fog blend color mimics the ambient light hour values where during the sunset and sunrise the is a slight red tint and during nighttime, a very slight blue tint which allows the fog to better blend with the skydome visuals. These color values are consistent regardless if the zone uses a sky or not.&#x20;
 
 ![](../../../.gitbook/assets/fog-colors.jpg)
 
@@ -31,7 +35,7 @@ As EverQuest fog is calculated linearly, each zone that uses it has a fog start 
 
 Some zones like Firiona Vie have drastic differences between the min and max draw distance
 
-The player is able to modify the game draw distance by changing the value of the “Clip Plane” slider. The client uses internal formulas to produce a fog start and end for each of the 21 levels of clip distance. I had incorrectly assumed that the client simply interpolated between FogMinClip and FogMaxClip and between MinClip and MaxClip to get the fog start and fog end values, respectively. It quickly became apparent that this was not the case and as there was no available information about how exactly the client used these values, I reverse engineered it using Cheat Engine. By finding the data offset for FogStart (EQGfx_Dx7.DLL+FBA24) and FarClipPlane (EQGfx_Dx7.DLL+FBA28)  and modifying the database zone appearance values, I was able to decipher how it works. Below is a table containing the formulas for the fog start and end (far clip plane) values. There are some exceptions and they are noted below.
+The player is able to modify the game draw distance by changing the value of the “Clip Plane” slider. The client uses internal formulas to produce a fog start and end for each of the 21 levels of clip distance. I had incorrectly assumed that the client simply interpolated between FogMinClip and FogMaxClip and between MinClip and MaxClip to get the fog start and fog end values, respectively. It quickly became apparent that this was not the case and as there was no available information about how exactly the client used these values, I reverse engineered it using Cheat Engine. By finding the data offset for FogStart (EQGfx\_Dx7.DLL+FBA24) and FarClipPlane (EQGfx\_Dx7.DLL+FBA28)  and modifying the database zone appearance values, I was able to decipher how it works. Below is a table containing the formulas for the fog start and end (far clip plane) values. There are some exceptions and they are noted below.
 
 | **Index** | **Fog Start**                                 | **Fog End (Far Clip Plane)**                                            |
 | --------- | --------------------------------------------- | ----------------------------------------------------------------------- |
@@ -60,7 +64,7 @@ The player is able to modify the game draw distance by changing the value of the
 **Notes:**
 
 1. When MinFog == MaxFog, this table is not used. FogEnd begins at clip level 0 at ClipMin. At level 5, it is halfway between ClipMin and ClipMax. At level 20, it is at ClipMax. FogStart is always 100 units less than the fog end.
-2. FogClipMin can never be lower than 30. 
+2. FogClipMin can never be lower than 30.&#x20;
 
 It is important to note that even if the far plane is set to a very large number, you may see regions of the zone “pop in” as you move through it. This is due to EverQuest’s use of a PVS (potentially visible set) stored inside the zone BSP tree. When baking zone geometry, it is determined which zone regions can be seen from other zone regions based on many factors including distance and occlusion. During rendering, the PVS is used in the first pass of determining which regions to consider for drawing. If the region is not in the PVS of the camera’s region, it is discarded. The PVS data is baked directly into the zone files and there is no way around this limitation in the client.
 
